@@ -4,7 +4,7 @@ import {Text,
     TextInput,
     TouchableOpacity} from 'react-native'
 
-import Styles from './styles'
+import Styles from './Styles'
 
 function LoginPsico(){
 
