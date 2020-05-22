@@ -12,12 +12,10 @@ const Tab = createBottomTabNavigator();
 
 export default function BottomTab() {
   return (
-    <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen name="Agendamento" component={Agendamento} />
         <Tab.Screen name="Atendimento" component={Atendimento} />
         <Tab.Screen name="Feedback" component={Feedback} />
       </Tab.Navigator>
-    </NavigationContainer>
   );
 }
