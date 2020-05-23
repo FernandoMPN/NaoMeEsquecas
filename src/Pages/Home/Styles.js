@@ -28,9 +28,9 @@ const Styles = StyleSheet.create({
     },
     buttonText: {
         color:'#fff',
-        fontWeight:'bold',
         fontSize:26,
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: "Montserrat-Bold"
     },
     shapes: {
         width,
@@ -39,7 +39,7 @@ const Styles = StyleSheet.create({
     },
     aboutText: {
         color:'#6B398E',
-        fontWeight:'bold',
+        fontFamily: "Montserrat-Bold",
         fontSize:18
     },
 })

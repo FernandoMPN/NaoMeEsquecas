@@ -8,9 +8,9 @@ function Home({ navigation }) {
     <View style={ Styles.mainView }>
         <View style={ Styles.topBar }/>
         <View style={ Styles.image }/>
-        <View style={ Styles.button }>
+        <TouchableOpacity style={ Styles.button } onPress={() => navigation.navigate('LoginPacienteLanding')} activeOpacity={0.8}>
             <Text style={ Styles.buttonText }>Quero Ser Atendido</Text>
-        </View>
+        </TouchableOpacity>
         <TouchableOpacity style={ Styles.button } onPress={() => navigation.navigate('LoginPsico')} activeOpacity={0.8}>
                 <Text style={ Styles.buttonText }>Quero Atender</Text>
         </TouchableOpacity>
