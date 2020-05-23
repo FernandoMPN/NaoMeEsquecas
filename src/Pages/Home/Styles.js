@@ -31,7 +31,7 @@ const Styles = StyleSheet.create({
     },
     shapes: {
         width,
-        height: 37
+        height: width * 0.1 
     },
     aboutText: {
         color:'#6B398E',
