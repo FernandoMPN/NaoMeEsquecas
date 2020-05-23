@@ -1,7 +1,8 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
-const width= Dimensions.get('window').width
-const height=Dimensions.get('window').height
+const width = Dimensions.get('window').width
+const height = Dimensions.get('window').height
+const fontSize = Dimensions.get('window').fontScale
 
 const Styles = StyleSheet.create({
     mainView:{ flex: 1,
@@ -9,14 +10,10 @@ const Styles = StyleSheet.create({
         alignItems: "center", 
         justifyContent: 'space-between'
     },
-    topBar:{
-        width,
-        height:width/18,
-        backgroundColor:'#6B398E'
-    },
     image:{
-        width: 282,
-        height: 119,
+        marginTop: height/70,
+        width: width * 0.7,
+        height: width * 0.7 * 0.71,
         backgroundColor:'#b9b9b9'
     },
     button: {
@@ -28,20 +25,20 @@ const Styles = StyleSheet.create({
     },
     buttonText: {
         color:'#fff',
-        fontSize:26,
+        fontSize: 26 * fontSize,
         textAlign: 'center',
-        fontFamily: "Montserrat-Bold"
+        fontFamily: 'Montserrat-Bold'
     },
     shapes: {
         width,
-        height: 33,
-        backgroundColor:'#6B398E'
+        height: 37
     },
     aboutText: {
         color:'#6B398E',
-        fontFamily: "Montserrat-Bold",
-        fontSize:18
+        fontFamily: 'Montserrat-Bold',
+        fontSize: 20 * fontSize
     },
+    
 })
 
 export default Styles

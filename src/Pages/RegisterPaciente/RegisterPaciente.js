@@ -95,7 +95,7 @@ function RegisterPaciente({ navigation }){
                 setStage(RegisterStages.Complete)
                 return
             case RegisterStages.Complete:
-                navigation.navigate('Home')
+                navigation.navigate('MainPage')
                 return
             default:
                 throw new Error('Undefined stage at Register screen (switchView)')

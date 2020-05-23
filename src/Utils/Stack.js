@@ -20,6 +20,7 @@ function Stack() {
             headerShown: false
         }}>
             <StackNav.Screen name="Home" component={ Home } />
+
             <StackNav.Screen name="LoginPsico" component={ LoginPsico } />
 
             <StackNav.Screen name="LoginPacienteLanding" component={ LoginPacienteLanding } />
@@ -29,7 +30,7 @@ function Stack() {
 
             <StackNav.Screen name="RegisterPaciente" component={ RegisterPaciente } />
 
-            <StackNav.Screen name="BottomTab" component={ BottomTab } />
+            <StackNav.Screen name="MainPage" component={ BottomTab } />
         </StackNav.Navigator>
         </NavigationContainer>
     );
