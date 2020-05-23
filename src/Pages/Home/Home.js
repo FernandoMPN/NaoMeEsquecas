@@ -12,7 +12,7 @@ function Home({ navigation }) {
             <Text style={ Styles.buttonText }>Quero Ser Atendido</Text>
         </TouchableOpacity>
         <TouchableOpacity style={ Styles.button } onPress={() => navigation.navigate('LoginPsico')} activeOpacity={0.8}>
-                <Text style={ Styles.buttonText }>Quero Atender</Text>
+            <Text style={ Styles.buttonText }>Quero Atender</Text>
         </TouchableOpacity>
         <Text style={ Styles.aboutText }>Sobre o app</Text>
         <View style={ Styles.shapes }/>

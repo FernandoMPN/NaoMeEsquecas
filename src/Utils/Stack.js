@@ -9,6 +9,7 @@ import LoginPacienteLanding from '../Pages/LoginPaciente/LoginPacienteLanding';
 import LoginPacienteError from '../Pages/LoginPaciente/LoginPacienteError';
 import RegisterPaciente from '../Pages/RegisterPaciente/RegisterPaciente';
 import LoginPacienteResend from '../Pages/LoginPaciente/LoginPacienteResend';
+import BottomTab from './BottomTab'
 
 const StackNav = createStackNavigator();
 
@@ -28,6 +29,7 @@ function Stack() {
 
             <StackNav.Screen name="RegisterPaciente" component={ RegisterPaciente } />
 
+            <StackNav.Screen name="BottomTab" component={ BottomTab } />
         </StackNav.Navigator>
         </NavigationContainer>
     );
