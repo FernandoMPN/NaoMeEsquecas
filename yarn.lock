@@ -991,6 +991,11 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.10.tgz#5dda643e19e587793bc2034dd9bf7398ad43d401"
   integrity sha512-rk4sWFsmtOw8oyx8SD3KSvawwaK7gRBSEIy2TAwURyGt+3TizssXP1r8nx3zY+R7v2vYYHXZ+k2/GULAT/bcaQ==
 
+"@react-native-community/picker@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/picker/-/picker-1.5.1.tgz#41dc805480648271859fd0f03f53980e620973a1"
+  integrity sha512-2rUX0k9dvPLxftN1sujzK0HXhWaPI9gYfeetMcIXWrWgKeitaJ1aHtotTraJmqEZkGoTF2OBPx82RX0j1t2YKw==
+
 "@react-navigation/bottom-tabs@^5.4.7":
   version "5.4.7"
   resolved "https://registry.yarnpkg.com/@react-navigation/bottom-tabs/-/bottom-tabs-5.4.7.tgz#b4e881ef4ed5ea29cb79c0a9e370613e491ac765"
