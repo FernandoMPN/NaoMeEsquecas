@@ -8,18 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* NaoMeEsquecasTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* NaoMeEsquecasTests.m */; };
-		0F95EEE7157BB654D0698421 /* libPods-NaoMeEsquecas-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D83931954F694BF0A8DFE05B /* libPods-NaoMeEsquecas-tvOS.a */; };
+		0657EF1861ED19FC0CEA8C64 /* libPods-NaoMeEsquecas-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 112E83B4F078D2E107DA7762 /* libPods-NaoMeEsquecas-tvOSTests.a */; };
+		0DBAD067053DA86A196103C2 /* libPods-NaoMeEsquecas.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A58E0D8BB8EF6D67C53747B1 /* libPods-NaoMeEsquecas.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		13EE86A5FCE10B402152BC85 /* libPods-NaoMeEsquecas-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3370196B5501A80BC9C6216E /* libPods-NaoMeEsquecas-tvOSTests.a */; };
-		23CDC2C1991E898CC93A3D91 /* libPods-NaoMeEsquecas-NaoMeEsquecasTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36E0B33C682DD510A6E2A04C /* libPods-NaoMeEsquecas-NaoMeEsquecasTests.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* NaoMeEsquecasTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* NaoMeEsquecasTests.m */; };
-		FF9E9A02A6813A3FF736BEB1 /* libPods-NaoMeEsquecas.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0B666757A919DD57577DEF /* libPods-NaoMeEsquecas.a */; };
+		46D60D4739114C3B8B156BFB /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3027630DEA4ABDABD3BADB /* Montserrat-Bold.ttf */; };
+		6ADDED7DE06D433EB8E69421 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1C842A7B7844CBF8C789839 /* Montserrat-SemiBold.ttf */; };
+		D107563B5F205166D87A4FEF /* libPods-NaoMeEsquecas-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7048653E565B81C42F52EBBA /* libPods-NaoMeEsquecas-tvOS.a */; };
+		F0645623BAF9190BDDC7FB3A /* libPods-NaoMeEsquecas-NaoMeEsquecasTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF216FA335E14E97DCA98871 /* libPods-NaoMeEsquecas-NaoMeEsquecasTests.a */; };
+		F9DF13F0B6CA4245A2CDC516 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3235DF5992646F38D0E713E /* Montserrat-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		00E356EE1AD99517003FC87E /* NaoMeEsquecasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NaoMeEsquecasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* NaoMeEsquecasTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NaoMeEsquecasTests.m; sourceTree = "<group>"; };
+		089463C64B1D17B2E68F4549 /* Pods-NaoMeEsquecas-NaoMeEsquecasTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas-NaoMeEsquecasTests.debug.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas-NaoMeEsquecasTests/Pods-NaoMeEsquecas-NaoMeEsquecasTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0A3027630DEA4ABDABD3BADB /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Bold.ttf"; path = "../src/Assets/Fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		112E83B4F078D2E107DA7762 /* libPods-NaoMeEsquecas-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NaoMeEsquecas-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* NaoMeEsquecas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaoMeEsquecas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = NaoMeEsquecas/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = NaoMeEsquecas/AppDelegate.m; sourceTree = "<group>"; };
@@ -51,22 +57,22 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = NaoMeEsquecas/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = NaoMeEsquecas/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = NaoMeEsquecas/main.m; sourceTree = "<group>"; };
-		1971D765F391430F1E220E4B /* Pods-NaoMeEsquecas-NaoMeEsquecasTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas-NaoMeEsquecasTests.release.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas-NaoMeEsquecasTests/Pods-NaoMeEsquecas-NaoMeEsquecasTests.release.xcconfig"; sourceTree = "<group>"; };
+		292B0BE2281BB01C5CD12287 /* Pods-NaoMeEsquecas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas.release.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas/Pods-NaoMeEsquecas.release.xcconfig"; sourceTree = "<group>"; };
+		2BC4DCF330ABF7A2F45EAF49 /* Pods-NaoMeEsquecas-NaoMeEsquecasTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas-NaoMeEsquecasTests.release.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas-NaoMeEsquecasTests/Pods-NaoMeEsquecas-NaoMeEsquecasTests.release.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* NaoMeEsquecas-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NaoMeEsquecas-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* NaoMeEsquecas-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NaoMeEsquecas-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3370196B5501A80BC9C6216E /* libPods-NaoMeEsquecas-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NaoMeEsquecas-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		36E0B33C682DD510A6E2A04C /* libPods-NaoMeEsquecas-NaoMeEsquecasTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NaoMeEsquecas-NaoMeEsquecasTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B0B666757A919DD57577DEF /* libPods-NaoMeEsquecas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NaoMeEsquecas.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		821E6280E330E4FA0CFB7FF8 /* Pods-NaoMeEsquecas-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas-tvOSTests/Pods-NaoMeEsquecas-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		B4F80B3AF2EAF4C4E9D43AB3 /* Pods-NaoMeEsquecas-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas-tvOS/Pods-NaoMeEsquecas-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		B7EC6477AE9AEFB3D8EC372B /* Pods-NaoMeEsquecas-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas-tvOSTests/Pods-NaoMeEsquecas-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D69BA778730A42A4C5AC5E64 /* Pods-NaoMeEsquecas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas.debug.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas/Pods-NaoMeEsquecas.debug.xcconfig"; sourceTree = "<group>"; };
-		D83931954F694BF0A8DFE05B /* libPods-NaoMeEsquecas-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NaoMeEsquecas-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2594BC672F96679215870F4 /* Pods-NaoMeEsquecas-NaoMeEsquecasTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas-NaoMeEsquecasTests.debug.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas-NaoMeEsquecasTests/Pods-NaoMeEsquecas-NaoMeEsquecasTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E6F0C6421DF1E2DA46F48F01 /* Pods-NaoMeEsquecas-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas-tvOS.release.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas-tvOS/Pods-NaoMeEsquecas-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		4838DC43B2B05161C86D9E66 /* Pods-NaoMeEsquecas-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas-tvOS/Pods-NaoMeEsquecas-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		5D853B3828DDB2A5A9F8FEBC /* Pods-NaoMeEsquecas-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas-tvOSTests/Pods-NaoMeEsquecas-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		67483F3A6E425E5EE8E64F4A /* Pods-NaoMeEsquecas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas.debug.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas/Pods-NaoMeEsquecas.debug.xcconfig"; sourceTree = "<group>"; };
+		7048653E565B81C42F52EBBA /* libPods-NaoMeEsquecas-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NaoMeEsquecas-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		78620D8B7DB6BB14276196BE /* Pods-NaoMeEsquecas-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas-tvOSTests/Pods-NaoMeEsquecas-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A1C842A7B7844CBF8C789839 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-SemiBold.ttf"; path = "../src/Assets/Fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		A58E0D8BB8EF6D67C53747B1 /* libPods-NaoMeEsquecas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NaoMeEsquecas.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF216FA335E14E97DCA98871 /* libPods-NaoMeEsquecas-NaoMeEsquecasTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NaoMeEsquecas-NaoMeEsquecasTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0EFD926014719280749B18 /* Pods-NaoMeEsquecas-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas-tvOS.release.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas-tvOS/Pods-NaoMeEsquecas-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F503F4A280B30E48825DA243 /* Pods-NaoMeEsquecas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas.release.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas/Pods-NaoMeEsquecas.release.xcconfig"; sourceTree = "<group>"; };
+		F3235DF5992646F38D0E713E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Regular.ttf"; path = "../src/Assets/Fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23CDC2C1991E898CC93A3D91 /* libPods-NaoMeEsquecas-NaoMeEsquecasTests.a in Frameworks */,
+				F0645623BAF9190BDDC7FB3A /* libPods-NaoMeEsquecas-NaoMeEsquecasTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF9E9A02A6813A3FF736BEB1 /* libPods-NaoMeEsquecas.a in Frameworks */,
+				0DBAD067053DA86A196103C2 /* libPods-NaoMeEsquecas.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F95EEE7157BB654D0698421 /* libPods-NaoMeEsquecas-tvOS.a in Frameworks */,
+				D107563B5F205166D87A4FEF /* libPods-NaoMeEsquecas-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13EE86A5FCE10B402152BC85 /* libPods-NaoMeEsquecas-tvOSTests.a in Frameworks */,
+				0657EF1861ED19FC0CEA8C64 /* libPods-NaoMeEsquecas-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,30 +142,41 @@
 			name = NaoMeEsquecas;
 			sourceTree = "<group>";
 		};
+		2795B17D82F34DB781D10522 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0A3027630DEA4ABDABD3BADB /* Montserrat-Bold.ttf */,
+				F3235DF5992646F38D0E713E /* Montserrat-Regular.ttf */,
+				A1C842A7B7844CBF8C789839 /* Montserrat-SemiBold.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				7B0B666757A919DD57577DEF /* libPods-NaoMeEsquecas.a */,
-				36E0B33C682DD510A6E2A04C /* libPods-NaoMeEsquecas-NaoMeEsquecasTests.a */,
-				D83931954F694BF0A8DFE05B /* libPods-NaoMeEsquecas-tvOS.a */,
-				3370196B5501A80BC9C6216E /* libPods-NaoMeEsquecas-tvOSTests.a */,
+				A58E0D8BB8EF6D67C53747B1 /* libPods-NaoMeEsquecas.a */,
+				AF216FA335E14E97DCA98871 /* libPods-NaoMeEsquecas-NaoMeEsquecasTests.a */,
+				7048653E565B81C42F52EBBA /* libPods-NaoMeEsquecas-tvOS.a */,
+				112E83B4F078D2E107DA7762 /* libPods-NaoMeEsquecas-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		741AD00859D358E387E3DB8C /* Pods */ = {
+		5B85A089E1D37FD861F0E5B6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D69BA778730A42A4C5AC5E64 /* Pods-NaoMeEsquecas.debug.xcconfig */,
-				F503F4A280B30E48825DA243 /* Pods-NaoMeEsquecas.release.xcconfig */,
-				E2594BC672F96679215870F4 /* Pods-NaoMeEsquecas-NaoMeEsquecasTests.debug.xcconfig */,
-				1971D765F391430F1E220E4B /* Pods-NaoMeEsquecas-NaoMeEsquecasTests.release.xcconfig */,
-				B4F80B3AF2EAF4C4E9D43AB3 /* Pods-NaoMeEsquecas-tvOS.debug.xcconfig */,
-				E6F0C6421DF1E2DA46F48F01 /* Pods-NaoMeEsquecas-tvOS.release.xcconfig */,
-				B7EC6477AE9AEFB3D8EC372B /* Pods-NaoMeEsquecas-tvOSTests.debug.xcconfig */,
-				821E6280E330E4FA0CFB7FF8 /* Pods-NaoMeEsquecas-tvOSTests.release.xcconfig */,
+				67483F3A6E425E5EE8E64F4A /* Pods-NaoMeEsquecas.debug.xcconfig */,
+				292B0BE2281BB01C5CD12287 /* Pods-NaoMeEsquecas.release.xcconfig */,
+				089463C64B1D17B2E68F4549 /* Pods-NaoMeEsquecas-NaoMeEsquecasTests.debug.xcconfig */,
+				2BC4DCF330ABF7A2F45EAF49 /* Pods-NaoMeEsquecas-NaoMeEsquecasTests.release.xcconfig */,
+				4838DC43B2B05161C86D9E66 /* Pods-NaoMeEsquecas-tvOS.debug.xcconfig */,
+				DD0EFD926014719280749B18 /* Pods-NaoMeEsquecas-tvOS.release.xcconfig */,
+				78620D8B7DB6BB14276196BE /* Pods-NaoMeEsquecas-tvOSTests.debug.xcconfig */,
+				5D853B3828DDB2A5A9F8FEBC /* Pods-NaoMeEsquecas-tvOSTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
@@ -180,7 +197,8 @@
 				00E356EF1AD99517003FC87E /* NaoMeEsquecasTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				741AD00859D358E387E3DB8C /* Pods */,
+				2795B17D82F34DB781D10522 /* Resources */,
+				5B85A089E1D37FD861F0E5B6 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -205,7 +223,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "NaoMeEsquecasTests" */;
 			buildPhases = (
-				1D12B103A0B7CA807D5C7C1D /* [CP] Check Pods Manifest.lock */,
+				0489614A7904F054D5E08CE1 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -224,7 +242,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "NaoMeEsquecas" */;
 			buildPhases = (
-				61786AFFC3FE16051A73E174 /* [CP] Check Pods Manifest.lock */,
+				90EA74747B63A0B8FED5B290 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -244,7 +262,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "NaoMeEsquecas-tvOS" */;
 			buildPhases = (
-				D4E5B7833ED1377CFB5E4230 /* [CP] Check Pods Manifest.lock */,
+				75EEDE43C60E5257AF7219E8 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -264,7 +282,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "NaoMeEsquecas-tvOSTests" */;
 			buildPhases = (
-				778466D3A148BF251FDBBFD5 /* [CP] Check Pods Manifest.lock */,
+				D8F178534BE7D471B8422EB3 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -340,6 +358,9 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				46D60D4739114C3B8B156BFB /* Montserrat-Bold.ttf in Resources */,
+				F9DF13F0B6CA4245A2CDC516 /* Montserrat-Regular.ttf in Resources */,
+				6ADDED7DE06D433EB8E69421 /* Montserrat-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,7 +396,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		1D12B103A0B7CA807D5C7C1D /* [CP] Check Pods Manifest.lock */ = {
+		0489614A7904F054D5E08CE1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -411,7 +432,29 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		61786AFFC3FE16051A73E174 /* [CP] Check Pods Manifest.lock */ = {
+		75EEDE43C60E5257AF7219E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NaoMeEsquecas-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90EA74747B63A0B8FED5B290 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -433,7 +476,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		778466D3A148BF251FDBBFD5 /* [CP] Check Pods Manifest.lock */ = {
+		D8F178534BE7D471B8422EB3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -449,28 +492,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-NaoMeEsquecas-tvOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D4E5B7833ED1377CFB5E4230 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NaoMeEsquecas-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -582,7 +603,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E2594BC672F96679215870F4 /* Pods-NaoMeEsquecas-NaoMeEsquecasTests.debug.xcconfig */;
+			baseConfigurationReference = 089463C64B1D17B2E68F4549 /* Pods-NaoMeEsquecas-NaoMeEsquecasTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -605,7 +626,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1971D765F391430F1E220E4B /* Pods-NaoMeEsquecas-NaoMeEsquecasTests.release.xcconfig */;
+			baseConfigurationReference = 2BC4DCF330ABF7A2F45EAF49 /* Pods-NaoMeEsquecas-NaoMeEsquecasTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -625,7 +646,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D69BA778730A42A4C5AC5E64 /* Pods-NaoMeEsquecas.debug.xcconfig */;
+			baseConfigurationReference = 67483F3A6E425E5EE8E64F4A /* Pods-NaoMeEsquecas.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -652,7 +673,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F503F4A280B30E48825DA243 /* Pods-NaoMeEsquecas.release.xcconfig */;
+			baseConfigurationReference = 292B0BE2281BB01C5CD12287 /* Pods-NaoMeEsquecas.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -673,7 +694,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4F80B3AF2EAF4C4E9D43AB3 /* Pods-NaoMeEsquecas-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 4838DC43B2B05161C86D9E66 /* Pods-NaoMeEsquecas-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -701,7 +722,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6F0C6421DF1E2DA46F48F01 /* Pods-NaoMeEsquecas-tvOS.release.xcconfig */;
+			baseConfigurationReference = DD0EFD926014719280749B18 /* Pods-NaoMeEsquecas-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -729,7 +750,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7EC6477AE9AEFB3D8EC372B /* Pods-NaoMeEsquecas-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 78620D8B7DB6BB14276196BE /* Pods-NaoMeEsquecas-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -756,7 +777,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 821E6280E330E4FA0CFB7FF8 /* Pods-NaoMeEsquecas-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 5D853B3828DDB2A5A9F8FEBC /* Pods-NaoMeEsquecas-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
