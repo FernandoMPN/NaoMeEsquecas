@@ -6,7 +6,7 @@ import {Text,
 
 import Styles from './Styles'
 
-function LoginPsico(){
+function LoginPsico({navigation}){
 
     const [numPsico, setNumPsico]=useState('')
     const [codAcesso,setCodAcesso]=useState('')
@@ -37,8 +37,8 @@ function LoginPsico(){
                 <Text style={Styles.textButton}>Entrar</Text>
             </TouchableOpacity>
                 <Text>Ainda não possui um cadastro com a gente?</Text>
-            <TouchableOpacity>
-                <Text>Cadastre-se agora</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('CadastroPsico')}>
+                <Text style={Styles.cadastro}>Cadastre-se agora</Text>
             </TouchableOpacity>
             <Text>{test}</Text>
         </View>

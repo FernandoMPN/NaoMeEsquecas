@@ -44,6 +44,9 @@ const Styles = StyleSheet.create({
     },
     textButton:{
         color:'#fff'
+    },
+    cadastro:{
+        fontWeight:'bold'
     }
 })
 
