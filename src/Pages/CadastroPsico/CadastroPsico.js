@@ -144,9 +144,11 @@ const FimDoCadastro=({name,next})=>{
             <Text style={[TextStyle.info,]}>
                 Seu perfil será analisado e, assim que for aprovado, você receberá um email confirmando seu cadastro em nosso projeto!
             </Text>
-            <TouchableOpacity style={[Styles.largeButton,StyleProprio.encerrarButton]} onPress={()=>next()}>
-                <Text style={TextStyle.buttonTextSemiBold}>Encerrar</Text>
-            </TouchableOpacity>
+            <View style={StyleProprio.buttonView}>
+                <TouchableOpacity style={[Styles.largeButton,StyleProprio.encerrarButton]} onPress={()=>next()}>
+                    <Text style={TextStyle.buttonTextSemiBold}>Encerrar</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }

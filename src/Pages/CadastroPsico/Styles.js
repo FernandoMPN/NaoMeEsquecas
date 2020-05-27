@@ -31,7 +31,11 @@ const Styles=StyleSheet.create({
     },
     encerrarButton:{
         alignSelf:'center',
-        marginVertical:5
+        //marginVertical:5
+    },
+    buttonView:{
+        height:height/2,
+        flexDirection:'column-reverse'
     }
 })
 
