@@ -7,6 +7,9 @@ const Styles=StyleSheet.create({
     checkButtonView:{
         display:'flex',
         flexDirection:'row',
+        alignItems:'center',
+        margin:4,
+        justifyContent:'center'
     },
     checkButton:{
         width:width/13,
@@ -19,6 +22,16 @@ const Styles=StyleSheet.create({
     },
     checkedButton:{
         backgroundColor:'#202833'
+    },
+    styleScrollView:{
+        marginVertical:4
+    },
+    confirmView:{
+        marginVertical:height/15
+    },
+    encerrarButton:{
+        alignSelf:'center',
+        marginVertical:5
     }
 })
 

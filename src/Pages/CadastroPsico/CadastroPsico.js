@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Text, 
     View,
     TouchableOpacity,
     ScrollView,
     TextInput,
     SafeAreaView,
-    StatusBar } from 'react-native'
+    StatusBar,
+    BackHandler } from 'react-native'
 import {termoDeAdesao,diretrizes} from '../../Utils/texts'
 import Styles,{TextStyle} from '../RegisterPaciente/Styles'
 import StyleProprio from './Styles'
@@ -68,14 +69,14 @@ const TermoPage=({nomeDoPsicologo,next})=>{
         <View style={Styles.MainContainer}>
             <Text style={TextStyle.header}>Termo de compromisso</Text>
             <Text style={TextStyle.info}>A seguir, temos nosso <Text style={TextStyle.infoBold}>termo de voluntariado</Text>. Leia-o com atenção.</Text>
-            <ScrollView>
+            <ScrollView style={StyleProprio.styleScrollView}>
                 <Text>{termoDeAdesao}</Text>
             </ScrollView>
             <View style={StyleProprio.checkButtonView}>
                 <TouchableOpacity style={[StyleProprio.checkButton,check?StyleProprio.checkedButton:'']} onPress={()=>setCheck(!check)}></TouchableOpacity>
                 <Text>Estou ciente de todos os termos de compromisso.</Text>
             </View>
-            <TouchableOpacity style={Styles.largeButton} onPress={()=>handleNext()}>
+            <TouchableOpacity style={[Styles.largeButton,{alignSelf:'center'}]} onPress={()=>handleNext()}>
                 <Text style={TextStyle.buttonTextSemiBold}>Proximo</Text>
             </TouchableOpacity>
             
@@ -96,14 +97,14 @@ const DiretrizesPages=({nomeDoPsicologo,next})=>{
             <Text style={TextStyle.header}>Termo de compromisso</Text>
             <Text style={ TextStyle.info }>Olá, {nomeDoPsicologo}!Essas são as diretrizes do projeto Não Me Esqueças.</Text>
             <Text style={ TextStyle.infoBold }>Precisamos que você as leia com atenção.</Text>
-            <ScrollView>
+            <ScrollView style={StyleProprio.styleScrollView}>
                 <Text>{diretrizes}</Text>
             </ScrollView>
             <View style={StyleProprio.checkButtonView}>
                 <TouchableOpacity style={[StyleProprio.checkButton,check?StyleProprio.checkedButton:'']} onPress={()=>setCheck(!check)}></TouchableOpacity>
                 <Text>Estou ciente de todos as diretrizes do projeto.</Text>
             </View>
-            <TouchableOpacity style={Styles.largeButton} onPress={()=>handleNext()}>
+            <TouchableOpacity style={[Styles.largeButton,{alignSelf:'center'}]} onPress={()=>handleNext()}>
                 <Text style={TextStyle.buttonTextSemiBold}>Proximo</Text>
             </TouchableOpacity>
         </View>
@@ -115,19 +116,21 @@ const ComfirmacaoPage=({name,email,crp,horarios,next})=>{
         <View style={Styles.MainContainer}>
             <Text style={TextStyle.header}>Seja bem-vindo</Text>
             <Text style={TextStyle.info}>Já estamos quase acabando! Agora, só precisamos que você <Text style={TextStyle.infoBold}>confirme seus dados</Text> abaixo.</Text>
-            <Text style={TextStyle.infoTitle}>Nome:</Text>
-            <Text style={TextStyle.infoContent}>{name}</Text>
-            <Text style={TextStyle.infoTitle}>Email:</Text>
-            <Text style={TextStyle.infoContent}>{email}</Text>
-            <Text style={TextStyle.infoTitle}>CRP:</Text>
-            <Text style={TextStyle.infoContent}>{crp}</Text>
-            <Text style={TextStyle.infoTitle}>Horários diponíveis:</Text>
-            <View style={{height: 58}}>
-                <ScrollView>
-                    {horarios.map(item => <Text key={item.day + '#' + item.time} style={ TextStyle.infoContent }>{getTextDate(item.day, item.time)}</Text>)}
-                </ScrollView>
+            <View style={StyleProprio.confirmView}>
+                <Text style={TextStyle.infoTitle}>Nome:</Text>
+                <Text style={TextStyle.infoContent}>{name}</Text>
+                <Text style={TextStyle.infoTitle}>Email:</Text>
+                <Text style={TextStyle.infoContent}>{email}</Text>
+                <Text style={TextStyle.infoTitle}>CRP:</Text>
+                <Text style={TextStyle.infoContent}>{crp}</Text>
+                <Text style={TextStyle.infoTitle}>Horários diponíveis:</Text>
+                <View style={{height: 58}}>
+                    <ScrollView>
+                        {horarios.map(item => <Text key={item.day + '#' + item.time} style={ TextStyle.infoContent }>{getTextDate(item.day, item.time)}</Text>)}
+                    </ScrollView>
+                </View>
             </View>
-            <TouchableOpacity style={Styles.largeButton} onPress={()=>next()}>
+            <TouchableOpacity style={[Styles.largeButton,{alignSelf:'center'}]} onPress={()=>next()}>
                 <Text style={TextStyle.buttonTextSemiBold}>Proximo</Text>
             </TouchableOpacity>
         </View>
@@ -138,10 +141,10 @@ const FimDoCadastro=({name,next})=>{
     return(
         <View style={Styles.MainContainer}>
             <Text style={TextStyle.header}>{name}, obrigado se dispor a ajudar aos outros!</Text>
-            <Text style={TextStyle.info}>
+            <Text style={[TextStyle.info,]}>
                 Seu perfil será analisado e, assim que for aprovado, você receberá um email confirmando seu cadastro em nosso projeto!
             </Text>
-            <TouchableOpacity style={[Styles.largeButton,{alignSelf:'center'}]} onPress={()=>next()}>
+            <TouchableOpacity style={[Styles.largeButton,StyleProprio.encerrarButton]} onPress={()=>next()}>
                 <Text style={TextStyle.buttonTextSemiBold}>Encerrar</Text>
             </TouchableOpacity>
         </View>
@@ -164,6 +167,40 @@ function CadastroPsico({navigation}) {
     const [email,setEmail]=useState('')
     const [codPsico,setCodPsico]=useState('')
     const [psicoFreeTime,setPsicoFreeTime]=useState([])
+    const backHandle=()=>{
+        switch(cadastroStatus){
+            case ESTADO.DADOSPESSOAIS:
+                navigation.goBack()
+                break
+            case ESTADO.HORARIOS:
+                setCadastroStatus(ESTADO.DADOSPESSOAIS)
+                break
+            case ESTADO.TERMODEADESAO:
+                setCadastroStatus(ESTADO.HORARIOS)
+                break
+            case ESTADO.DIRETRIZES:
+                setCadastroStatus(ESTADO.TERMODEADESAO)
+                break
+            case ESTADO.CONFIRMACAO:
+                setCadastroStatus(ESTADO.DIRETRIZES)
+                break
+            case ESTADO.ENCERRAR:    
+                setCadastroStatus(ESTADO.CONFIRMACAO)
+                break
+            default:
+                throw new Error('Undefined stage at Register screen (switchView)')
+        }
+        return true
+    }
+    useEffect(() => {
+
+        BackHandler.addEventListener("hardwareBackPress", backHandle)
+
+        return function cleanup(){
+            BackHandler.removeEventListener("hardwareBackPress", backHandle)
+        }
+
+    },[cadastroStatus])
 
     const handleName=(text)=>{
         setName(text)
