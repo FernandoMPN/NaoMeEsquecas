@@ -10,7 +10,7 @@ const Styles = StyleSheet.create({
         height,
         paddingVertical: 50,
         paddingHorizontal: 30,
-        backgroundColor: "#FCF8FF"
+        backgroundColor: '#FCF8FF'
     },
     timerContainer: {
         width: width/1.2,
@@ -30,49 +30,68 @@ const Styles = StyleSheet.create({
     informationContainer: {
         marginTop: height/15
     },
-    button:{
+    button: {
         width: width/1.5,
         height: height/18,
-        alignItems: "center",
-        justifyContent: "center",
+        alignItems: 'center',
+        justifyContent: 'center',
         alignSelf: 'center',    
-        backgroundColor: "#743293",
+        backgroundColor: '#743293',
         borderRadius: 6,
         marginVertical: height/20
     },
+    buttonAlt: {
+        width: width/1.5,
+        height: height/10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignSelf: 'center',    
+        backgroundColor: '#743293',
+        borderRadius: 6,
+        marginVertical: height/20
+    },
+    accesContainer: {
+        marginVertical: height/15
+    }
 })
 
 export const TextStyles = StyleSheet.create({
     name: {
         fontSize: fontSize * 25,
-        fontFamily: "Montserrat-SemiBold"
+        fontFamily: 'Montserrat-SemiBold'
     },
     nextConsult: {
         fontSize: fontSize * 21,
-        fontFamily: "Montserrat-SemiBold"
+        fontFamily: 'Montserrat-SemiBold'
     },
     timeLeft: {
-        fontSize: fontSize * 24,
-        fontFamily: "Montserrat-Bold"
+        fontSize: fontSize * 23,
+        fontFamily: 'Montserrat-Bold',
+        textAlign: 'center'
     },
     onDate: {
         fontSize: fontSize * 22,
-        fontFamily: "Montserrat-SemiBold"
+        fontFamily: 'Montserrat-SemiBold'
     },
     date: {
         fontSize: fontSize * 22,
-        fontFamily: "Montserrat-Bold"
+        fontFamily: 'Montserrat-Bold'
     },
     information: {
         fontSize: fontSize * 18,
-        fontFamily: "Montserrat-Regular",
+        fontFamily: 'Montserrat-Regular',
         textAlign: 'center'
     },
     button: {
         fontSize: fontSize * 16,
-        fontFamily: "Montserrat-Regular",
+        fontFamily: 'Montserrat-Regular',
         color: '#fff' 
-    }
+    },
+    buttonAlt: {
+        fontSize: fontSize * 20,
+        fontFamily: 'Montserrat-SemiBold',
+        color: '#fff' 
+    },
 })
 
 export default Styles
