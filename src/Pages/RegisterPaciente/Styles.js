@@ -6,14 +6,12 @@ const fontSize = Dimensions.get('window').fontScale
 
 const Styles = StyleSheet.create({
 
-    MainContainer:{
-
+    MainContainer: {
         width,
         height,
         paddingVertical: 50,
         paddingHorizontal: 30,
         backgroundColor: "#FCF8FF"
-
     },
 
     ButtonsArea: {

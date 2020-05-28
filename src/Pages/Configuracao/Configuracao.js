@@ -3,11 +3,11 @@ import { Text, View } from 'react-native'
 
 import BottomTab from '../../Utils/BottomTab'
 
-function Agendamento() {
+function Configuracao() {
   return(
     <View>
-        <Text>Agendamento</Text>
+        <Text>Configuracao</Text>
     </View>
   ) 
 }
-export default Agendamento
+export default Configuracao

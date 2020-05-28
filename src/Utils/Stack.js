@@ -16,7 +16,7 @@ const StackNav = createStackNavigator();
 function Stack() {
     return (
         <NavigationContainer>
-        <StackNav.Navigator initialRouteName="Home" screenOptions={{
+        <StackNav.Navigator initialRouteName="MainPage" screenOptions={{
             headerShown: false
         }}>
             <StackNav.Screen name="Home" component={ Home } />
