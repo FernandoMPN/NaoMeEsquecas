@@ -10,6 +10,7 @@ import LoginPacienteError from '../Pages/LoginPaciente/LoginPacienteError';
 import RegisterPaciente from '../Pages/RegisterPaciente/RegisterPaciente';
 import LoginPacienteResend from '../Pages/LoginPaciente/LoginPacienteResend';
 import BottomTab from './BottomTab'
+import CadastroPsico from '../Pages/CadastroPsico/CadastroPsico'
 
 const StackNav = createStackNavigator();
 
@@ -22,7 +23,7 @@ function Stack() {
             <StackNav.Screen name="Home" component={ Home } />
 
             <StackNav.Screen name="LoginPsico" component={ LoginPsico } />
-
+            <StackNav.Screen name="CadastroPsico" component={ CadastroPsico } />
             <StackNav.Screen name="LoginPacienteLanding" component={ LoginPacienteLanding } />
             <StackNav.Screen name="LoginPaciente" component={ LoginPaciente } />
             <StackNav.Screen name="LoginPacienteError" component={ LoginPacienteError } />
