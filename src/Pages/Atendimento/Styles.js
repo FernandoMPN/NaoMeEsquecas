@@ -8,13 +8,13 @@ const Styles = StyleSheet.create({
     MainContainer: {
         width,
         height,
-        paddingVertical: 50,
+        paddingVertical: 20,
         paddingHorizontal: 30,
         backgroundColor: '#FCF8FF'
     },
     timerContainer: {
         width: width/1.2,
-        height: height/9,
+        height: height/10,
         backgroundColor: '#EBDCF5',
         justifyContent: 'center',
         alignItems: 'center',
@@ -65,7 +65,7 @@ export const TextStyles = StyleSheet.create({
         fontFamily: 'Montserrat-SemiBold'
     },
     timeLeft: {
-        fontSize: fontSize * 23,
+        fontSize: fontSize * 20,
         fontFamily: 'Montserrat-Bold',
         textAlign: 'center'
     },

@@ -16,10 +16,10 @@ function Atendimento({ navigation }) {
     const name = 'Fulano'
     const month = 5
     const day = 30
-    const hour = 17
+    const hour = 19
     const minute = 0
 
-    const date = new Date(2020, month - 1, day, hour + 3, minute)
+    const date = new Date(2020, month - 1, day, hour, minute)
     const [timeLeft, setTimeLeft] = useState(Countdown(date, null, null, 2))
 
     useEffect(() => {
