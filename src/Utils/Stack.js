@@ -11,6 +11,7 @@ import RegisterPaciente from '../Pages/RegisterPaciente/RegisterPaciente';
 import LoginPacienteResend from '../Pages/LoginPaciente/LoginPacienteResend';
 import BottomTab from './BottomTab'
 import CadastroPsico from '../Pages/CadastroPsico/CadastroPsico'
+import Remarcar from '../Pages/Remarcar/Remarcar'
 
 const StackNav = createStackNavigator();
 
@@ -32,6 +33,7 @@ function Stack() {
             <StackNav.Screen name="RegisterPaciente" component={ RegisterPaciente } />
 
             <StackNav.Screen name="MainPage" component={ BottomTab } />
+            <StackNav.Screen name="Remark" component={ Remarcar } />
         </StackNav.Navigator>
         </NavigationContainer>
     );

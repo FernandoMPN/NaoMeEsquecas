@@ -74,7 +74,7 @@ function Atendimento({ navigation }) {
                         para a sua consulta nós iremos disponibilizar um link para uma sala de conversa online, onde será realizada sua consulta.
                     </Text>
                 </View>
-                <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate()} style={ Styles.button }>
+                <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Remark')} style={ Styles.button }>
                     <Text style={ TextStyles.button }>Deseja remarcar a consulta?</Text>
                 </TouchableOpacity>
             </View>

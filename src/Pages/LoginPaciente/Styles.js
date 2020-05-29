@@ -18,17 +18,17 @@ const Styles = StyleSheet.create({
     },
 
     ButtonsArea: {
-        width: "100%",
+        width: '100%',
         height: height / 1.8,
-        alignItems: "center",
-        justifyContent: "space-evenly"
+        alignItems: 'center',
+        justifyContent: 'space-evenly'
     },
 
     largeButton: {
         width: 240,
         height: 65,
-        alignItems: "center",
-        justifyContent: "center",
+        alignItems: 'center',
+        justifyContent: 'center',
         backgroundColor: colors.button,
         borderRadius: 6,
         padding: 10
@@ -37,8 +37,8 @@ const Styles = StyleSheet.create({
     button:{
         width: 200,
         height: 42,
-        alignItems: "center",
-        justifyContent: "center",
+        alignItems: 'center',
+        justifyContent: 'center',
         backgroundColor: colors.button,
         borderRadius: 6,
         padding: 10
@@ -62,18 +62,18 @@ export const TextStyle = StyleSheet.create({
         fontSize: fontSize * 24,
         color: colors.loginTitle,
         marginBottom: height / 20,
-        fontFamily: "Montserrat-Bold"
+        fontFamily: 'Montserrat-Bold'
     },
 
     info: {
         fontSize: fontSize * 18,
-        fontFamily: "Montserrat-Regular",
+        fontFamily: 'Montserrat-Regular',
         color: colors.text
     },
 
     infoBold: {
         fontSize: fontSize * 18,
-        fontFamily: "Montserrat-Bold",
+        fontFamily: 'Montserrat-Bold',
         color: colors.text
     },
 
@@ -89,14 +89,14 @@ export const TextStyle = StyleSheet.create({
     buttonTextBold: {
         fontSize: 18,
         color: colors.buttonText,
-        fontWeight: "bold"
+        fontWeight: 'bold'
     },
 
     buttonTextSemiBold: {
         fontSize: 18,
         color: colors.buttonText,
-        fontWeight: "600",
-        textAlign: "center"
+        fontWeight: '600',
+        textAlign: 'center'
     },
 
 })
