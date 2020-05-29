@@ -67,8 +67,6 @@ function LoginPacienteError({ navigation, route }){
         <SafeAreaView>
             <View style={ Styles.MainContainer }>
 
-                <StatusBar backgroundColor='#743293'/>
-
                 <View>
                     <Text style={ TextStyle.header }>Ocorreu um erro!</Text>
                     <Text style={ TextStyle.info }>{setErrorMessage()}</Text>

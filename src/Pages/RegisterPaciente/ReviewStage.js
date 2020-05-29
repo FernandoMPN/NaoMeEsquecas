@@ -15,8 +15,6 @@ function ReviewStage({ username, email, preference, userType, hours, next }){
         <SafeAreaView>
             <View style={ Styles.MainContainer }>
 
-                <StatusBar backgroundColor='#743293'/>
-
                 <Text style={ TextStyle.header }>E por último...</Text>
                 <Text style={ TextStyle.info }>Confira se todas as informações estão corretas.</Text>
 

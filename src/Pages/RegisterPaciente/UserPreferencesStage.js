@@ -44,8 +44,6 @@ function UserPreferencesStage({ username, preferencesCallback, next }){
         <SafeAreaView>
             <View style={ Styles.MainContainer }>
 
-                <StatusBar backgroundColor='#743293'/>
-
                 <View>
                     <Text style={ TextStyle.header }>Seja bem-vindo!</Text>
                     <Text style={ TextStyle.info }>Olá, {username.split(' ')[0]}!</Text>

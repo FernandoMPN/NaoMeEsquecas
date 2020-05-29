@@ -23,7 +23,6 @@ const InformacoesPessoal=({name,setName,email,setEmail,codPsico,setCodPsico,next
     return(
         <SafeAreaView>
             <View style={Styles.MainContainer}>
-                <StatusBar backgroundColor='#743293'/>
                 <Text style={TextStyle.header}>Seja bem-vindo!</Text>
                 <Text style={ TextStyle.info }>Precisamos saber de algumas informações pessoais.</Text>
                 

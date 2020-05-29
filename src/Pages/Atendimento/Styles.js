@@ -1,5 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
+import colors from '../../Utils/colors'
+
 const width = Dimensions.get('window').width
 const height = Dimensions.get('window').height
 const fontSize = Dimensions.get('window').fontScale
@@ -10,12 +12,12 @@ const Styles = StyleSheet.create({
         height,
         paddingVertical: 20,
         paddingHorizontal: 30,
-        backgroundColor: '#FCF8FF'
+        backgroundColor: colors.backgroundColor
     },
     timerContainer: {
         width: width/1.2,
         height: height/10,
-        backgroundColor: '#EBDCF5',
+        backgroundColor: colors.timer,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 50,
@@ -36,7 +38,7 @@ const Styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'center',    
-        backgroundColor: '#743293',
+        backgroundColor: colors.button,
         borderRadius: 6,
         marginVertical: height/20
     },
@@ -46,7 +48,7 @@ const Styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'center',    
-        backgroundColor: '#743293',
+        backgroundColor: colors.button,
         borderRadius: 6,
         marginVertical: height/20
     },
@@ -58,39 +60,45 @@ const Styles = StyleSheet.create({
 export const TextStyles = StyleSheet.create({
     name: {
         fontSize: fontSize * 25,
-        fontFamily: 'Montserrat-SemiBold'
+        fontFamily: 'Montserrat-SemiBold',
+        color: colors.text
     },
     nextConsult: {
         fontSize: fontSize * 21,
-        fontFamily: 'Montserrat-SemiBold'
+        fontFamily: 'Montserrat-SemiBold',
+        color: colors.text
     },
     timeLeft: {
         fontSize: fontSize * 20,
         fontFamily: 'Montserrat-Bold',
+        color: colors.text,
         textAlign: 'center'
     },
     onDate: {
         fontSize: fontSize * 22,
-        fontFamily: 'Montserrat-SemiBold'
+        fontFamily: 'Montserrat-SemiBold',
+        color: colors.text
     },
     date: {
         fontSize: fontSize * 22,
-        fontFamily: 'Montserrat-Bold'
+        fontFamily: 'Montserrat-Bold',
+        color: colors.text
     },
     information: {
         fontSize: fontSize * 18,
         fontFamily: 'Montserrat-Regular',
-        textAlign: 'center'
+        textAlign: 'center',
+        color: colors.text
     },
     button: {
         fontSize: fontSize * 16,
         fontFamily: 'Montserrat-Regular',
-        color: '#fff' 
+        color: colors.buttonText 
     },
     buttonAlt: {
         fontSize: fontSize * 20,
         fontFamily: 'Montserrat-SemiBold',
-        color: '#fff' 
+        color: colors.buttonText 
     },
 })
 

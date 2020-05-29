@@ -29,7 +29,6 @@ function LoginPsico({navigation}){
 
     return(
         <View style={Styles.mainView}>
-            <View style={Styles.topBar}></View>
             <Text style={Styles.Title}>Entrar como profissional da saúde</Text>
             <TextInput style={Styles.LoginInput} value={numPsico} onChangeText={text=>handleNumPsico(text)} placeholder={'Número do CRP'}/>
             <TextInput style={Styles.LoginInput} value={codAcesso} onChangeText={text=>handleCodAcesso(text)} placeholder={'Código de acesso'}/>

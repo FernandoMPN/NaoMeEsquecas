@@ -1,21 +1,31 @@
-export const purpleColors={
-    darkerPurple:'#532375',
-    darkPurple:'#6B398E',
-    middlePurple:'#8654A8',
-    purple:'#A274C2',
-    litePurple:'#C9AFDB',
-    literPurple:'#EBDCF5',
-    evenLiterPurple:'#FAF2FF'
-}
+export default colors = {
+    statusBar: '#743293',
+    backgroundColor: '#FCF8FF',
+    
+    //Home Page
+    homeButton: '#A371C3',
+    homeButtonText: '#FFFFFF',
+    aboutText: '#743293',
+    
+    //Login e Register Pages
+    loginTitle: '#6B398E',
+    registerTitle: '#6B398E',
+    text: '#000000',
+    button: '#743293',
+    buttonText: '#FFFFFF',
+    checkButton: '#FFFFFF',
+    checkedButton: '#202833',
+    textInput: '#743293',
+    dateItems: '#FFFFFF',
+    modal: '#FFFFFF',
+    
+    //Bottom Tab
+    icon: '#683591',
+    actionBar: '#CBB0D9',
+    
+    //Consult Page
+    timer: '#EBDCF5',
 
-export const blackAndWhite={
-    blackBlack:'#202833',
-    black:'#404B5A',
-    darkerGray:'#6D7989',
-    darkGray:'#929FB1',
-    middleGray:'#8B9FBA',
-    gray:'#CCD2DB',
-    liteGray:'#D5DCE5',
-    literGray:'#E0E5EB',
-    evenLiterGray:'#F8F9FA'
+    //Feedback Page
+    feedback: '#FFFFFF'
 }

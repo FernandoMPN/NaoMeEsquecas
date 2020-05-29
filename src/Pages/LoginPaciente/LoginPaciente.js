@@ -20,8 +20,6 @@ function LoginPaciente({ navigation }){
         <SafeAreaView>
             <View style={ Styles.MainContainer }>
 
-                <StatusBar backgroundColor='#743293'/>
-
                 <View>
                     <Text style={ TextStyle.header }>Seja bem-vindo novamente!</Text>
                     <Text style={ TextStyle.info }>Que bom ter você de volta!</Text>

@@ -13,8 +13,6 @@ function CompleteStage({ username, next }){
         <SafeAreaView>
             <View style={ Styles.MainContainer }>
 
-                <StatusBar backgroundColor='#743293'/>
-
                 <Text style={ TextStyle.nameHeader }>{username.split(" ")[0]},</Text>
                 <Text style={ TextStyle.header}>obrigado por realizar um agendamento!</Text>
             

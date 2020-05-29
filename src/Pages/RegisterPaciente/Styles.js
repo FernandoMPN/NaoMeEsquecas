@@ -1,4 +1,5 @@
 import {StyleSheet, Dimensions} from 'react-native'
+import colors from '../../Utils/colors'
 
 const width = Dimensions.get('window').width
 const height = Dimensions.get('window').height
@@ -11,7 +12,7 @@ const Styles = StyleSheet.create({
         height,
         paddingVertical: 50,
         paddingHorizontal: 30,
-        backgroundColor: "#FCF8FF"
+        backgroundColor: colors.backgroundColor
     },
 
     ButtonsArea: {
@@ -26,7 +27,7 @@ const Styles = StyleSheet.create({
         height: 65,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#743293",
+        backgroundColor: colors.button,
         borderRadius: 6,
         padding: 10
     },
@@ -36,7 +37,7 @@ const Styles = StyleSheet.create({
         height: 42,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#743293",
+        backgroundColor: colors.button,
         borderRadius: 6,
         padding: 10,
         alignSelf: "center"
@@ -45,7 +46,7 @@ const Styles = StyleSheet.create({
     textInput: {
         width: 250,
         height: 40,
-        borderBottomColor: '#743293',
+        borderBottomColor: colors.textInput,
         borderBottomWidth: 1,
         paddingBottom: -10,
         marginVertical: 25
@@ -76,7 +77,7 @@ const Styles = StyleSheet.create({
         width: "100%",
         maxWidth: 340,
         height: 50,
-        backgroundColor: "#743293",
+        backgroundColor: colors.button,
         borderRadius: 100,
         padding: 12,
         justifyContent: "space-between",
@@ -94,9 +95,9 @@ const Styles = StyleSheet.create({
         width: 49,
         height: 49,
         borderRadius: 100,
-        backgroundColor: "#FFFFFF",
+        backgroundColor: colors.dateItems,
         borderWidth: 1,
-        borderColor: "#743293",
+        borderColor: colors.button,
         marginTop: -12,
         marginRight: -12
     },
@@ -105,7 +106,7 @@ const Styles = StyleSheet.create({
         width: "100%",
         maxWidth: 340,
         height: 50,
-        backgroundColor: "#FFFFFF",
+        backgroundColor: colors.dateItems,
         borderRadius: 4,
         padding: 12,
         justifyContent: "space-between",
@@ -133,25 +134,27 @@ export const TextStyle = StyleSheet.create({
 
     nameHeader:{
         fontSize: fontSize * 24,
-        color: "#6B398E",
+        color: colors.registerTitle,
         fontFamily: "Montserrat-Bold"
     },
 
     header: {
         fontSize: fontSize * 24,
-        color: "#6B398E",
+        color: colors.registerTitle,
         marginBottom: height / 20,
         fontFamily: "Montserrat-Bold"
     },
 
     info: {
         fontSize: fontSize * 18,
-        fontFamily: "Montserrat-Regular"
+        fontFamily: "Montserrat-Regular",
+        color: colors.text
     },
 
     infoBold: {
         fontSize: fontSize * 18,
-        fontFamily: "Montserrat-Bold"
+        fontFamily: "Montserrat-Bold",
+        color: colors.text
     },
 
     textMargin: {
@@ -160,38 +163,41 @@ export const TextStyle = StyleSheet.create({
 
     buttonText: {
         fontSize: 18,
-        color: "#FFFFFF",
+        color: colors.buttonText,
     },
 
     buttonTextBold: {
         fontSize: 18,
-        color: "#FFFFFF",
+        color: colors.buttonText,
         fontWeight: "bold"
     },
 
     buttonTextSemiBold: {
         fontSize: 18,
-        color: "#FFFFFF",
+        color: colors.buttonText,
         fontWeight: "600",
         textAlign: "center"
     },
 
     radioButton:{
-        fontSize: 18
+        fontSize: 18,
+        color: colors.text
     },
 
     date: {
-        fontSize: 16
+        fontSize: 16,
+        color: colors.text
     },
 
     modalHeader:{
-        fontSize: 18
+        fontSize: 18,
+        color: colors.text
     },
 
     modalHeaderBold:{
         fontSize: 18,
         fontWeight: "bold",
-        color: "#6B398E"
+        color: colors.registerTitle
     },
 
     infoTitle:{
@@ -201,7 +207,8 @@ export const TextStyle = StyleSheet.create({
 
     infoContent:{
         fontSize: 18,
-        fontWeight: "700"
+        fontWeight: "700",
+        color: colors.text
     }
 
 })
@@ -220,7 +227,7 @@ export const ModalStyle = StyleSheet.create({
     MainArea: {
         width: width / 1.2,
         height: height / 2,
-        backgroundColor: "#FFFFFF",
+        backgroundColor: colors.modal,
         borderRadius: 8,
         padding: 20
     },

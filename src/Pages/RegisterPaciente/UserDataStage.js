@@ -14,8 +14,6 @@ function UserDataStage({ username, setUsername, email, setEmail, next }){
         <SafeAreaView>
             <View style={ Styles.MainContainer }>
 
-                <StatusBar backgroundColor='#743293'/>
-
                 <View>
                     <Text style={ TextStyle.header }>Seja bem-vindo!</Text>
                     <Text style={ TextStyle.info }>Que bom ter você com a gente!</Text>

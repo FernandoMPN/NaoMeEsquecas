@@ -8,8 +8,6 @@ const formas = require('../../Assets/Images/formas.png')
 
 function Home({ navigation }) {
   return(
-    <>
-        <StatusBar backgroundColor='#6B398E'/>
         <View style={ Styles.mainView }>
             <Image source={ logo } style={ Styles.image } />
             <TouchableOpacity style={ Styles.button } onPress={() => navigation.navigate('LoginPacienteLanding')} activeOpacity={0.8}>
@@ -21,7 +19,6 @@ function Home({ navigation }) {
             <Text style={ Styles.aboutText }>Sobre o app</Text>
             <Image source={ formas } style={ Styles.shapes } />
         </View>
-    </>
   ) 
 }
 export default Home

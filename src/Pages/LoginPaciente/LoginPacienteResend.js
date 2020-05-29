@@ -15,8 +15,6 @@ function LoginPacienteResend({navigation}){
     return(
         <SafeAreaView>
             <View style={ Styles.MainContainer }>
-
-                <StatusBar backgroundColor='#743293'/>
               
                 <Text style={ TextStyle.header }>Seja bem-vindo novamente!</Text>
 

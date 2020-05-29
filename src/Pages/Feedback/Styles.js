@@ -1,5 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
+import colors from '../../Utils/colors'
+
 const width = Dimensions.get('window').width
 const height = Dimensions.get('window').height
 const fontSize = Dimensions.get('window').fontScale
@@ -10,7 +12,7 @@ const Styles = StyleSheet.create({
         height,
         paddingVertical: 20,
         paddingHorizontal: 30,
-        backgroundColor: '#FCF8FF'
+        backgroundColor: colors.backgroundColor
     },
     Feedback: { 
         width: width/1.2,
@@ -19,21 +21,21 @@ const Styles = StyleSheet.create({
         borderWidth: 0.6,
         borderRadius: 8,
         padding: 10,
-        color: '#000',
+        color: colors.text,
         alignSelf: 'center',
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
         fontSize: fontSize * 16,
         fontFamily: 'Montserrat-Regular',
         marginVertical: height/13,
-        backgroundColor: '#fff'
+        backgroundColor: colors.feedback
     },button: {
         width: width/1.5,
         height: height/11,
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'center',    
-        backgroundColor: '#743293',
+        backgroundColor: colors.button,
         borderRadius: 6,
     },
 })
@@ -41,16 +43,18 @@ const Styles = StyleSheet.create({
 export const TextStyles = StyleSheet.create({
     text: {
         fontSize: fontSize * 22,
-        fontFamily: 'Montserrat-SemiBold'
+        fontFamily: 'Montserrat-SemiBold',
+        color: colors.text
     },
     button: {
         fontSize: fontSize * 20,
         fontFamily: 'Montserrat-SemiBold',
-        color: '#fff' 
+        color: colors.buttonText
     },
     information: {
         fontSize: fontSize * 22,
-        fontFamily: 'Montserrat-Regular'
+        fontFamily: 'Montserrat-Regular',
+        color: colors.text
     }
 })
 

@@ -21,8 +21,6 @@ function LoginPacienteLanding({ navigation }){
         <SafeAreaView>
             <View style={ Styles.MainContainer }>
 
-                <StatusBar backgroundColor='#743293'/>
-
                 <View>
                     <Text style={ TextStyle.header }>Olá!</Text>
                     <Text style={ TextStyle.info }>Antes de continuarmos, precisamos saber de uma coisa:</Text>

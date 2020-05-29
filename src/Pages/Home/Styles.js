@@ -1,30 +1,32 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
+import colors from '../../Utils/colors'
+
 const width = Dimensions.get('window').width
 const height = Dimensions.get('window').height
 const fontSize = Dimensions.get('window').fontScale
 
 const Styles = StyleSheet.create({
-    mainView:{ flex: 1,
-        backgroundColor: '#fff', 
+    mainView:{ 
+        flex: 1,
+        backgroundColor: colors.backgroundColor, 
         alignItems: "center", 
         justifyContent: 'space-between'
     },
     image:{
         marginTop: height/70,
         width: width * 0.7,
-        height: width * 0.7 * 0.71,
-        backgroundColor:'#b9b9b9'
+        height: width * 0.7 * 0.71
     },
     button: {
         width: '85%', 
         height: '14%',
         borderRadius: 8,
-        backgroundColor: '#A371C3',
+        backgroundColor: colors.homeButton,
         justifyContent: 'center'
     },
     buttonText: {
-        color:'#fff',
+        color:colors.homeButtonText,
         fontSize: 26 * fontSize,
         textAlign: 'center',
         fontFamily: 'Montserrat-Bold'
@@ -34,7 +36,7 @@ const Styles = StyleSheet.create({
         height: width * 0.1 
     },
     aboutText: {
-        color:'#6B398E',
+        color: colors.aboutText,
         fontFamily: 'Montserrat-Bold',
         fontSize: 20 * fontSize
     },

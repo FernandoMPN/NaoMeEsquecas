@@ -44,8 +44,6 @@ function UserTypeStage({ userTypeCallback, next }){
         <SafeAreaView>
             <View style={ Styles.MainContainer }>
 
-                <StatusBar backgroundColor='#743293'/>
-
                 <View>
                     <Text style={ TextStyle.header }>Seja bem-vindo!</Text>
                     <Text style={ TextStyle.info }>Já estamos quase finalizando!</Text>

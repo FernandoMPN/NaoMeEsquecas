@@ -1,4 +1,5 @@
 import {StyleSheet, Dimensions} from 'react-native'
+import colors from '../../Utils/colors'
 
 const width = Dimensions.get('window').width
 const height = Dimensions.get('window').height
@@ -12,7 +13,7 @@ const Styles = StyleSheet.create({
         height,
         paddingVertical: 50,
         paddingHorizontal: 30,
-        backgroundColor: "#FCF8FF"
+        backgroundColor: colors.backgroundColor
 
     },
 
@@ -28,7 +29,7 @@ const Styles = StyleSheet.create({
         height: 65,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#743293",
+        backgroundColor: colors.button,
         borderRadius: 6,
         padding: 10
     },
@@ -38,7 +39,7 @@ const Styles = StyleSheet.create({
         height: 42,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#743293",
+        backgroundColor: colors.button,
         borderRadius: 6,
         padding: 10
     },
@@ -46,7 +47,7 @@ const Styles = StyleSheet.create({
     textInput: {
         width: 250,
         height: 40,
-        borderBottomColor: '#743293',
+        borderBottomColor: colors.textInput,
         borderBottomWidth: 1,
         paddingBottom: -10,
         marginVertical: 25
@@ -59,20 +60,21 @@ export const TextStyle = StyleSheet.create({
 
     header: {
         fontSize: fontSize * 24,
-        color: "#6B398E",
+        color: colors.loginTitle,
         marginBottom: height / 20,
         fontFamily: "Montserrat-Bold"
-
     },
 
     info: {
         fontSize: fontSize * 18,
-        fontFamily: "Montserrat-Regular"
+        fontFamily: "Montserrat-Regular",
+        color: colors.text
     },
 
     infoBold: {
         fontSize: fontSize * 18,
-        fontFamily: "Montserrat-Bold"
+        fontFamily: "Montserrat-Bold",
+        color: colors.text
     },
 
     textMargin: {
@@ -81,18 +83,18 @@ export const TextStyle = StyleSheet.create({
 
     buttonText: {
         fontSize: 18,
-        color: "#FFFFFF",
+        color: colors.buttonText,
     },
 
     buttonTextBold: {
         fontSize: 18,
-        color: "#FFFFFF",
+        color: colors.buttonText,
         fontWeight: "bold"
     },
 
     buttonTextSemiBold: {
         fontSize: 18,
-        color: "#FFFFFF",
+        color: colors.buttonText,
         fontWeight: "600",
         textAlign: "center"
     },

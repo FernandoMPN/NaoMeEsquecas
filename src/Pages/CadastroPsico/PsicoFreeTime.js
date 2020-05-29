@@ -135,8 +135,6 @@ function PsicoFreeTime({ psicoFreetimeCallback, next }){
     return(
         <SafeAreaView>
             <View style={ Styles.MainContainer }>
-
-                <StatusBar backgroundColor='#743293'/>
                 <Modal visible={isModalVisible} transparent={true} animationType="fade">
                     <AddNewDateModal exit={changeModalVisibility} addNewCallback={addNewItem}/>
                 </Modal>

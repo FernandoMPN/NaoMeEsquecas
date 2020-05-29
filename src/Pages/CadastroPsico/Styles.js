@@ -1,5 +1,7 @@
 import {StyleSheet,Dimensions} from 'react-native'
 
+import colors from '../../Utils/colors'
+
 const width=Dimensions.get('window').width
 const height=Dimensions.get('window').height
 
@@ -15,13 +17,13 @@ const Styles=StyleSheet.create({
         width:width/13,
         height:height/20,
         margin:5,
-        backgroundColor:'#fff',
+        backgroundColor: colors.checkButton,
         borderRadius:4,
-        borderColor:'#202833',
+        borderColor: colors.checkedButton,
         borderWidth:2
     },
     checkedButton:{
-        backgroundColor:'#202833'
+        backgroundColor: colors.checkedButton
     },
     styleScrollView:{
         marginVertical:4
@@ -31,7 +33,6 @@ const Styles=StyleSheet.create({
     },
     encerrarButton:{
         alignSelf:'center',
-        //marginVertical:5
     },
     buttonView:{
         height:height/2,
