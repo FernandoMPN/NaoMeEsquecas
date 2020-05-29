@@ -35,12 +35,32 @@ const Styles = StyleSheet.create({
         width,
         height: width * 0.1 
     },
+    about: {
+        width: '100%', 
+        height: '100%', 
+        backgroundColor: colors.backgroundColor, 
+        justifyContent: 'center'
+    },
     aboutText: {
         color: colors.aboutText,
         fontFamily: 'Montserrat-Bold',
         fontSize: 20 * fontSize
     },
-    
+    backButton: {
+        width: width/1.5,
+        height: height/18,
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignSelf: 'center',    
+        backgroundColor: colors.button,
+        borderRadius: 6,
+        marginVertical: height/20
+    },
+    backButtonText: {
+        fontSize: fontSize * 16,
+        fontFamily: 'Montserrat-Regular',
+        color: colors.buttonText 
+    }
 })
 
 export default Styles
