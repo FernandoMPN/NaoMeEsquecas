@@ -2,13 +2,34 @@ import React from 'react'
 import {View,
         Text,
         SafeAreaView,
-        StatusBar,
         TouchableOpacity,
-        TextInput} from 'react-native'
+        TextInput,
+        Alert} from 'react-native'
 
 import Styles, {TextStyle} from './Styles'
 
 function UserDataStage({ username, setUsername, email, setEmail, next }){
+
+    const handleNext = () => {
+
+        if(username.length === 0){
+            Alert.alert('Campo vazio!', 'Por favor, nos diga qual é seu nome.')
+            return
+        }
+
+        if(email.length === 0){
+            Alert.alert('Campo vazio!', 'Por favor, informe seu e-mail.')
+            return
+        }
+
+        if(!email.includes('@')){
+            Alert.alert('Campo incorreto!', 'Por favor, informe um e-mail válido.')
+            return
+        }
+
+        next()
+
+    }
 
     return(
         <SafeAreaView>
@@ -42,7 +63,7 @@ function UserDataStage({ username, setUsername, email, setEmail, next }){
 
                     </View>
 
-                    <TouchableOpacity onPress={next} style={ Styles.button }>
+                    <TouchableOpacity onPress={handleNext} style={ Styles.button }>
                         <Text style={ TextStyle.buttonTextSemiBold }>Próximo</Text>
                     </TouchableOpacity>
 
