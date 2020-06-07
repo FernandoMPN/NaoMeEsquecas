@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {BackHandler} from 'react-native'
+import {BackHandler, Alert} from 'react-native'
 
 import CompleteStage from './CompleteStage'
 import UserDataStage from './UserDataStage'
@@ -7,6 +7,9 @@ import UserPreferencesStage from './UserPreferencesStage'
 import UserTypeStage from './UserTypeStage'
 import UserFreeTimeStage from './UserFreeTimeStage'
 import ReviewStage from './ReviewStage'
+
+import Loading from '../../Components/Loading/Loading'
+import axios from 'axios'
 
 const RegisterStages = {
     UserData: 1,
@@ -36,6 +39,7 @@ function RegisterPaciente({ navigation }){
     const [userFreetime, setUserFreetime] = useState([])
 
     const [currentStage, setStage] = useState(RegisterStages.UserData)
+    const [isLoading, setLoadingVisibilty] = useState(false)
 
     const backControl = () => {
 
@@ -76,6 +80,45 @@ function RegisterPaciente({ navigation }){
 
     },[currentStage])
 
+
+    const getUserPreferenceCode = () => {
+
+        if(userPreferences === "Homens"){
+            return 1
+        }else if(userPreferences === "Mulheres"){
+            return 2
+        }else if(userPreferences === "Indiferente"){
+            return 3
+        }else{
+            throw new Error('Preference code undefined')
+        }
+
+    }
+
+    const registerPatient = () => {
+
+        setLoadingVisibilty(true)
+
+        const userData = {
+            name: username,
+            email: email,
+            perfil: userType,
+            preferenciaAtendimento: getUserPreferenceCode(),
+            preferenciaHorario: userFreetime
+        }
+
+        axios.post('https://naoesquecasback.herokuapp.com/pacientes', userData)
+            .then(response => {
+                setLoadingVisibilty(false)
+                switchView()
+            })
+            .catch(error => {
+                setLoadingVisibilty(false)
+                Alert.alert('Algo deu errado', 'Por favor, tente enviar novamente. Caso o erro persista, entre em contato conosco.')
+            })
+
+    }
+
     const switchView = () => {
 
         switch(currentStage){
@@ -115,7 +158,7 @@ function RegisterPaciente({ navigation }){
             case RegisterStages.UserFreeTime:
                 return <UserFreeTimeStage userFreetimeCallback={setUserFreetime} next={switchView}/>
             case RegisterStages.Review:
-                return <ReviewStage username={username} email={email} userType={userType} preference={userPreferences} hours={userFreetime} next={switchView}/>
+                return <ReviewStage username={username} email={email} userType={userType} preference={userPreferences} hours={userFreetime} next={registerPatient}/>
             case RegisterStages.Complete:
                 return <CompleteStage username={username} next={switchView}/>
             default:
@@ -125,7 +168,10 @@ function RegisterPaciente({ navigation }){
     }
 
     return(
-        getView()
+        <>
+        {getView()}
+        {isLoading? <Loading/>:null}
+        </>
     )
 
 }
