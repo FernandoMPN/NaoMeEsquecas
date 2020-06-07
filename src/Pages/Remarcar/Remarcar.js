@@ -10,6 +10,7 @@ import {View,
 import {Picker} from '@react-native-community/picker'
 
 import Styles, {TextStyle, ModalStyle} from './Styles'
+import colors from '../../Utils/colors'
 
 const dayOfWeek = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo']
 const hours = [8,9,10,11,12,13,14,15,16,17,18,19]
@@ -38,7 +39,7 @@ function AddNewDateModal({ addNewCallback, exit }){
 
     return(
         <TouchableOpacity activeOpacity={1} onPress={exit} style={ ModalStyle.Container }>
-            <View style={ ModalStyle.MainArea }>
+            <TouchableOpacity activeOpacity={1} style={ ModalStyle.MainArea }>
                 <Text>
                     <Text style={ TextStyle.modalHeader }>Selecione</Text>
                     <Text style={ TextStyle.modalHeaderBold }> um dia da semana e um horário </Text>
@@ -75,7 +76,7 @@ function AddNewDateModal({ addNewCallback, exit }){
                     <Text style={ TextStyle.buttonTextSemiBold }>Adicionar</Text>
                 </TouchableOpacity>
 
-            </View>
+            </TouchableOpacity>
         </TouchableOpacity>
     )
 
@@ -148,7 +149,7 @@ function Remarcar({ navigation }){
     }
 
     return(
-        <SafeAreaView>
+        <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
             <View style={ Styles.MainContainer }>
 
                 <Modal visible={isModalVisible} transparent={true} animationType='fade'>

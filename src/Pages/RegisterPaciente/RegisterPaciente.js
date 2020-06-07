@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {BackHandler, Alert} from 'react-native'
+import {BackHandler, Alert, SafeAreaView} from 'react-native'
 
 import CompleteStage from './CompleteStage'
 import UserDataStage from './UserDataStage'
@@ -10,6 +10,7 @@ import ReviewStage from './ReviewStage'
 
 import Loading from '../../Components/Loading/Loading'
 import axios from 'axios'
+import colors from '../../Utils/colors'
 
 const RegisterStages = {
     UserData: 1,
@@ -168,10 +169,10 @@ function RegisterPaciente({ navigation }){
     }
 
     return(
-        <>
-        {getView()}
-        {isLoading? <Loading/>:null}
-        </>
+        <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
+            {getView()}
+            {isLoading? <Loading/>:null}
+        </SafeAreaView>
     )
 
 }

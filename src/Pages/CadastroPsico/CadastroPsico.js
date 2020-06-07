@@ -12,6 +12,7 @@ import Styles,{TextStyle} from '../RegisterPaciente/Styles'
 import StyleProprio from './Styles'
 import PsicoFreeTime from './PsicoFreeTime'
 import {getTextDate} from '../RegisterPaciente/RegisterPaciente'
+import colors from '../../Utils/colors'
 
 
 const InformacoesPessoal=({name,setName,email,setEmail,codPsico,setCodPsico,next})=>{
@@ -257,7 +258,9 @@ function CadastroPsico({navigation}) {
         }
    }
     return(
-        pages()
+        <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
+            {pages()}
+        </SafeAreaView>
     )
 }
 export default CadastroPsico

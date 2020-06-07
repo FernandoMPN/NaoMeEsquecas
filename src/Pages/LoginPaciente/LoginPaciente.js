@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import {View,
         Text,
         SafeAreaView,
-        StatusBar,
         TouchableOpacity,
         TextInput} from 'react-native'
 
 import Styles, {TextStyle} from './Styles'
+import colors from '../../Utils/colors'
 
 function LoginPaciente({ navigation }){
 
@@ -17,7 +17,7 @@ function LoginPaciente({ navigation }){
     }
 
     return(
-        <SafeAreaView>
+        <SafeAreaView style={[Styles.MainContainer]}>
             <View style={ Styles.MainContainer }>
 
                 <View>

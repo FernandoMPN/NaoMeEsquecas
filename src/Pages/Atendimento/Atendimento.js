@@ -3,6 +3,8 @@ import { Text, View, TouchableOpacity } from 'react-native'
 
 import Styles, { TextStyles } from './Styles'
 import Countdown from '../../Utils/Countdown'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import colors from '../../Utils/colors'
 
 
 function Atendimento({ navigation }) {
@@ -31,53 +33,57 @@ function Atendimento({ navigation }) {
 
     if(timeLeft.minutes <= 30 && timeLeft.hours == 0 && timeLeft.days == 0) {
         return(
-            <View>
+            <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
+                <View>
+                    <View style={ Styles.MainContainer }>
+                        <Text style={ TextStyles.name }>{`${name},`}</Text>
+                        <Text style={ TextStyles.nextConsult }>sua próxima consulta será em</Text>
+                        <View style={ Styles.timerContainer }>
+                            <Text style={ TextStyles.timeLeft }>{`${timeLeft}`}</Text>
+                        </View>
+                        <View style={ Styles.accesContainer }> 
+                            <Text style={ TextStyles.timeLeft }>
+                                Você já pode acessar sua sala de conversa Online
+                            </Text>
+                        </View>
+                        <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Feedback')} style={ Styles.buttonAlt }>
+                            <Text style={ TextStyles.buttonAlt }>Entrar na sala</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>`
+            </SafeAreaView>
+        )
+    } else {
+        return(
+            <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
                 <View style={ Styles.MainContainer }>
                     <Text style={ TextStyles.name }>{`${name},`}</Text>
                     <Text style={ TextStyles.nextConsult }>sua próxima consulta será em</Text>
                     <View style={ Styles.timerContainer }>
                         <Text style={ TextStyles.timeLeft }>{`${timeLeft}`}</Text>
                     </View>
-                    <View style={ Styles.accesContainer }> 
-                        <Text style={ TextStyles.timeLeft }>
-                            Você já pode acessar sua sala de conversa Online
+                    <View style={ Styles.dateContainer }>
+                        <Text>
+                            <Text style={ TextStyles.onDate }>no dia </Text>
+                            <Text style={ TextStyles.date }>{`${day < 10 ? '0' + day : day}/${month < 10 ? '0' + month : month}`}</Text>
+                        </Text>
+                        <Text>
+                            <Text style={ TextStyles.onDate }>às </Text>
+                            <Text style={ TextStyles.date }>{`${hour} horas`}</Text>
                         </Text>
                     </View>
-                    <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Feedback')} style={ Styles.buttonAlt }>
-                        <Text style={ TextStyles.buttonAlt }>Entrar na sala</Text>
+                    <View style={ Styles.informationContainer }>
+                        <Text style={ TextStyles.information }>
+                            Quando faltar
+                            <Text style={{ fontFamily: "Montserrat-SemiBold" }}> 30 minutos </Text>
+                            para a sua consulta nós iremos disponibilizar um link para uma sala de conversa online, onde será realizada sua consulta.
+                        </Text>
+                    </View>
+                    <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Remark')} style={ Styles.button }>
+                        <Text style={ TextStyles.button }>Deseja remarcar a consulta?</Text>
                     </TouchableOpacity>
                 </View>
-            </View>
-        )
-    } else {
-        return(
-            <View style={ Styles.MainContainer }>
-                <Text style={ TextStyles.name }>{`${name},`}</Text>
-                <Text style={ TextStyles.nextConsult }>sua próxima consulta será em</Text>
-                <View style={ Styles.timerContainer }>
-                    <Text style={ TextStyles.timeLeft }>{`${timeLeft}`}</Text>
-                </View>
-                <View style={ Styles.dateContainer }>
-                    <Text>
-                        <Text style={ TextStyles.onDate }>no dia </Text>
-                        <Text style={ TextStyles.date }>{`${day < 10 ? '0' + day : day}/${month < 10 ? '0' + month : month}`}</Text>
-                    </Text>
-                    <Text>
-                        <Text style={ TextStyles.onDate }>às </Text>
-                        <Text style={ TextStyles.date }>{`${hour} horas`}</Text>
-                    </Text>
-                </View>
-                <View style={ Styles.informationContainer }>
-                    <Text style={ TextStyles.information }>
-                        Quando faltar
-                        <Text style={{ fontFamily: "Montserrat-SemiBold" }}> 30 minutos </Text>
-                        para a sua consulta nós iremos disponibilizar um link para uma sala de conversa online, onde será realizada sua consulta.
-                    </Text>
-                </View>
-                <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Remark')} style={ Styles.button }>
-                    <Text style={ TextStyles.button }>Deseja remarcar a consulta?</Text>
-                </TouchableOpacity>
-            </View>
+            </SafeAreaView>
         ) 
     }
 

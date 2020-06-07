@@ -2,18 +2,18 @@ import React, { useState } from 'react'
 import {View,
         Text,
         SafeAreaView,
-        StatusBar,
         TouchableOpacity,
         TextInput} from 'react-native'
 
 import Styles, {TextStyle} from './Styles'
+import colors from '../../Utils/colors'
 
 function LoginPacienteResend({navigation}){
 
     const [email, setEmail] = useState('')
 
     return(
-        <SafeAreaView>
+        <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
             <View style={ Styles.MainContainer }>
               
                 <Text style={ TextStyle.header }>Seja bem-vindo novamente!</Text>

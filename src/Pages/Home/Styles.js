@@ -19,8 +19,8 @@ const Styles = StyleSheet.create({
         height: width * 0.7 * 0.71
     },
     button: {
-        width: '85%', 
-        height: '14%',
+        width: 315, 
+        height: 80,
         borderRadius: 8,
         backgroundColor: colors.homeButton,
         justifyContent: 'center'

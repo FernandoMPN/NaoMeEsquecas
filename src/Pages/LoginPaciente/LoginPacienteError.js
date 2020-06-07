@@ -2,11 +2,10 @@ import React from 'react'
 import {View,
         Text,
         SafeAreaView,
-        StatusBar,
         TouchableOpacity} from 'react-native'
 
 import Styles, {TextStyle} from './Styles'
-
+import colors from '../../Utils/colors'
 
 function LoginPacienteError({ navigation, route }){
 
@@ -64,7 +63,7 @@ function LoginPacienteError({ navigation, route }){
     }
 
     return(
-        <SafeAreaView>
+        <SafeAreaView style={{backgroundColor: colors.statusBar}}>
             <View style={ Styles.MainContainer }>
 
                 <View>

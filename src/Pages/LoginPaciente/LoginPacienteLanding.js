@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import {View,
         Text,
         SafeAreaView,
-        StatusBar,
         TouchableOpacity} from 'react-native'
 
 import Styles, {TextStyle} from './Styles'
+import colors from '../../Utils/colors'
 
 function LoginPacienteLanding({ navigation }){
 
@@ -18,7 +18,7 @@ function LoginPacienteLanding({ navigation }){
     }
 
     return(
-        <SafeAreaView>
+        <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
             <View style={ Styles.MainContainer }>
 
                 <View>
