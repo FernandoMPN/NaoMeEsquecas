@@ -29,7 +29,7 @@ function AddNewDateModal({ addNewCallback, exit }){
 
     return(
         <TouchableOpacity activeOpacity={1} onPress={exit} style={ ModalStyle.Container }>
-            <View style={ ModalStyle.MainArea }>
+            <TouchableOpacity activeOpacity={1} style={ ModalStyle.MainArea }>
                 <Text>
                     <Text style={ TextStyle.modalHeader }>Selecione</Text>
                     <Text style={ TextStyle.modalHeaderBold }> um dia da semana e um horário </Text>
@@ -66,7 +66,7 @@ function AddNewDateModal({ addNewCallback, exit }){
                     <Text style={ TextStyle.buttonTextSemiBold }>Adicionar</Text>
                 </TouchableOpacity>
 
-            </View>
+            </TouchableOpacity>
         </TouchableOpacity>
     )
 
@@ -76,12 +76,23 @@ function UserFreeTimeStage({ userFreetimeCallback, next }){
 
     const [userHours, setNewHour] = useState([])
     const [isModalVisible, setModalVisibility] = useState(false)
+    const [addMoreDisabled, disableAddMore] = useState(false)
 
     const removeIcon = require('../../Assets/Icons/remove/remove.png')
     const isButtonDisabled = userHours.length === 0
 
     const changeModalVisibility = () => {
         setModalVisibility(!isModalVisible)
+    }
+
+    const checkAddMore = (itemsAdded) => {
+        
+        if(itemsAdded === 6){
+            disableAddMore(true)
+        }else{
+            disableAddMore(false)
+        }
+
     }
 
     const addNewItem = (item) => {
@@ -104,12 +115,19 @@ function UserFreeTimeStage({ userFreetimeCallback, next }){
         if(isTherePrev)
             return
 
-        setNewHour(prev => prev.concat(item))
+        setNewHour(prev => {
+            checkAddMore(prev.length + 1)
+            return prev.concat(item)
+        })
+        
 
     }
 
     const removeItem = (itemID) => {
-        setNewHour(prev => prev.filter(item => item.id !== itemID))
+        setNewHour(prev => {
+            checkAddMore(prev.length - 1)
+            return prev.filter(item => item.id !== itemID)
+        })
     }
 
     const HourItem = ({date}) => {
@@ -142,18 +160,17 @@ function UserFreeTimeStage({ userFreetimeCallback, next }){
 
                 <Text style={ TextStyle.header }>Agora, precisamos saber quais são os horários que você prefere ser atendido</Text>
 
-                <TouchableOpacity activeOpacity={0.8} onPress={changeModalVisibility}>
-                    <View style={ Styles.addNewButton }>
+                <TouchableOpacity activeOpacity={0.8} disabled={addMoreDisabled} onPress={changeModalVisibility}>
+                    <View style={ [Styles.addNewButton, addMoreDisabled? {backgroundColor: "gray"}:null]}>
                         <Text style={ TextStyle.buttonText }>Adicionar novo horário</Text>
 
                         <View style={ Styles.addNewIcon }/>
-
                     </View>
                 </TouchableOpacity>
 
                 <View style={ Styles.itensContainer }>
                     <ScrollView style={{width: "100%"}}>
-                        {userHours.reverse().map(date => <HourItem key={date.day + "#" + date.time} date={date}/>)}
+                        {userHours.map(date => <HourItem key={date.day + "#" + date.time} date={date}/>)}
                     </ScrollView>
                 </View>
 
