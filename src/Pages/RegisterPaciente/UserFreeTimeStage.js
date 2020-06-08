@@ -2,75 +2,15 @@ import React, { useState } from 'react'
 import {View,
         Text,
         SafeAreaView,
-        StatusBar,
         TouchableOpacity,
         Image,
         Modal,
-        ScrollView,} from 'react-native'
-import {Picker} from '@react-native-community/picker'
+        ScrollView} from 'react-native'
 
-import Styles, {TextStyle, ModalStyle} from './Styles'
-import {dayOfWeek, hours, getTextDate} from './RegisterPaciente'
+import Styles, {TextStyle} from './Styles'
+import {getTextDate} from './RegisterPaciente'
 
-function AddNewDateModal({ addNewCallback, exit }){
-
-    const [currentDay, setDay] = useState('none')
-    const [currentHour, setHour] = useState('none')
-    
-    const isButtonDisabled = currentDay === 'none' || currentHour === 'none'
-
-    const returnSelectedDate = () => {
-        addNewCallback({
-            id: Date.now(),
-            day: currentDay,
-            time: currentHour
-        })
-    }
-
-    return(
-        <TouchableOpacity activeOpacity={1} onPress={exit} style={ ModalStyle.Container }>
-            <TouchableOpacity activeOpacity={1} style={ ModalStyle.MainArea }>
-                <Text>
-                    <Text style={ TextStyle.modalHeader }>Selecione</Text>
-                    <Text style={ TextStyle.modalHeaderBold }> um dia da semana e um horário </Text>
-                    <Text style={ TextStyle.modalHeader }>que você tem disponível</Text>
-                </Text>
-
-                <Text style={ TextStyle.textMargin }>As consultas tem duração de 1 hora</Text>
-    
-                <View style={ ModalStyle.pickerArea }>
-
-                    <Picker
-                        selectedValue={currentDay}
-                        onValueChange={(itemValue, itemIndex) => setDay(itemValue)}
-                    >
-                        <Picker.Item label="Selecione o dia" value="none" />
-
-                        {dayOfWeek.map((item, index) =>  <Picker.Item key={item} label={item} value={index} />)}
-                    
-                    </Picker>
-
-                    <Picker
-                        selectedValue={currentHour}
-                        onValueChange={(itemValue, itemIndex) => setHour(itemValue)}
-                    >
-                        <Picker.Item label="Selecione o horário" value="none" />
-
-                        {hours.map((item, index) =>  <Picker.Item key={item+"h"} label={item + "h"} value={item} />)}
-                    
-                    </Picker>
-
-                </View>
-
-                <TouchableOpacity onPress={returnSelectedDate} disabled={isButtonDisabled} style={ [Styles.button, isButtonDisabled? {backgroundColor:"gray"}:null] }>
-                    <Text style={ TextStyle.buttonTextSemiBold }>Adicionar</Text>
-                </TouchableOpacity>
-
-            </TouchableOpacity>
-        </TouchableOpacity>
-    )
-
-}
+import AddNewDateModal from '../../Components/AddNewDateModal/AddNewDateModal'
 
 function UserFreeTimeStage({ userFreetimeCallback, next }){
 
@@ -79,6 +19,7 @@ function UserFreeTimeStage({ userFreetimeCallback, next }){
     const [addMoreDisabled, disableAddMore] = useState(false)
 
     const removeIcon = require('../../Assets/Icons/remove/remove.png')
+    const addNewIcon = require('../../Assets/Icons/addnew/addnew.png')
     const isButtonDisabled = userHours.length === 0
 
     const changeModalVisibility = () => {
@@ -164,7 +105,9 @@ function UserFreeTimeStage({ userFreetimeCallback, next }){
                     <View style={ [Styles.addNewButton, addMoreDisabled? {backgroundColor: "gray"}:null]}>
                         <Text style={ TextStyle.buttonText }>Adicionar novo horário</Text>
 
-                        <View style={ Styles.addNewIcon }/>
+                        <View style={ Styles.addNewIcon }>
+                            <Image source={addNewIcon}/>
+                        </View>
                     </View>
                 </TouchableOpacity>
 

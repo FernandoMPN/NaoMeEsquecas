@@ -7,31 +7,6 @@ const fontSize = Dimensions.get('window').fontScale
 
 const Styles = StyleSheet.create({
 
-    MainContainer: {
-        width,
-        height,
-        paddingVertical: 50,
-        paddingHorizontal: 30,
-        backgroundColor: colors.backgroundColor
-    },
-
-    ButtonsArea: {
-        width: '100%',
-        height: height / 1.9,
-        alignItems: 'center',
-        justifyContent: 'space-evenly'
-    },
-
-    largeButton: {
-        width: 240,
-        height: 65,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: colors.button,
-        borderRadius: 6,
-        padding: 10
-    },
-
     button:{
         width: 200,
         height: 42,
@@ -41,92 +16,6 @@ const Styles = StyleSheet.create({
         borderRadius: 6,
         padding: 10,
         alignSelf: 'center'
-    },
-
-    textInput: {
-        width: 250,
-        height: 40,
-        borderBottomColor: colors.textInput,
-        borderBottomWidth: 1,
-        paddingBottom: -10,
-        marginVertical: 25
-    },
-
-    checkButton:{
-        width: '80%',
-        height: 40,
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginVertical: 15,
-    },
-
-    checkButtonPicker: {
-        width: 40,
-        height: 40,
-        borderRadius: 100,
-        borderWidth: 1,
-        borderColor: '#041639',
-        marginRight: 8
-    },
-
-    checkTextArea:{
-        width: 142
-    },
-
-    addNewButton:{
-        width: '100%',
-        maxWidth: 340,
-        height: 50,
-        backgroundColor: colors.button,
-        borderRadius: 100,
-        padding: 12,
-        justifyContent: 'space-between',
-        flexDirection: 'row'
-    },
-
-    itensContainer:{
-        width: '100%',
-        height: height / 1.9,
-        paddingVertical: 10,
-        alignItems: 'center',
-    },
-
-    addNewIcon:{
-        width: 49,
-        height: 49,
-        borderRadius: 100,
-        backgroundColor: colors.dateItems,
-        borderWidth: 1,
-        borderColor: colors.button,
-        marginTop: -12,
-        marginRight: -12,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-
-    hourItem:{
-        width: '100%',
-        maxWidth: 340,
-        height: 50,
-        backgroundColor: colors.dateItems,
-        borderRadius: 4,
-        padding: 12,
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-        marginVertical: 5
-    },
-
-    reviewContainer:{
-        width: '100%',
-        height: height / 1.9,
-        paddingHorizontal: 40,
-        justifyContent: 'space-evenly'
-    },
-
-    completeContainer:{
-        width: '100%',
-        height: height / 1.9,
-        justifyContent: 'space-evenly'
     }
 
 
