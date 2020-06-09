@@ -168,6 +168,8 @@ const DiretrizesPages=({nomeDoPsicologo,next})=>{
 }
 
 const ComfirmacaoPage=({name,email,crp,horarios,sexo,next})=>{
+
+    
     return(
         <View style={Styles.MainContainer}>
             <Text style={TextStyle.header}>Seja bem-vindo</Text>
@@ -240,14 +242,11 @@ function CadastroPsico({navigation}) {
             preferenciaHorario:psicoFreeTime,
             sexo
         }
-        console.log(data)
         axios.post('https://naoesquecasback.herokuapp.com/psicos',data)
             .then(response=>{
-                console.log(response.status)
                 setLoadingVisibilty(false)
                 changePage()
             }).catch(error=>{
-                console.log(error)
                 setLoadingVisibilty(false)
                 Alert.alert('Algo deu errado', 'Por favor, tente enviar novamente. Caso o erro persista, entre em contato conosco.')
             })
@@ -321,7 +320,6 @@ function CadastroPsico({navigation}) {
                 setCadastroStatus(ESTADO.CONFIRMACAO)
                 break
             case ESTADO.CONFIRMACAO:
-                handleSubmit()
                 setCadastroStatus(ESTADO.ENCERRAR)
                 break
             case ESTADO.ENCERRAR:    
@@ -343,7 +341,7 @@ function CadastroPsico({navigation}) {
             case ESTADO.DIRETRIZES:
                 return <DiretrizesPages nomeDoPsicologo={name} next={changePage}/>
             case ESTADO.CONFIRMACAO:
-                return <ComfirmacaoPage name={name} email={email} sexo={sexo} crp={codPsico} horarios={psicoFreeTime} next={changePage}/>
+                return <ComfirmacaoPage name={name} email={email} sexo={sexo} crp={codPsico} horarios={psicoFreeTime} next={handleSubmit}/>
             case ESTADO.ENCERRAR:
                 return <FimDoCadastro name={name} next={changePage}/>
             default:

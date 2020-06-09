@@ -14,8 +14,8 @@ const Styles=StyleSheet.create({
         justifyContent:'center'
     },
     checkButton:{
-        width:width/13,
-        height:height/20,
+        width:40,
+        height:40,
         margin:5,
         backgroundColor: colors.checkButton,
         borderRadius:20,
@@ -35,7 +35,7 @@ const Styles=StyleSheet.create({
         alignSelf:'center',
     },
     buttonView:{
-        height:height/3,
+        height:height/4,
         flexDirection:'column-reverse'
     }
 })
