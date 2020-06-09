@@ -5,19 +5,39 @@ import { Text,
     ScrollView,
     TextInput,
     SafeAreaView,
-    StatusBar,
+    Alert,
     BackHandler } from 'react-native'
 import {termoDeAdesao,diretrizes} from '../../Utils/texts'
 import Styles,{TextStyle} from '../RegisterPaciente/Styles'
-import StyleProprio from './Styles'
+import StyleProprio from './styles'
 import PsicoFreeTime from './PsicoFreeTime'
 import {getTextDate} from '../RegisterPaciente/RegisterPaciente'
+import Loading from '../../Components/Loading/Loading'
 import colors from '../../Utils/colors'
+import axios from 'axios'
 
 
 const InformacoesPessoal=({name,setName,email,setEmail,codPsico,setCodPsico,next})=>{
     const handleNext=()=>{
-        if(name!=='' && email!=='' && codPsico !=='')
+        if(name===''){
+            Alert.alert('Campo vazio!', 'Por favor, nos diga qual é seu nome.')
+            return
+        }
+            
+        if(email===''){
+            Alert.alert('Campo vazio!', 'Por favor, nos diga qual é seu email.')
+            return
+        }
+        if(!email.includes('@')){
+            Alert.alert('Campo incorreto!', 'Por favor, informe um e-mail válido.')
+            return
+        }
+            
+        if(codPsico ===''){
+            Alert.alert('Campo vazio!', 'Por favor, nos diga qual é seu CFP.')
+            return
+        }
+           
             next()
     }
 
@@ -57,6 +77,42 @@ const InformacoesPessoal=({name,setName,email,setEmail,codPsico,setCodPsico,next
         
         </SafeAreaView>
     ) 
+}
+
+const SelectSexoPage=({name,sexoVariable,setSexo,next})=>{
+    const [sexo,changeSexo]=useState(sexoVariable)
+   
+    const handleNext=()=>{
+            if(sexo==0){
+                Alert.alert('Campo vazio!', 'Por favor, selecione uma das alternativas.')
+                return
+            }
+            setSexo(sexo)
+            next()
+                
+    }
+    return(
+        <View style={Styles.MainContainer}>
+            <Text style={TextStyle.header}>Seja  bem-vindo</Text>
+            <Text style={TextStyle.info}>Agora nos diga{name}, <Text style={TextStyle.infoBold}>seu sexo para podermos agendar as consultas da forma mais confortavel possivel</Text>.</Text>
+            <View style={StyleProprio.confirmView}>
+                <View style={StyleProprio.checkButtonView}>
+                    <TouchableOpacity style={[StyleProprio.checkButton,sexo==1?StyleProprio.checkedButton:'']} onPress={()=>changeSexo(1)}></TouchableOpacity>
+                    <Text>Masculino</Text>
+                </View>
+                <View style={StyleProprio.checkButtonView}>
+                    <TouchableOpacity style={[StyleProprio.checkButton,sexo==2?StyleProprio.checkedButton:'']} onPress={()=>changeSexo(2)}></TouchableOpacity>
+                    <Text>Feminino </Text>
+                </View>
+            </View>
+            <View style={StyleProprio.buttonView}>
+                <TouchableOpacity style={[Styles.largeButton,{alignSelf:'center'}]} onPress={()=>handleNext()}>
+                    <Text style={TextStyle.buttonTextSemiBold}>Proximo</Text>
+                </TouchableOpacity>
+            </View>
+        </View>
+
+    )
 }
 
 const TermoPage=({nomeDoPsicologo,next})=>{
@@ -111,7 +167,7 @@ const DiretrizesPages=({nomeDoPsicologo,next})=>{
     )
 }
 
-const ComfirmacaoPage=({name,email,crp,horarios,next})=>{
+const ComfirmacaoPage=({name,email,crp,horarios,sexo,next})=>{
     return(
         <View style={Styles.MainContainer}>
             <Text style={TextStyle.header}>Seja bem-vindo</Text>
@@ -121,6 +177,8 @@ const ComfirmacaoPage=({name,email,crp,horarios,next})=>{
                 <Text style={TextStyle.infoContent}>{name}</Text>
                 <Text style={TextStyle.infoTitle}>Email:</Text>
                 <Text style={TextStyle.infoContent}>{email}</Text>
+                <Text style={TextStyle.infoTitle}>Sexo:</Text>
+                <Text style={TextStyle.infoContent}>{sexo===1?'Masculino':'Feminino'}</Text>
                 <Text style={TextStyle.infoTitle}>CRP:</Text>
                 <Text style={TextStyle.infoContent}>{crp}</Text>
                 <Text style={TextStyle.infoTitle}>Horários diponíveis:</Text>
@@ -157,25 +215,54 @@ function CadastroPsico({navigation}) {
 
     const ESTADO={
         DADOSPESSOAIS:1,
-        HORARIOS:2,
-        TERMODEADESAO:3,
-        DIRETRIZES:4,
-        CONFIRMACAO:5,
-        ENCERRAR:6
+        SELECTSEXO:2,
+        HORARIOS:3,
+        TERMODEADESAO:4,
+        DIRETRIZES:5,
+        CONFIRMACAO:6,
+        ENCERRAR:7
     }
 
     const [cadastroStatus,setCadastroStatus]=useState(ESTADO.DADOSPESSOAIS)
     const [name,setName]=useState('')
     const [email,setEmail]=useState('')
     const [codPsico,setCodPsico]=useState('')
+    const [sexo,setSexo]=useState(0)
     const [psicoFreeTime,setPsicoFreeTime]=useState([])
+    const [isLoading, setLoadingVisibilty] = useState(false)
+    
+    const handleSubmit=()=>{
+        setLoadingVisibilty(true)
+        const data={
+            name,
+            email,
+            cfp:codPsico,
+            preferenciaHorario:psicoFreeTime,
+            sexo
+        }
+        console.log(data)
+        axios.post('https://naoesquecasback.herokuapp.com/psicos',data)
+            .then(response=>{
+                console.log(response.status)
+                setLoadingVisibilty(false)
+                changePage()
+            }).catch(error=>{
+                console.log(error)
+                setLoadingVisibilty(false)
+                Alert.alert('Algo deu errado', 'Por favor, tente enviar novamente. Caso o erro persista, entre em contato conosco.')
+            })
+    }
+
     const backHandle=()=>{
         switch(cadastroStatus){
             case ESTADO.DADOSPESSOAIS:
                 navigation.goBack()
                 break
-            case ESTADO.HORARIOS:
+            case ESTADO.SELECTSEXO:
                 setCadastroStatus(ESTADO.DADOSPESSOAIS)
+                break
+            case ESTADO.HORARIOS:
+                setCadastroStatus(ESTADO.SELECTSEXO)
                 break
             case ESTADO.TERMODEADESAO:
                 setCadastroStatus(ESTADO.HORARIOS)
@@ -187,7 +274,7 @@ function CadastroPsico({navigation}) {
                 setCadastroStatus(ESTADO.DIRETRIZES)
                 break
             case ESTADO.ENCERRAR:    
-                setCadastroStatus(ESTADO.CONFIRMACAO)
+                navigation.navigate('Home')
                 break
             default:
                 throw new Error('Undefined stage at Register screen (switchView)')
@@ -219,6 +306,9 @@ function CadastroPsico({navigation}) {
     const changePage=()=>{
         switch(cadastroStatus){
             case ESTADO.DADOSPESSOAIS:
+                setCadastroStatus(ESTADO.SELECTSEXO)
+                break
+            case ESTADO.SELECTSEXO:
                 setCadastroStatus(ESTADO.HORARIOS)
                 break
             case ESTADO.HORARIOS:
@@ -231,6 +321,7 @@ function CadastroPsico({navigation}) {
                 setCadastroStatus(ESTADO.CONFIRMACAO)
                 break
             case ESTADO.CONFIRMACAO:
+                handleSubmit()
                 setCadastroStatus(ESTADO.ENCERRAR)
                 break
             case ESTADO.ENCERRAR:    
@@ -243,6 +334,8 @@ function CadastroPsico({navigation}) {
         switch(cadastroStatus){
             case ESTADO.DADOSPESSOAIS:
                 return <InformacoesPessoal name={name} setName={handleName} email={email} setEmail={handleEmail} codPsico={codPsico} setCodPsico={handleCodPsico} next={changePage}/>
+            case ESTADO.SELECTSEXO:
+                return <SelectSexoPage name={name} sexoVariable={sexo} setSexo={setSexo} next={changePage}/>
             case ESTADO.HORARIOS:
                 return <PsicoFreeTime psicoFreetimeCallback={setPsicoFreeTime} next={changePage}/>
             case ESTADO.TERMODEADESAO:
@@ -250,7 +343,7 @@ function CadastroPsico({navigation}) {
             case ESTADO.DIRETRIZES:
                 return <DiretrizesPages nomeDoPsicologo={name} next={changePage}/>
             case ESTADO.CONFIRMACAO:
-                return <ComfirmacaoPage name={name} email={email} crp={codPsico} horarios={psicoFreeTime} next={changePage}/>
+                return <ComfirmacaoPage name={name} email={email} sexo={sexo} crp={codPsico} horarios={psicoFreeTime} next={changePage}/>
             case ESTADO.ENCERRAR:
                 return <FimDoCadastro name={name} next={changePage}/>
             default:
@@ -260,6 +353,7 @@ function CadastroPsico({navigation}) {
     return(
         <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
             {pages()}
+            {isLoading?<Loading/>:null}
         </SafeAreaView>
     )
 }

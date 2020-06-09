@@ -5,7 +5,7 @@ import {Text,
     TouchableOpacity,
     SafeAreaView} from 'react-native'
 
-import Styles from './Styles'
+import Styles from './styles'
 import colors from '../../Utils/colors'
 
 function LoginPsico({navigation}){
