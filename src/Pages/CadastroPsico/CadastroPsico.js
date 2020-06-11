@@ -14,7 +14,7 @@ import PsicoFreeTime from './PsicoFreeTime'
 import {getTextDate} from '../RegisterPaciente/RegisterPaciente'
 import Loading from '../../Components/Loading/Loading'
 import colors from '../../Utils/colors'
-import axios from 'axios'
+import Request from '../../Utils/Requests'
 
 
 const InformacoesPessoal=({name,setName,email,setEmail,codPsico,setCodPsico,next})=>{
@@ -235,14 +235,9 @@ function CadastroPsico({navigation}) {
     
     const handleSubmit=()=>{
         setLoadingVisibilty(true)
-        const data={
-            name,
-            email,
-            cfp:codPsico,
-            preferenciaHorario:psicoFreeTime,
-            sexo
-        }
-        axios.post('https://naoesquecasback.herokuapp.com/psicos',data)
+        
+        const request = new Request()
+        request.cadastroDePsicologo(name,email,codPsico,psicoFreeTime,sexo)
             .then(response=>{
                 setLoadingVisibilty(false)
                 changePage()
