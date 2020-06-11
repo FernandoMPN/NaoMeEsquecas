@@ -1,9 +1,14 @@
 import React from 'react'
 import { TextInput, View, Text, TouchableOpacity } from 'react-native'
+import axios from 'axios'
 
 import Styles, { TextStyles } from './Styles'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import colors from '../../Utils/colors'
+
+async function handleSendFeedback(feedback) {
+    
+}
 
 function Feedback() {
     const [value, onChangeText] = React.useState('')
@@ -25,7 +30,10 @@ function Feedback() {
                     textAlignVertical='top'
                     maxLength={300}
                 />
-                <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate()} style={ Styles.button }>
+                <TouchableOpacity activeOpacity={0.8} onPress={() => {
+                    handleSendFeedback(value)
+                    onChangeText('')
+                    }} style={ Styles.button }>
                     <Text style={ TextStyles.button }>Enviar feedback</Text>
                 </TouchableOpacity>
             </View>

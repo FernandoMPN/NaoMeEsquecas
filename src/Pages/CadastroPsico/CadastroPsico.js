@@ -9,7 +9,7 @@ import { Text,
     BackHandler } from 'react-native'
 import {termoDeAdesao,diretrizes} from '../../Utils/texts'
 import Styles,{TextStyle} from '../RegisterPaciente/Styles'
-import StyleProprio from './styles'
+import StyleProprio from './Styles'
 import PsicoFreeTime from './PsicoFreeTime'
 import {getTextDate} from '../RegisterPaciente/RegisterPaciente'
 import Loading from '../../Components/Loading/Loading'

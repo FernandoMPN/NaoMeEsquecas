@@ -1,6 +1,8 @@
 import { createStore, combineReducers } from 'redux'
 
-const Reducer = combineReducers({})
+import loginReducer from './Ducks/auth'
+
+const Reducer = combineReducers({loginReducer})
 
 const Store = createStore(Reducer)
 
