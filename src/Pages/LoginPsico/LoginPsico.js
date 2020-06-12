@@ -3,31 +3,41 @@ import {Text,
     View,
     TextInput,
     TouchableOpacity,
-    SafeAreaView} from 'react-native'
+    SafeAreaView,
+    Alert} from 'react-native'
 
 import Styles from './Styles'
 import colors from '../../Utils/colors'
-import Request from '../../Utils/Requests'
+import Requests from '../../Utils/Requests'
 
 function LoginPsico({navigation}){
 
-    const [numPsico, setNumPsico]=useState('')
+    const [email, setEmail]=useState('')
     const [codAcesso,setCodAcesso]=useState('')
-    const [test,setTest]=useState('')
-    const handleNumPsico=(value)=>{
-        setNumPsico(value)
+    
+    const handleEmailPsico=(value)=>{
+        setEmail(value)
     }
 
     const handleCodAcesso=(value)=>{
         setCodAcesso(value)
     }
 
-    const handleSubmit=()=>{
-        if(numPsico!==''&&codAcesso!==''){
-            const request= new Request()
-            request.loginDePsicologo(numPsico,codAcesso)
+    const handleSubmit= async ()=>{
+        if(email!==''&&codAcesso!==''){
+            const request= new Requests()
+            request.loginDePsicologo(email,codAcesso)
+            .then((response)=>{
+                Alert.alert('response',response)
+            })
+            .catch(error=>{Alert.alert('response',error)})
+            //Alert.alert('response',response)
+            // if(response!==erro)
+            //     navigation.navigate('MainPage')
+            // else
+            //     Alert.alert('Algo deu errado.','Verifique se seu código e email estão corretos.')
         }else{
-            setTest('preencha os campos corretamente')
+            Alert.alert('Algo deu errado.','Preencha todos os campos.')
         }
     }
 
@@ -35,8 +45,8 @@ function LoginPsico({navigation}){
         <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
             <View style={Styles.mainView}>
                 <Text style={Styles.Title}>Entrar como profissional da saúde</Text>
-                <TextInput style={Styles.LoginInput} value={numPsico} onChangeText={text=>handleNumPsico(text)} placeholder={'Número do CRP'}/>
-                <TextInput style={Styles.LoginInput} value={codAcesso} onChangeText={text=>handleCodAcesso(text)} placeholder={'Código de acesso'}/>
+                <TextInput  style={Styles.LoginInput} value={email} onChangeText={text=>handleEmailPsico(text)} placeholder={'Email'}/>
+                <TextInput secureTextEntry={true} style={Styles.LoginInput} value={codAcesso} onChangeText={text=>handleCodAcesso(text)} placeholder={'Código de acesso'}/>
                 <TouchableOpacity onPress={()=>handleSubmit()} style={Styles.LoginButton}>
                     <Text style={Styles.textButton}>Entrar</Text>
                 </TouchableOpacity>
@@ -44,7 +54,6 @@ function LoginPsico({navigation}){
                 <TouchableOpacity onPress={() => navigation.navigate('CadastroPsico')}>
                     <Text style={Styles.cadastro}>Cadastre-se agora</Text>
                 </TouchableOpacity>
-                <Text>{test}</Text>
             </View>
         </SafeAreaView>
     )
