@@ -7,6 +7,7 @@ import {Text,
 
 import Styles from './Styles'
 import colors from '../../Utils/colors'
+import Request from '../../Utils/Requests'
 
 function LoginPsico({navigation}){
 
@@ -23,7 +24,8 @@ function LoginPsico({navigation}){
 
     const handleSubmit=()=>{
         if(numPsico!==''&&codAcesso!==''){
-            setTest('botao clicado')
+            const request= new Request()
+            request.loginDePsicologo(numPsico,codAcesso)
         }else{
             setTest('preencha os campos corretamente')
         }
