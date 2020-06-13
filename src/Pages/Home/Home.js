@@ -8,8 +8,7 @@ import colors from '../../Utils/colors'
 const logo = require('../../Assets/Images/logoHome/logo-home.png')
 const formas = require('../../Assets/Images/formas.png')
 
-function Home({ navigation }) {
-    
+function Home({ navigation }) {    
     const [visible, setVisibility] = useState(false)
     
     return(
