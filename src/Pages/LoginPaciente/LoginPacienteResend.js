@@ -74,6 +74,7 @@ function LoginPacienteResend({navigation}){
                     <TextInput
                         style={ Styles.textInput }
                         placeholder='E-mail'
+                        autoCapitalize="none"
                         onChangeText={(text) => setEmail(text)}
                         value={email}/>
 
