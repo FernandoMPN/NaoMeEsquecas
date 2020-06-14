@@ -11,6 +11,7 @@ import { logoutAction } from '../../Store/Ducks/auth'
 
 export function Termos({ setVisibility }) {
     return(
+        <SafeAreaView>
         <View style={ Styles.modal }>
             <ScrollView>
                 <Text style={ TextStyles.longText }>{termoDeAdesao}</Text>                    
@@ -19,6 +20,7 @@ export function Termos({ setVisibility }) {
                 <Text style={ TextStyles.button }>Voltar</Text>
             </TouchableOpacity>
         </View>
+        </SafeAreaView>
     )
 }
 
