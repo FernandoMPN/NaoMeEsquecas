@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Home from '../Pages/Home/Home'
 import LoginPsico from '../Pages/LoginPsico/LoginPsico'
+import LoginPsicoResend from '../Pages/LoginPsico/LoginPsicoResend'
 import LoginPaciente from '../Pages/LoginPaciente/LoginPaciente'
 import LoginPacienteLanding from '../Pages/LoginPaciente/LoginPacienteLanding';
 import LoginPacienteError from '../Pages/LoginPaciente/LoginPacienteError';
@@ -24,7 +25,9 @@ function Stack() {
             <StackNav.Screen name="Home" component={ Home } />
 
             <StackNav.Screen name="LoginPsico" component={ LoginPsico } />
+            <StackNav.Screen name="LoginPsicoResend" component={ LoginPsicoResend } />
             <StackNav.Screen name="CadastroPsico" component={ CadastroPsico } />
+
             <StackNav.Screen name="LoginPacienteLanding" component={ LoginPacienteLanding } />
             <StackNav.Screen name="LoginPaciente" component={ LoginPaciente } />
             <StackNav.Screen name="LoginPacienteError" component={ LoginPacienteError } />
