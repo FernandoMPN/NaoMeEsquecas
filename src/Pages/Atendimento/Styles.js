@@ -100,6 +100,13 @@ export const TextStyles = StyleSheet.create({
         fontFamily: 'Montserrat-SemiBold',
         color: colors.buttonText 
     },
+    noAppointmentsSubtitle: {
+        fontSize: fontSize * 20,
+        fontFamily: 'Montserrat',
+        color: colors.text,
+        textAlign: 'center',
+        marginTop: 10
+    },
 })
 
 export default Styles

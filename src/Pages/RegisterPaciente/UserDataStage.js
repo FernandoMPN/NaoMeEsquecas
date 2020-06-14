@@ -58,6 +58,7 @@ function UserDataStage({ username, setUsername, email, setEmail, next }){
                         <TextInput
                             style={ Styles.textInput }
                             placeholder='Email'
+                            autoCapitalize="none"
                             onChangeText={(text) => setEmail(text)}
                             value={email}/>
 

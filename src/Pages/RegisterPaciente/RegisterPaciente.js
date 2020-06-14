@@ -11,6 +11,7 @@ import ReviewStage from './ReviewStage'
 import Loading from '../../Components/Loading/Loading'
 import axios from 'axios'
 import colors from '../../Utils/colors'
+import Requests from '../../Utils/Requests'
 
 const RegisterStages = {
     UserData: 1,
@@ -61,7 +62,7 @@ function RegisterPaciente({ navigation }){
                 setStage(RegisterStages.UserFreeTime)
                 break
             case RegisterStages.Complete:
-                navigation.navigate('Home')
+                navigation.navigate('LoginPaciente')
                 break
             default:
                 throw new Error('Undefined stage at Register screen (switchView)')
@@ -100,22 +101,18 @@ function RegisterPaciente({ navigation }){
 
         setLoadingVisibilty(true)
 
-        const userData = {
-            name: username,
-            email: email,
-            perfil: userType,
-            preferenciaAtendimento: getUserPreferenceCode(),
-            preferenciaHorario: userFreetime
-        }
-
-        axios.post('https://naoesquecasback.herokuapp.com/pacientes', userData)
+        Requests.cadastroDePaciente(username, email, userType, getUserPreferenceCode(), userFreetime)
             .then(response => {
                 setLoadingVisibilty(false)
                 switchView()
             })
-            .catch(error => {
+            .catch(error =>  {
                 setLoadingVisibilty(false)
-                Alert.alert('Algo deu errado', 'Por favor, tente enviar novamente. Caso o erro persista, entre em contato conosco.')
+                
+                if(error.response.data.status)
+                    Alert.alert(error.response.data.status)
+                else
+                    Alert.alert('Algo deu errado', 'Por favor, tente enviar novamente. Caso o erro persista, entre em contato conosco.')
             })
 
     }
@@ -139,7 +136,7 @@ function RegisterPaciente({ navigation }){
                 setStage(RegisterStages.Complete)
                 return
             case RegisterStages.Complete:
-                navigation.navigate('MainPage')
+                navigation.navigate('LoginPaciente')
                 return
             default:
                 throw new Error('Undefined stage at Register screen (switchView)')
@@ -169,10 +166,12 @@ function RegisterPaciente({ navigation }){
     }
 
     return(
-        <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
-            {getView()}
+        <>
+            <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
+                {getView()}
+            </SafeAreaView>
             {isLoading? <Loading/>:null}
-        </SafeAreaView>
+        </>
     )
 
 }

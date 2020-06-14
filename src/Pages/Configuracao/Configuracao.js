@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
-import { Text, View, TouchableOpacity, Modal, ScrollView } from 'react-native'
+import { Text, View, TouchableOpacity, Modal, ScrollView, Alert } from 'react-native'
 
 import Styles, { TextStyles } from './Styles'
 import { termoDeAdesao } from '../../Utils/texts'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import colors from '../../Utils/colors'
+
+import { useDispatch } from 'react-redux'
+import { logoutAction } from '../../Store/Ducks/auth'
 
 export function Termos({ setVisibility }) {
     return(
@@ -48,6 +51,26 @@ export function About() {
 
 function Configuracao({ navigation }) {
     const [visible, setVisibility] = useState(false)
+    const dispatch = useDispatch()
+
+    const logout = () => {
+
+        Alert.alert('Tem certeza que deseja sair do app?', 'Você retornará ao início', [
+            {
+                text: 'Sair',
+                style: 'positive',
+                onPress: () => {
+                    dispatch(logoutAction())
+                    navigation.navigate('Home')
+                }
+            },
+            {
+                text: 'Cancelar',
+                style: 'cancel'
+            },
+        ])
+
+    }
 
     return(
         <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
@@ -61,7 +84,7 @@ function Configuracao({ navigation }) {
                         <Text style={ TextStyles.terms }>Termos Legais</Text>
                     </TouchableOpacity>
                     <About />
-                    <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Home')} style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+                    <TouchableOpacity activeOpacity={0.8} onPress={logout} style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
                         <Text style={ TextStyles.logout }>Sair do App</Text>
                     </TouchableOpacity>
                 </View>

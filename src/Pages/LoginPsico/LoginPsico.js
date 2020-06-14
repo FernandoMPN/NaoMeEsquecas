@@ -8,54 +8,86 @@ import {Text,
 
 import Styles from './Styles'
 import colors from '../../Utils/colors'
+
 import Requests from '../../Utils/Requests'
+
+import { useDispatch } from 'react-redux'
+import { loginAction } from '../../Store/Ducks/auth'
+import Loading from '../../Components/Loading/Loading'
+
 
 function LoginPsico({navigation}){
 
     const [email, setEmail]=useState('')
     const [codAcesso,setCodAcesso]=useState('')
-    
-    const handleEmailPsico=(value)=>{
-        setEmail(value)
-    }
 
-    const handleCodAcesso=(value)=>{
-        setCodAcesso(value)
-    }
+    const [isLoading, setLoadingStatus] = useState(false)
 
-    const handleSubmit= async ()=>{
+    const dispatch = useDispatch()
+
+    const handleSubmit = async () => {
+
         if(email!==''&&codAcesso!==''){
-            const request= new Requests()
-            request.loginDePsicologo(email,codAcesso)
-            .then((response)=>{
-                Alert.alert('response',response)
-            })
-            .catch(error=>{Alert.alert('response',error)})
-            //Alert.alert('response',response)
-            // if(response!==erro)
-            //     navigation.navigate('MainPage')
-            // else
-            //     Alert.alert('Algo deu errado.','Verifique se seu código e email estão corretos.')
-        }else{
+
+            setLoadingStatus(true)
+            
+            Requests.loginDePsicologo(email,codAcesso)
+                .then(response => {
+            
+                    setLoadingStatus(false)
+                    dispatch(loginAction(response.data.token, 'Psicologo', response.data.name, response.data.id))
+                    
+                    navigation.navigate('MainPage')
+
+                })
+                .catch(error => {
+
+                    console.log(error)
+                    setLoadingStatus(false)
+
+                    if(error.response.data.status)
+                        Alert.alert(error.response.data.status)
+                    else
+                        Alert.alert('Algo deu errado', 'Por favor, tente novamente. Caso o erro persista, entre em contato com o suporte.')
+
+                })
+
+        } else{
             Alert.alert('Algo deu errado.','Preencha todos os campos.')
         }
+
     }
 
     return(
+        <>
         <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
             <View style={Styles.mainView}>
                 <Text style={Styles.Title}>Entrar como profissional da saúde</Text>
-                <TextInput  style={Styles.LoginInput} value={email} onChangeText={text=>handleEmailPsico(text)} placeholder={'Email'}/>
-                <TextInput secureTextEntry={true} style={Styles.LoginInput} value={codAcesso} onChangeText={text=>handleCodAcesso(text)} placeholder={'Código de acesso'}/>
+
+                <TextInput  style={Styles.LoginInput} autoCapitalize="none" value={email} onChangeText={text=>setEmail(text)} placeholder={'Email'}/>
+                <TextInput style={Styles.LoginInput} autoCapitalize="none" maxLength={6} value={codAcesso} onChangeText={text=>setCodAcesso(text)} placeholder={'Código de acesso'}/>
+                
                 <TouchableOpacity onPress={()=>handleSubmit()} style={Styles.LoginButton}>
                     <Text style={Styles.textButton}>Entrar</Text>
                 </TouchableOpacity>
-                    <Text>Ainda não possui um cadastro com a gente?</Text>
+
+
+                <Text>Ainda não possui um cadastro com a gente?</Text>
+
                 <TouchableOpacity onPress={() => navigation.navigate('CadastroPsico')}>
                     <Text style={Styles.cadastro}>Cadastre-se agora</Text>
                 </TouchableOpacity>
+
+                <Text style={{marginTop: 20}}>Esqueceu seu código de acesso?</Text>
+                
+                <TouchableOpacity onPress={() => navigation.navigate('LoginPsicoResend')}>
+                    <Text style={Styles.cadastro}>Toque aqui</Text>
+                </TouchableOpacity>
+
             </View>
         </SafeAreaView>
+        {isLoading? <Loading/>:null}
+        </>
     )
 }
 export default LoginPsico

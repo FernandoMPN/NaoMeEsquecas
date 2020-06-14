@@ -50,7 +50,7 @@ const Styles = StyleSheet.create({
         borderBottomColor: colors.textInput,
         borderBottomWidth: 1,
         paddingBottom: -10,
-        marginVertical: 25
+        marginVertical: 10
     },
 
 

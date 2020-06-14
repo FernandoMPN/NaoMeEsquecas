@@ -235,15 +235,19 @@ function CadastroPsico({navigation}) {
     
     const handleSubmit=()=>{
         setLoadingVisibilty(true)
-        
-        const request = new Request()
-        request.cadastroDePsicologo(name,email,codPsico,psicoFreeTime,sexo)
+    
+        Request.cadastroDePsicologo(name,email,codPsico,psicoFreeTime,sexo)
             .then(response=>{
                 setLoadingVisibilty(false)
                 changePage()
             }).catch(error=>{
                 setLoadingVisibilty(false)
-                Alert.alert('Algo deu errado', 'Por favor, tente enviar novamente. Caso o erro persista, entre em contato conosco.')
+
+                if(!error.response.data)
+                    Alert.alert('Algo deu errado', 'Por favor, tente enviar novamente. Caso o erro persista, entre em contato conosco.')
+                else
+                    Alert.alert(error.response.data.status)
+                    
             })
     }
 
