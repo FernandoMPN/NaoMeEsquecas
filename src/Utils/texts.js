@@ -14,7 +14,7 @@ export const diretrizes='DIRETRIZES DO PROJETO ESCUTA \n'+
 '● É vedado induzir o atendimento à convicções políticas, filosóficas, morais, ideológicas, religiosas, de orientação sexual e/ou propagar qualquer tipo de preconceito; a utilização dos atendimentos para fins político-partidários ou eleitorais, bem como instrumento de publicidade para captação de clientela;\n'+
 '● É expressamente proibido o uso de técnicas terapêuticas não regulamentadas ou reconhecidas pelo CFP e que não são previstas como prática psicológica tais como regressão, aplicação de testes psicológicos não oficiais e práticas que envolvam fé ou misticismo (astrologia, tarô, terapia de vidas passadas etc);\n'+
 '● É expressamente proibido o compartilhamento de informações sigilosas referentes ao atendimento como áudios, imagens, documentos e dados capazes de identificar as pessoas assistidas;\n'+
-'● Caso haja qualquer alteração dos seus dados cadastrais como telefone, endereço e disponibilidade etc ou queira se descadastrar do projeto, o/a psicólogo/a deve informar à equipe do Instituto Não Me Esqueças pelo email p.escuta@gmail.com.'
+'● Caso haja qualquer alteração dos seus dados cadastrais como telefone, endereço e disponibilidade etc ou queira se descadastrar do projeto, o/a psicólogo/a deve informar à equipe do Instituto Não Me Esqueças pelo email p.psiconecte@gmail.com'
 
 
 export const termoDeAdesao='TERMO DE ADESÃO  AO  VOLUNTARIADO \n'+
