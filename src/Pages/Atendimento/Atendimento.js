@@ -1,13 +1,27 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View, TouchableOpacity } from 'react-native'
+import { Text, View, TouchableOpacity, SafeAreaView, ActivityIndicator } from 'react-native'
 
 import Styles, { TextStyles } from './Styles'
 import Countdown from '../../Utils/Countdown'
-import { SafeAreaView } from 'react-native-safe-area-context'
 import colors from '../../Utils/colors'
 
+import { useSelector } from 'react-redux'
+
+const AtendimentoStage = {
+
+    Carregando: 1,
+    SemAgendamento: 2,
+    ProximoAgendamento: 3,
+    LinkDisponivel: 4
+
+}
 
 function Atendimento({ navigation }) {
+
+    const user = useSelector(state => state.loginReducer.user)
+    const [currentStage, setStage] = useState(AtendimentoStage.SemAgendamento)
+
+
     Countdown.setLabels(
         ' milissegundo| segundo| minuto| hora| dia| semana| mês| ano| década| século| milênio',
         ' milissegundos| segundos| minutos| horas| dias| semanas| meses| anos| décadas| séculos| milênios',
@@ -15,7 +29,7 @@ function Atendimento({ navigation }) {
         ' + ',
         'agora')
     
-    const name = 'Fulano'
+    const name = user.name
     const month = 5
     const day = 30
     const hour = 19
@@ -24,14 +38,60 @@ function Atendimento({ navigation }) {
     const date = new Date(2020, month - 1, day, hour, minute)
     const [timeLeft, setTimeLeft] = useState(Countdown(date, null, null, 2))
 
-    useEffect(() => {
-        setInterval(
-            () => setTimeLeft(Countdown(date, null, null, 2)),
-            1000
-        )}  ,
-        [setTimeLeft] )
+    // useEffect(() => {
+    //     setInterval(
+    //         () => setTimeLeft(Countdown(date, null, null, 2)),
+    //         1000
+    //     )}  ,
+    //     [setTimeLeft] )
 
-    if(timeLeft.minutes <= 30 && timeLeft.hours == 0 && timeLeft.days == 0) {
+    const Loading = () => {
+
+        return(
+            <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
+                <ActivityIndicator size="large" color={colors.statusBar}/>
+            </View>
+        )
+
+    }
+
+    const SemAgendamento = () => {
+
+        return(
+            <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
+                <View>
+                    <View style={ Styles.MainContainer }>
+                        <Text style={ TextStyles.name }>Olá {name.split(" ")[0]}!</Text>
+
+                        <View style={{height: "80%", justifyContent: "space-evenly"}}>
+
+                            <View style={ Styles.accesContainer }> 
+                                <Text style={ TextStyles.timeLeft }>
+                                    Você ainda não possui nenhuma consulta agendada.
+                                </Text>
+                            </View>
+
+
+                            <View style={ Styles.accesContainer }> 
+                                <Text style={ TextStyles.timeLeft }>
+                                Mas não se preocupe!
+                                </Text>
+                                <Text style={ TextStyles.noAppointmentsSubtitle }>
+                                Assim que nossa equipe agendar uma consulta para você, iremos enviar um e-mail avisando ;)
+                                </Text>
+                            </View>
+
+                        </View>
+
+                    </View>
+                </View>
+            </SafeAreaView>
+        )
+
+    }
+
+    const LinkDisponivel = () => {
+
         return(
             <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
                 <View>
@@ -50,10 +110,14 @@ function Atendimento({ navigation }) {
                             <Text style={ TextStyles.buttonAlt }>Entrar na sala</Text>
                         </TouchableOpacity>
                     </View>
-                </View>`
+                </View>
             </SafeAreaView>
         )
-    } else {
+
+    }
+
+    const ProximoAgendamento = () => {
+
         return(
             <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
                 <View style={ Styles.MainContainer }>
@@ -85,7 +149,28 @@ function Atendimento({ navigation }) {
                 </View>
             </SafeAreaView>
         ) 
+
     }
+
+
+    const getCurrentStage = () => {
+
+        if(currentStage === AtendimentoStage.Carregando)
+            return <Loading/>
+
+        if(currentStage === AtendimentoStage.SemAgendamento)
+            return <SemAgendamento/>
+    }
+
+
+    // if(timeLeft.minutes <= 30 && timeLeft.hours == 0 && timeLeft.days == 0) {
+        
+        
+    // } else {
+        
+    // }
+
+    return getCurrentStage()
 
 }
 export default Atendimento

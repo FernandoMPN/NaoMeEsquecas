@@ -1,8 +1,6 @@
 import axios from 'axios'
-import { useDispatch, useSelector } from 'react-redux'
 
-import { loginAction, logoutAction } from '../Store/Ducks/auth'
-
+import Store from '../Store/Store'
 
 const request = axios.create({
     baseURL: 'https://naoesquecasback.herokuapp.com',
@@ -10,8 +8,9 @@ const request = axios.create({
     timeoutErrorMessage: 'Tempo limite atingido'
 })
 
-export async function CadastroDePsicologo(name, email, cfp, preferenciaHorario, sexo) {
-    const response = await request({
+async function cadastroDePsicologo(name, email, cfp, preferenciaHorario, sexo) {
+
+    const response = request({
         method: 'post',
         url: '/psicos',
         data: {
@@ -24,12 +23,11 @@ export async function CadastroDePsicologo(name, email, cfp, preferenciaHorario, 
     }).then( response => { return response.data } )
     .catch( error => { console.log({error}); return {error: 'error'} })
 
-    console.log(response)
+    return response
 
 }
 
-export async function LoginDePsicologo(email, password) {
-    const dispatch = useDispatch()
+async function loginDePsicologo(email, password) {
 
     const response = await request({
         method: 'post',
@@ -38,33 +36,32 @@ export async function LoginDePsicologo(email, password) {
             email,
             password
         }
-    })  .then( response => { 
-            dispatch(loginAction(response.data.token, 'Psicologo', response.data.name, response.data.id))
-            return response.data
-        })
-        .catch( error => { return error })
+    }) 
 
-    console.log(response)
+    return response
+
 }
 
-export async function CadastroDePaciente(name, email, cfp, preferenciaHorario, sexo) {
-    const response = await request({
+async function cadastroDePaciente(name, email, perfil, preferenciaAtendimento, preferenciaHorario) {
+
+    const response = request({
         method: 'post',
         url: '/pacientes',
         data: {
             name,
             email,
-            cfp,
-            preferenciaHorario,
-            sexo
+            perfil,
+            preferenciaAtendimento,
+            preferenciaHorario
         }
-    }).then( response => { return response.data } )
-    .catch( error => { console.log({error}); return {error: 'error'} })
+    })
 
-    console.log(response)
+    return response
+
 }
 
-export async function LoginDePaciente(email, password) {
+async function loginDePaciente(email, password) {
+
     const response = await request({
         method: 'post',
         url: '/loginPacientes',
@@ -72,31 +69,26 @@ export async function LoginDePaciente(email, password) {
             email,
             password
         }
-    })  .then( response => { 
-            useDispatch(loginAction(response.data.token, 'Paciente', response.data.name, response.data.id))
-            return response.data
-        })
-        .catch( error => { return error })
+    })
 
-    console.log(response)
+    return response
 }
 
-export async function ReenviarCodigo(email) {
-    const state = useSelector(state => state)
+async function reenviarCodigo(email, type) {
 
-    const url = state.user.type == 'Psicologo' ? `/forgotPsico/${email}` : `/forgotPaciente/${email}`
+    const url = type == 'Psicologo' ? `/forgotPsico/${email}` : `/forgotPaciente/${email}`
 
     const response = await request({
         method: 'put',
         url
-    })  .then( response => { return response.data })
-        .catch( error => { return error })
+    })
 
-    console.log(response)
+    return response
+
 }
 
-export async function SendFeedback(conteudo) {
-    const state = useSelector(state => state)
+async function sendFeedback(conteudo) {
+    const state = Store.getState().loginReducer
     
     if(!state.isLogged)
         return
@@ -110,10 +102,18 @@ export async function SendFeedback(conteudo) {
         headers: {
             Authorization: `Bearer ${state.token}`
         }
-    })  .then( response => {
-            return response.data
-        })
-        .catch( error => { return error } )
+    })
 
-    console.log(response)
+    return response
+}
+
+export default Requests = {
+
+    cadastroDePsicologo,
+    loginDePsicologo,
+    cadastroDePaciente,
+    loginDePaciente,
+    reenviarCodigo,
+    sendFeedback
+
 }

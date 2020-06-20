@@ -93,8 +93,9 @@ const SelectSexoPage=({name,sexoVariable,setSexo,next})=>{
     }
     return(
         <View style={Styles.MainContainer}>
-            <Text style={TextStyle.header}>Seja  bem-vindo</Text>
-            <Text style={TextStyle.info}>Agora nos diga{name}, <Text style={TextStyle.infoBold}>seu sexo para podermos agendar as consultas da forma mais confortavel possivel</Text>.</Text>
+            <Text style={TextStyle.header}>Seja bem-vindo(a), {name}!</Text>
+            <Text style={TextStyle.info}>Primeiramente nos diga, <Text style={TextStyle.infoBold}>qual é o seu sexo?</Text></Text>
+
             <View style={StyleProprio.confirmView}>
                 <View style={StyleProprio.checkButtonView}>
                     <TouchableOpacity style={[StyleProprio.checkButton,sexo==1?StyleProprio.checkedButton:'']} onPress={()=>changeSexo(1)}></TouchableOpacity>
@@ -126,7 +127,7 @@ const TermoPage=({nomeDoPsicologo,next})=>{
             <Text style={TextStyle.header}>Termo de compromisso</Text>
             <Text style={TextStyle.info}>A seguir, temos nosso <Text style={TextStyle.infoBold}>termo de voluntariado</Text>. Leia-o com atenção.</Text>
             <ScrollView style={StyleProprio.styleScrollView}>
-                <Text>{termoDeAdesao}</Text>
+                <Text style={{padding: 10}}>{termoDeAdesao}</Text>
             </ScrollView>
             <View style={StyleProprio.checkButtonView}>
                 <TouchableOpacity style={[StyleProprio.checkButton,check?StyleProprio.checkedButton:'']} onPress={()=>setCheck(!check)}></TouchableOpacity>
@@ -151,10 +152,12 @@ const DiretrizesPages=({nomeDoPsicologo,next})=>{
         
         <View style={Styles.MainContainer}>
             <Text style={TextStyle.header}>Termo de compromisso</Text>
-            <Text style={ TextStyle.info }>Olá, {nomeDoPsicologo}!Essas são as diretrizes do projeto Não Me Esqueças.</Text>
-            <Text style={ TextStyle.infoBold }>Precisamos que você as leia com atenção.</Text>
+            <Text>
+            <Text style={ TextStyle.info }>Por fim, temoas as diretrizes do nosso projeto.</Text>
+            <Text style={ TextStyle.infoBold }> Precisamos que você as leia com atenção.</Text>
+            </Text>
             <ScrollView style={StyleProprio.styleScrollView}>
-                <Text>{diretrizes}</Text>
+                <Text style={{padding: 10}}>{diretrizes}</Text>
             </ScrollView>
             <View style={StyleProprio.checkButtonView}>
                 <TouchableOpacity style={[StyleProprio.checkButton,check?StyleProprio.checkedButton:'']} onPress={()=>setCheck(!check)}></TouchableOpacity>
@@ -172,7 +175,7 @@ const ComfirmacaoPage=({name,email,crp,horarios,sexo,next})=>{
     
     return(
         <View style={Styles.MainContainer}>
-            <Text style={TextStyle.header}>Seja bem-vindo</Text>
+            <Text style={TextStyle.header}>Seja bem-vindo(a)!</Text>
             <Text style={TextStyle.info}>Já estamos quase acabando! Agora, só precisamos que você <Text style={TextStyle.infoBold}>confirme seus dados</Text> abaixo.</Text>
             <View style={StyleProprio.confirmView}>
                 <Text style={TextStyle.infoTitle}>Nome:</Text>
@@ -191,7 +194,7 @@ const ComfirmacaoPage=({name,email,crp,horarios,sexo,next})=>{
                 </View>
             </View>
             <TouchableOpacity style={[Styles.largeButton,{alignSelf:'center'}]} onPress={()=>next()}>
-                <Text style={TextStyle.buttonTextSemiBold}>Proximo</Text>
+                <Text style={TextStyle.buttonTextSemiBold}>Confirmar</Text>
             </TouchableOpacity>
         </View>
     )
@@ -200,7 +203,7 @@ const ComfirmacaoPage=({name,email,crp,horarios,sexo,next})=>{
 const FimDoCadastro=({name,next})=>{
     return(
         <View style={Styles.MainContainer}>
-            <Text style={TextStyle.header}>{name}, obrigado se dispor a ajudar aos outros!</Text>
+            <Text style={TextStyle.header}>{name}, obrigado por se dispor a ajudar aos outros!</Text>
             <Text style={[TextStyle.info,]}>
                 Seu perfil será analisado e, assim que for aprovado, você receberá um email confirmando seu cadastro em nosso projeto!
             </Text>
@@ -235,15 +238,19 @@ function CadastroPsico({navigation}) {
     
     const handleSubmit=()=>{
         setLoadingVisibilty(true)
-        
-        const request = new Request()
-        request.cadastroDePsicologo(name,email,codPsico,psicoFreeTime,sexo)
+    
+        Request.cadastroDePsicologo(name,email,codPsico,psicoFreeTime,sexo)
             .then(response=>{
                 setLoadingVisibilty(false)
                 changePage()
             }).catch(error=>{
                 setLoadingVisibilty(false)
-                Alert.alert('Algo deu errado', 'Por favor, tente enviar novamente. Caso o erro persista, entre em contato conosco.')
+
+                if(!error.response.data)
+                    Alert.alert('Algo deu errado', 'Por favor, tente enviar novamente. Caso o erro persista, entre em contato conosco.')
+                else
+                    Alert.alert(error.response.data.status)
+                    
             })
     }
 
