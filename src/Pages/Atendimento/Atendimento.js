@@ -7,6 +7,8 @@ import colors from '../../Utils/colors'
 
 import { useSelector } from 'react-redux'
 
+import axios from 'axios'
+
 const AtendimentoStage = {
 
     Carregando: 1,
@@ -44,6 +46,10 @@ function Atendimento({ navigation }) {
     //         1000
     //     )}  ,
     //     [setTimeLeft] )
+
+    useEffect(()=>{
+        
+    })
 
     const Loading = () => {
 
@@ -154,12 +160,19 @@ function Atendimento({ navigation }) {
 
 
     const getCurrentStage = () => {
-
-        if(currentStage === AtendimentoStage.Carregando)
-            return <Loading/>
-
-        if(currentStage === AtendimentoStage.SemAgendamento)
-            return <SemAgendamento/>
+        switch(currentStage){
+            case AtendimentoStage.Carregando:
+                return <Loading/>
+            case AtendimentoStage.SemAgendamento:
+                return <SemAgendamento/>
+            case AtendimentoStage.LinkDisponivel:
+                return <LinkDisponivel/>
+            case AtendimentoStage.ProximoAgendamento:
+                return <ProximoAgendamento/>
+            default :
+                return <Text>Algo deu errado</Text>
+        }
+        
     }
 
 
