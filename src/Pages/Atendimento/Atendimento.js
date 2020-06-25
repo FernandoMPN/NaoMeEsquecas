@@ -86,8 +86,11 @@ function Atendimento({ navigation }) {
                                 Assim que nossa equipe agendar uma consulta para você, iremos enviar um e-mail avisando ;)
                                 </Text>
                             </View>
-
+                            <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Remark')} style={ Styles.button }>
+                                <Text style={ TextStyles.button }>Deseja remarcar a consulta?</Text>
+                            </TouchableOpacity>
                         </View>
+                        
 
                     </View>
                 </View>
