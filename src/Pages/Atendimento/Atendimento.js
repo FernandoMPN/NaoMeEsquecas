@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Text, View, TouchableOpacity, SafeAreaView, ActivityIndicator } from 'react-native'
+import { useSelector } from 'react-redux'
 
 import Styles, { TextStyles } from './Styles'
 import Countdown from '../../Utils/Countdown'
 import colors from '../../Utils/colors'
-
-import { useSelector } from 'react-redux'
+import Requests from '../../Utils/Requests'
 
 import axios from 'axios'
 
@@ -21,8 +21,30 @@ const AtendimentoStage = {
 function Atendimento({ navigation }) {
 
     const user = useSelector(state => state.loginReducer.user)
-    const [currentStage, setStage] = useState(AtendimentoStage.SemAgendamento)
+    const [currentStage, setStage] = useState(AtendimentoStage.Carregando)
+    const consulta = {
+        id: '',
+        link: '',
+        data: (new Date()).toISOString()
+    }
 
+    Requests.receberProximaConsulta()
+        .then(response => {
+            if(response.data == null) {
+                setStage(Atendimento.SemAgendamento)
+            } else {
+                consulta.id = response.data.id,
+                consulta.data = response.data.horario,
+                consulta.link = user.type === 'Psicologo' ? response.data.linkHost : response.data.link
+                setStage(ProximoAgendamento)
+            }
+        })
+        .catch(error =>  {                
+            if(error.response.data.status)
+                Alert.alert(error.response.data.status)
+            else
+                Alert.alert('Algo deu errado', 'Por favor, tente enviar novamente. Caso o erro persista, entre em contato conosco.')
+        })
 
     Countdown.setLabels(
         ' milissegundo| segundo| minuto| hora| dia| semana| mês| ano| década| século| milênio',
@@ -32,25 +54,18 @@ function Atendimento({ navigation }) {
         'agora')
     
     const name = user.name
-    const month = 5
-    const day = 30
-    const hour = 19
-    const minute = 0
+    const [timeLeft, setTimeLeft] = useState(Countdown(consulta.data, null, null, 2))
 
-    const date = new Date(2020, month - 1, day, hour, minute)
-    const [timeLeft, setTimeLeft] = useState(Countdown(date, null, null, 2))
-
-    // useEffect(() => {
-    //     setInterval(
-    //         () => setTimeLeft(Countdown(date, null, null, 2)),
-    //         1000
-    //     )}  ,
-    //     [setTimeLeft] )
-
-    useEffect(()=>{
+    useEffect(() => {
+        setInterval(
+            () => setTimeLeft(Countdown(consulta.data, null, null, 2)),
+                1000
+        )},
+    [setTimeLeft] )
+    
+    if(timeLeft.minutes <= 30 && timeLeft.hours == 0 && timeLeft.days == 0 && consulta.id != '') 
+        setStage(Atendimento.LinkDisponivel)
         
-    })
-
     const Loading = () => {
 
         return(
@@ -87,7 +102,7 @@ function Atendimento({ navigation }) {
                                 </Text>
                             </View>
                             <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Remark')} style={ Styles.button }>
-                                <Text style={ TextStyles.button }>Deseja remarcar a consulta?</Text>
+                                <Text style={ TextStyles.button }>Deseja mudar os horários de preferência?</Text>
                             </TouchableOpacity>
                         </View>
                         
@@ -177,14 +192,6 @@ function Atendimento({ navigation }) {
         }
         
     }
-
-
-    // if(timeLeft.minutes <= 30 && timeLeft.hours == 0 && timeLeft.days == 0) {
-        
-        
-    // } else {
-        
-    // }
 
     return getCurrentStage()
 

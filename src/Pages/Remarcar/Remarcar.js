@@ -9,8 +9,8 @@ import {View,
 
 import Styles, {TextStyle} from './Styles'
 import {getTextDate} from '../RegisterPaciente/RegisterPaciente'
-
 import AddNewDateModal from '../../Components/AddNewDateModal/AddNewDateModal'
+import Requests from '../../Utils/Requests'
 
 function Remarcar({ navigation }){
 
@@ -88,7 +88,16 @@ function Remarcar({ navigation }){
 
     const setHours = () => {
         console.log(userHours)
-        navigation.navigate('MainPage')
+        Requests.atualizarPreferenciaHorario(userHours)
+            .then(response => {
+                navigation.navigate('MainPage')
+            })
+            .catch(error =>  {                
+                if(error.response.data.status)
+                    Alert.alert(error.response.data.status)
+                else
+                    Alert.alert('Algo deu errado', 'Por favor, tente enviar novamente. Caso o erro persista, entre em contato conosco.')
+            })
     }
 
     return(

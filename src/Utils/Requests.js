@@ -87,7 +87,7 @@ async function reenviarCodigo(email, type) {
 
 }
 
-async function sendFeedback(conteudo) {
+async function enviarFeedback(conteudo) {
     const state = Store.getState().loginReducer
     
     if(!state.isLogged)
@@ -107,6 +107,47 @@ async function sendFeedback(conteudo) {
     return response
 }
 
+async function atualizarPreferenciaHorario(preferenciaHorario) {
+    const state = Store.getState().loginReducer
+    
+    if(!state.isLogged)
+        return
+
+    const url = state.user.type == ('Psicologo' ? '/psicos/horario/' : '/pacientes/horario/') + state.user.id
+
+    const response = await request({
+        method: 'put',
+        url,
+        data: {
+            preferenciaHorario
+        },
+        headers: {
+            Authorization: `Bearer ${state.token}`
+        }
+    })
+
+    return response
+}
+
+async function receberProximaConsulta() {
+    const state = Store.getState().loginReducer
+    
+    if(!state.isLogged)
+        return
+
+    const url = state.user.type == ('Psicologo' ? '/conversasPsico/' : '/conversasPaciente/') + state.user.id + '?efetuada=false'
+
+    const response = await request({
+        method: 'get',
+        url,
+        headers: {
+            Authorization: `Bearer ${state.token}`
+        }
+    })
+
+    return response
+}
+
 export default Requests = {
 
     cadastroDePsicologo,
@@ -114,6 +155,8 @@ export default Requests = {
     cadastroDePaciente,
     loginDePaciente,
     reenviarCodigo,
-    sendFeedback
+    enviarFeedback,
+    atualizarPreferenciaHorario,
+    receberProximaConsulta
 
 }

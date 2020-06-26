@@ -25,7 +25,7 @@ function Feedback() {
 
         setLoadingStatus(true)
 
-        Requests.sendFeedback(value)
+        Requests.enviarFeedback(value)
             .then(response => {
 
                 setLoadingStatus(false)
