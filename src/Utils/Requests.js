@@ -135,7 +135,7 @@ async function receberProximaConsulta() {
     if(!state.isLogged)
         return
 
-    const url = state.user.type == ('Psicologo' ? '/conversasPsico/' : '/conversasPaciente/') + state.user.id + '?efetuada=false'
+    const url = (state.user.type == 'Psicologo' ? '/conversasPsico/' : '/conversasPaciente/') + state.user.id + '?efetuada=false'
 
     const response = await request({
         method: 'get',

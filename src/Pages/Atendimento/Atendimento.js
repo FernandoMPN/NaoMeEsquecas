@@ -22,21 +22,29 @@ function Atendimento({ navigation }) {
 
     const user = useSelector(state => state.loginReducer.user)
     const [currentStage, setStage] = useState(AtendimentoStage.Carregando)
-    const consulta = {
+    const [requestDone, setRequestDone] = useState(false)
+
+    const [consulta, setConsulta] = useState({
         id: '',
         link: '',
         data: (new Date()).toISOString()
-    }
+    })
 
-    Requests.receberProximaConsulta()
+    if(!requestDone) {
+        Requests.receberProximaConsulta()
         .then(response => {
             if(response.data == null) {
-                setStage(Atendimento.SemAgendamento)
+                setStage(AtendimentoStage.SemAgendamento)
+                console.log(response.data)
             } else {
-                consulta.id = response.data.id,
-                consulta.data = response.data.horario,
-                consulta.link = user.type === 'Psicologo' ? response.data.linkHost : response.data.link
-                setStage(ProximoAgendamento)
+                setConsulta({
+                    id: response.data.id,
+                    data: response.data.horario,
+                    link: user.type === 'Psicologo' ? response.data.linkHost : response.data.link
+                })
+                console.log({consulta})
+                setStage(AtendimentoStage.ProximoAgendamento)
+                console.log({currentStage})
             }
         })
         .catch(error =>  {                
@@ -45,6 +53,9 @@ function Atendimento({ navigation }) {
             else
                 Alert.alert('Algo deu errado', 'Por favor, tente enviar novamente. Caso o erro persista, entre em contato conosco.')
         })
+
+        setRequestDone(true)
+    }
 
     Countdown.setLabels(
         ' milissegundo| segundo| minuto| hora| dia| semana| mês| ano| década| século| milênio',
@@ -55,17 +66,23 @@ function Atendimento({ navigation }) {
     
     const name = user.name
     const [timeLeft, setTimeLeft] = useState(Countdown(consulta.data, null, null, 2))
-
-    useEffect(() => {
-        setInterval(
-            () => setTimeLeft(Countdown(consulta.data, null, null, 2)),
-                1000
-        )},
-    [setTimeLeft] )
     
-    if(timeLeft.minutes <= 30 && timeLeft.hours == 0 && timeLeft.days == 0 && consulta.id != '') 
-        setStage(Atendimento.LinkDisponivel)
+    if(consulta.link != '') {
+
+        useEffect(() => {
+            setInterval(
+                () => setTimeLeft(Countdown(consulta.data, null, null, 2)),
+                    1000
+            )},
+        [setTimeLeft] )
+
+        console.log(timeLeft)
         
+        if(timeLeft.minutes <= 30 && timeLeft.hours == 0 && timeLeft.days == 0 && consulta.id != '' & currentStage != AtendimentoStage.LinkDisponivel) 
+            setStage(AtendimentoStage.LinkDisponivel)
+            
+    }
+
     const Loading = () => {
 
         return(
@@ -141,6 +158,7 @@ function Atendimento({ navigation }) {
     }
 
     const ProximoAgendamento = () => {
+        let finalDate = new Date(consulta.data)
 
         return(
             <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
@@ -153,11 +171,11 @@ function Atendimento({ navigation }) {
                     <View style={ Styles.dateContainer }>
                         <Text>
                             <Text style={ TextStyles.onDate }>no dia </Text>
-                            <Text style={ TextStyles.date }>{`${day < 10 ? '0' + day : day}/${month < 10 ? '0' + month : month}`}</Text>
+                            <Text style={ TextStyles.date }>{`${finalDate.getDate() < 10 ? '0' + finalDate.getDate() : finalDate.getDate()}/${finalDate.getMonth() < 10 ? '0' + finalDate.getMonth() : finalDate.getMonth()}`}</Text>
                         </Text>
                         <Text>
                             <Text style={ TextStyles.onDate }>às </Text>
-                            <Text style={ TextStyles.date }>{`${hour} horas`}</Text>
+                            <Text style={ TextStyles.date }>{`${finalDate.getHours()} horas`}</Text>
                         </Text>
                     </View>
                     <View style={ Styles.informationContainer }>
