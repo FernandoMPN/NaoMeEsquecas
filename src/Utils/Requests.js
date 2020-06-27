@@ -113,7 +113,8 @@ async function atualizarPreferenciaHorario(preferenciaHorario) {
     if(!state.isLogged)
         return
 
-    const url = state.user.type == ('Psicologo' ? '/psicos/horario/' : '/pacientes/horario/') + state.user.id
+    const url = (state.user.type == 'Psicologo' ? '/psicos/horario/' : '/pacientes/horario/') + state.user.id
+
 
     const response = await request({
         method: 'put',

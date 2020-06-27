@@ -5,7 +5,8 @@ import {View,
         TouchableOpacity,
         Image,
         Modal,
-        ScrollView} from 'react-native'
+        ScrollView,
+        Alert } from 'react-native'
 
 import Styles, {TextStyle} from './Styles'
 import {getTextDate} from '../RegisterPaciente/RegisterPaciente'

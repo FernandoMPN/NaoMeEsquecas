@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Text, View, TouchableOpacity, SafeAreaView, ActivityIndicator } from 'react-native'
 import { useSelector } from 'react-redux'
 
@@ -22,29 +22,38 @@ function Atendimento({ navigation }) {
 
     const user = useSelector(state => state.loginReducer.user)
     const [currentStage, setStage] = useState(AtendimentoStage.Carregando)
-    const [requestDone, setRequestDone] = useState(false)
+    const [activateTimer, setTimerState] = useState(false)
 
     const [consulta, setConsulta] = useState({
         id: '',
         link: '',
-        data: (new Date()).toISOString()
+        data: new Date('2050-07-02T14:00:00.000Z')
     })
 
-    if(!requestDone) {
+    useEffect(() => {
+
         Requests.receberProximaConsulta()
         .then(response => {
             if(response.data == null) {
                 setStage(AtendimentoStage.SemAgendamento)
                 console.log(response.data)
             } else {
+
+                const date = new Date(response.data.horario)
+
+
                 setConsulta({
                     id: response.data.id,
-                    data: response.data.horario,
+                    data: date,
                     link: user.type === 'Psicologo' ? response.data.linkHost : response.data.link
                 })
                 console.log({consulta})
+                setTimeLeft(Countdown(new Date(consulta.data), null, null, 2))
                 setStage(AtendimentoStage.ProximoAgendamento)
                 console.log({currentStage})
+                setTimerState(true)
+
+
             }
         })
         .catch(error =>  {                
@@ -53,9 +62,7 @@ function Atendimento({ navigation }) {
             else
                 Alert.alert('Algo deu errado', 'Por favor, tente enviar novamente. Caso o erro persista, entre em contato conosco.')
         })
-
-        setRequestDone(true)
-    }
+    }, [])
 
     Countdown.setLabels(
         ' milissegundo| segundo| minuto| hora| dia| semana| mês| ano| década| século| milênio',
@@ -66,23 +73,20 @@ function Atendimento({ navigation }) {
     
     const name = user.name
     const [timeLeft, setTimeLeft] = useState(Countdown(consulta.data, null, null, 2))
-    
-    if(consulta.link != '') {
 
-        useEffect(() => {
-            setInterval(
-                () => setTimeLeft(Countdown(consulta.data, null, null, 2)),
-                    1000
-            )},
-        [setTimeLeft] )
 
-        console.log(timeLeft)
+
+    useEffect(() => {
         
-        if(timeLeft.minutes <= 30 && timeLeft.hours == 0 && timeLeft.days == 0 && consulta.id != '' & currentStage != AtendimentoStage.LinkDisponivel) 
-            setStage(AtendimentoStage.LinkDisponivel)
+        if(activateTimer){
+            setInterval( 
+                () => setTimeLeft(Countdown(consulta.data, null, null, 2)),
+                1000
+            )
+        }
+    }, [activateTimer, consulta, timeLeft] )
             
-    }
-
+    
     const Loading = () => {
 
         return(
@@ -119,7 +123,7 @@ function Atendimento({ navigation }) {
                                 </Text>
                             </View>
                             <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Remark')} style={ Styles.button }>
-                                <Text style={ TextStyles.button }>Deseja mudar os horários de preferência?</Text>
+                                <Text style={ TextStyles.button }>Deseja mudar os horários?</Text>
                             </TouchableOpacity>
                         </View>
                         
@@ -163,7 +167,7 @@ function Atendimento({ navigation }) {
         return(
             <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
                 <View style={ Styles.MainContainer }>
-                    <Text style={ TextStyles.name }>{`${name},`}</Text>
+                    <Text style={ TextStyles.name }>{name},</Text>
                     <Text style={ TextStyles.nextConsult }>sua próxima consulta será em</Text>
                     <View style={ Styles.timerContainer }>
                         <Text style={ TextStyles.timeLeft }>{`${timeLeft}`}</Text>
@@ -171,11 +175,11 @@ function Atendimento({ navigation }) {
                     <View style={ Styles.dateContainer }>
                         <Text>
                             <Text style={ TextStyles.onDate }>no dia </Text>
-                            <Text style={ TextStyles.date }>{`${finalDate.getDate() < 10 ? '0' + finalDate.getDate() : finalDate.getDate()}/${finalDate.getMonth() < 10 ? '0' + finalDate.getMonth() : finalDate.getMonth()}`}</Text>
+                            <Text style={ TextStyles.date }>{`${consulta.data.getDate() < 10 ? '0' + consulta.data.getDate() : consulta.data.getDate()}/${new Number(consulta.data.getMonth()+1) < 10 ? '0' + Number(consulta.data.getMonth()+1) : Number(consulta.data.getMonth()+1)}`}</Text>
                         </Text>
                         <Text>
                             <Text style={ TextStyles.onDate }>às </Text>
-                            <Text style={ TextStyles.date }>{`${finalDate.getHours()} horas`}</Text>
+                            <Text style={ TextStyles.date }>{`${new Number(consulta.data.getHours()-3)} horas`}</Text>
                         </Text>
                     </View>
                     <View style={ Styles.informationContainer }>
