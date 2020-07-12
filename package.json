@@ -10,6 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.11.0",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-community/picker": "^1.5.1",
     "@react-navigation/bottom-tabs": "^5.4.7",
@@ -24,6 +25,7 @@
     "react-native-safe-area-context": "^1.0.2",
     "react-native-screens": "^2.7.0",
     "react-redux": "^7.2.0",
+    "react-timer-hook": "^2.0.2",
     "redux": "^4.0.5",
     "redux-flipper": "^1.2.0"
   },
