@@ -48,9 +48,9 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* NaoMeEsquecasTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NaoMeEsquecasTests.m; sourceTree = "<group>"; };
 		089463C64B1D17B2E68F4549 /* Pods-NaoMeEsquecas-NaoMeEsquecasTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas-NaoMeEsquecasTests.debug.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas-NaoMeEsquecasTests/Pods-NaoMeEsquecas-NaoMeEsquecasTests.debug.xcconfig"; sourceTree = "<group>"; };
-		0A3027630DEA4ABDABD3BADB /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Bold.ttf"; path = "../src/Assets/Fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		0A3027630DEA4ABDABD3BADB /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Bold.ttf"; path = "../src/Assets/Fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		112E83B4F078D2E107DA7762 /* libPods-NaoMeEsquecas-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NaoMeEsquecas-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07F961A680F5B00A75B9A /* NaoMeEsquecas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaoMeEsquecas.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* PsiConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PsiConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = NaoMeEsquecas/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = NaoMeEsquecas/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -66,13 +66,13 @@
 		67483F3A6E425E5EE8E64F4A /* Pods-NaoMeEsquecas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas.debug.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas/Pods-NaoMeEsquecas.debug.xcconfig"; sourceTree = "<group>"; };
 		7048653E565B81C42F52EBBA /* libPods-NaoMeEsquecas-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NaoMeEsquecas-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78620D8B7DB6BB14276196BE /* Pods-NaoMeEsquecas-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas-tvOSTests/Pods-NaoMeEsquecas-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A1C842A7B7844CBF8C789839 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-SemiBold.ttf"; path = "../src/Assets/Fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		A1C842A7B7844CBF8C789839 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-SemiBold.ttf"; path = "../src/Assets/Fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		A58E0D8BB8EF6D67C53747B1 /* libPods-NaoMeEsquecas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NaoMeEsquecas.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF216FA335E14E97DCA98871 /* libPods-NaoMeEsquecas-NaoMeEsquecasTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NaoMeEsquecas-NaoMeEsquecasTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD0EFD926014719280749B18 /* Pods-NaoMeEsquecas-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaoMeEsquecas-tvOS.release.xcconfig"; path = "Target Support Files/Pods-NaoMeEsquecas-tvOS/Pods-NaoMeEsquecas-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F3235DF5992646F38D0E713E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Regular.ttf"; path = "../src/Assets/Fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		F3235DF5992646F38D0E713E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Regular.ttf"; path = "../src/Assets/Fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +150,6 @@
 				A1C842A7B7844CBF8C789839 /* Montserrat-SemiBold.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -178,7 +177,6 @@
 				78620D8B7DB6BB14276196BE /* Pods-NaoMeEsquecas-tvOSTests.debug.xcconfig */,
 				5D853B3828DDB2A5A9F8FEBC /* Pods-NaoMeEsquecas-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -208,7 +206,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* NaoMeEsquecas.app */,
+				13B07F961A680F5B00A75B9A /* PsiConnect.app */,
 				00E356EE1AD99517003FC87E /* NaoMeEsquecasTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* NaoMeEsquecas-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* NaoMeEsquecas-tvOSTests.xctest */,
@@ -255,7 +253,7 @@
 			);
 			name = NaoMeEsquecas;
 			productName = NaoMeEsquecas;
-			productReference = 13B07F961A680F5B00A75B9A /* NaoMeEsquecas.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* PsiConnect.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* NaoMeEsquecas-tvOS */ = {
@@ -310,6 +308,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = DWSK92BL6S;
 						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -651,6 +650,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DWSK92BL6S;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -664,7 +664,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = NaoMeEsquecas;
+				PRODUCT_NAME = PsiConnect;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -678,6 +678,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DWSK92BL6S;
 				INFOPLIST_FILE = NaoMeEsquecas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -685,8 +686,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = NaoMeEsquecas;
+				PRODUCT_BUNDLE_IDENTIFIER = com.naomeesquecas.escuta;
+				PRODUCT_NAME = PsiConnect;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
