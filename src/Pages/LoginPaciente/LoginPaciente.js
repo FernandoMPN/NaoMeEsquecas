@@ -13,6 +13,7 @@ import Requests from '../../Utils/Requests'
 
 import { useDispatch } from 'react-redux'
 import { loginAction } from '../../Store/Ducks/auth'
+import LocalStore from '../../Store/LocalStore'
 
 function LoginPaciente({ navigation }){
 
@@ -50,13 +51,18 @@ function LoginPaciente({ navigation }){
             .then(response => {
                 setLoadingStatus(false)
                 dispatch(loginAction(response.data.token, 'Paciente', response.data.name, response.data.id))
+
+                LocalStore.storeUserEmail(email)
+                LocalStore.storeUserID(usercode)
+                LocalStore.storeUserType('Paciente')
+                
                 navigation.navigate('MainPage')
             })
             .catch(error => {
 
                 setLoadingStatus(false)
 
-                if(error.response.data.status)
+                if(error.response.data.status !== undefined)
                     Alert.alert(error.response.data.status)
                 else
                     Alert.alert('Algo deu errado', 'Por favor, tente novamente. Caso o erro persista, entre em contato conosco')

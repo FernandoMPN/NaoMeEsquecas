@@ -1,3 +1,5 @@
+import LocalStore from '../LocalStore'
+
 export const Types = {
     LOGIN: 'auth/LOGIN',
     LOGOUT: 'auth/LOGOUT',
@@ -35,6 +37,7 @@ export default function loginReducer(state = initialState, action) {
   // Action Creators
   
 export function loginAction(token, userType, userName, userId) {
+
     return {
         type: Types.LOGIN,
         payload: {
@@ -47,6 +50,10 @@ export function loginAction(token, userType, userName, userId) {
 }
 
 export function logoutAction() {
+
+    LocalStore.storeUserID(null)
+    LocalStore.storeUserType(null)
+
     return {
         type: Types.LOGOUT
     }

@@ -14,6 +14,7 @@ import Requests from '../../Utils/Requests'
 import { useDispatch } from 'react-redux'
 import { loginAction } from '../../Store/Ducks/auth'
 import Loading from '../../Components/Loading/Loading'
+import LocalStore from '../../Store/LocalStore'
 
 
 function LoginPsico({navigation}){
@@ -36,6 +37,10 @@ function LoginPsico({navigation}){
             
                     setLoadingStatus(false)
                     dispatch(loginAction(response.data.token, 'Psicologo', response.data.name, response.data.id))
+
+                    LocalStore.storeUserEmail(email)
+                    LocalStore.storeUserID(codAcesso)
+                    LocalStore.storeUserType('Psicologo')
                     
                     navigation.navigate('MainPage')
 

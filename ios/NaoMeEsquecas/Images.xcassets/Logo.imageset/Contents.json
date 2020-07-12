@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "FLOR BRANCO SEM FUNDO.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "FLOR BRANCO SEM FUNDO-1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "FLOR BRANCO SEM FUNDO-2.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

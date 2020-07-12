@@ -22,7 +22,7 @@ const RegisterStages = {
     Complete: 6
 }
 
-export const dayOfWeek = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
+export const dayOfWeek = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
 export const hours = [8,9,10,11,12,13,14,15,16,17,18,19]
 
 export const getTextDate = (day, time) => {
@@ -108,6 +108,8 @@ function RegisterPaciente({ navigation }){
             })
             .catch(error =>  {
                 setLoadingVisibilty(false)
+
+                console.log(error.response)
                 
                 if(error.response.data.status)
                     Alert.alert(error.response.data.status)

@@ -1,13 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useTimer } from 'react-timer-hook'
 import { Text, View, TouchableOpacity, SafeAreaView, ActivityIndicator } from 'react-native'
 import { useSelector } from 'react-redux'
 
 import Styles, { TextStyles } from './Styles'
-import Countdown from '../../Utils/Countdown'
 import colors from '../../Utils/colors'
 import Requests from '../../Utils/Requests'
-
-import axios from 'axios'
 
 const AtendimentoStage = {
 
@@ -20,9 +18,25 @@ const AtendimentoStage = {
 
 function Atendimento({ navigation }) {
 
+    const time = new Date();
+    time.setSeconds(time.getSeconds() + 10000000);
+
     const user = useSelector(state => state.loginReducer.user)
+    const name = user.name
     const [currentStage, setStage] = useState(AtendimentoStage.Carregando)
-    const [activateTimer, setTimerState] = useState(false)
+
+    const {
+        seconds,
+        minutes,
+        hours,
+        days,
+        isRunning,
+        start,
+        pause,
+        resume,
+        restart,
+      } = useTimer({ expiryTimestamp:time, onExpire: () => console.warn('onExpire called') });
+    
 
     const [consulta, setConsulta] = useState({
         id: '',
@@ -34,25 +48,23 @@ function Atendimento({ navigation }) {
 
         Requests.receberProximaConsulta()
         .then(response => {
+            console.log(response.data)
             if(response.data == null) {
                 setStage(AtendimentoStage.SemAgendamento)
-                console.log(response.data)
             } else {
 
                 const date = new Date(response.data.horario)
-
-
                 setConsulta({
                     id: response.data.id,
                     data: date,
                     link: user.type === 'Psicologo' ? response.data.linkHost : response.data.link
                 })
-                console.log({consulta})
-                setTimeLeft(Countdown(new Date(consulta.data), null, null, 2))
-                setStage(AtendimentoStage.ProximoAgendamento)
-                console.log({currentStage})
-                setTimerState(true)
 
+                console.log(date + "ms")
+
+                restart(date)
+
+                setStage(AtendimentoStage.ProximoAgendamento)
 
             }
         })
@@ -62,30 +74,7 @@ function Atendimento({ navigation }) {
             else
                 Alert.alert('Algo deu errado', 'Por favor, tente enviar novamente. Caso o erro persista, entre em contato conosco.')
         })
-    }, [])
-
-    Countdown.setLabels(
-        ' milissegundo| segundo| minuto| hora| dia| semana| mês| ano| década| século| milênio',
-        ' milissegundos| segundos| minutos| horas| dias| semanas| meses| anos| décadas| séculos| milênios',
-        ' e ',
-        ' + ',
-        'agora')
-    
-    const name = user.name
-    const [timeLeft, setTimeLeft] = useState(Countdown(consulta.data, null, null, 2))
-
-
-
-    useEffect(() => {
-        
-        if(activateTimer){
-            setInterval( 
-                () => setTimeLeft(Countdown(consulta.data, null, null, 2)),
-                1000
-            )
-        }
-    }, [activateTimer, consulta, timeLeft] )
-            
+    }, [])            
     
     const Loading = () => {
 
@@ -162,15 +151,15 @@ function Atendimento({ navigation }) {
     }
 
     const ProximoAgendamento = () => {
-        let finalDate = new Date(consulta.data)
 
         return(
             <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
+                <View>
                 <View style={ Styles.MainContainer }>
                     <Text style={ TextStyles.name }>{name},</Text>
                     <Text style={ TextStyles.nextConsult }>sua próxima consulta será em</Text>
                     <View style={ Styles.timerContainer }>
-                        <Text style={ TextStyles.timeLeft }>{`${timeLeft}`}</Text>
+        <Text style={ TextStyles.timeLeft }>{days} dias {hours} horas {minutes} minutos</Text>
                     </View>
                     <View style={ Styles.dateContainer }>
                         <Text>
@@ -184,14 +173,19 @@ function Atendimento({ navigation }) {
                     </View>
                     <View style={ Styles.informationContainer }>
                         <Text style={ TextStyles.information }>
-                            Quando faltar
+                            Quando faltar menos que
                             <Text style={{ fontFamily: "Montserrat-SemiBold" }}> 30 minutos </Text>
-                            para a sua consulta nós iremos disponibilizar um link para uma sala de conversa online, onde será realizada sua consulta.
+                            para sua consulta, entre na sala clicando no botão abaixo.
                         </Text>
+
+                        <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Feedback')} style={ Styles.buttonAlt }>
+                            <Text style={ TextStyles.buttonAlt }>Entrar na sala</Text>
+                        </TouchableOpacity>
                     </View>
                     <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Remark')} style={ Styles.button }>
                         <Text style={ TextStyles.button }>Deseja remarcar a consulta?</Text>
                     </TouchableOpacity>
+                </View>
                 </View>
             </SafeAreaView>
         ) 

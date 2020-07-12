@@ -61,7 +61,7 @@ async function cadastroDePaciente(name, email, perfil, preferenciaAtendimento, p
 }
 
 async function loginDePaciente(email, password) {
-
+console.log(email)
     const response = await request({
         method: 'post',
         url: '/loginPacientes',
@@ -136,8 +136,9 @@ async function receberProximaConsulta() {
     if(!state.isLogged)
         return
 
-    const url = (state.user.type == 'Psicologo' ? '/conversasPsico/' : '/conversasPaciente/') + state.user.id + '?efetuada=false'
+    const url = (state.user.type == 'Psicologo' ? '/conversasPsico/' : '/conversasPaciente/') + state.user.id + '?efetuada=true'
 
+    console.log(url)
     const response = await request({
         method: 'get',
         url,

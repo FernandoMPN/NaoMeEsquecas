@@ -40,11 +40,11 @@ const Styles = StyleSheet.create({
         alignSelf: 'center',    
         backgroundColor: colors.button,
         borderRadius: 6,
-        marginVertical: height/20
+        // marginVertical: height/20
     },
     buttonAlt: {
         width: width/1.5,
-        height: height/10,
+        height: height/14,
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'center',    

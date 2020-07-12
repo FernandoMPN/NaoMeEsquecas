@@ -57,13 +57,14 @@ const InformacoesPessoal=({name,setName,email,setEmail,codPsico,setCodPsico,next
                     
                     <TextInput 
                         style={ Styles.textInput }
-                        placeholder={'email'} 
+                        placeholder={'E-mail'} 
                         value={email} 
+                        autoCapitalize="none"
                         onChangeText={text=>setEmail(text)}/>
                     
                     <TextInput 
                         style={ Styles.textInput }
-                        placeholder={'número de CFP'} 
+                        placeholder={'Número do CRP'} 
                         value={codPsico} 
                         onChangeText={text=>setCodPsico(text)}/>
                     
