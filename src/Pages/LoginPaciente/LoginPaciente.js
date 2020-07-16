@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {View,
         Text,
         SafeAreaView,
         TouchableOpacity,
         TextInput,
-        Alert} from 'react-native'
+        Alert,
+        KeyboardAvoidingView,
+        Platform,
+        Dimensions} from 'react-native'
 
 import Styles, {TextStyle} from './Styles'
 import colors from '../../Utils/colors'
@@ -21,6 +24,8 @@ function LoginPaciente({ navigation }){
     const [usercode, setUsercode] = useState('')
 
     const [isLoading, setLoadingStatus] = useState(false)
+
+    const [marginVertical, setScreenMargin] = useState(false)
 
     const retrivePatientCode = () => {
         navigation.navigate('LoginPacienteResend')
@@ -72,10 +77,20 @@ function LoginPaciente({ navigation }){
 
     }
 
+    const iOS_avoidKeyboardOverlaping = () => {
+
+        if(Platform.OS !== "ios")
+            return
+        
+        return -100
+
+    }
+
+
     return(
         <>
             <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
-                <View style={[Styles.MainContainer]}>
+                <View style={[Styles.MainContainer, {marginVertical}]}>
 
                     <View>
                         <Text style={ TextStyle.header }>Seja bem-vindo novamente!</Text>
@@ -91,20 +106,24 @@ function LoginPaciente({ navigation }){
                         
                         <Text style={ TextStyle.info }>Por favor, veja qual é o seu código e o digite abaixo.</Text>
 
-                        <TextInput
-                            style={ Styles.textInput }
-                            placeholder='E-mail'
-                            onChangeText={(text) => setEmail(text)}
-                            autoCapitalize="none"
-                            value={email}/>
+                            <TextInput
+                                style={ Styles.textInput }
+                                placeholder='E-mail'
+                                onChangeText={(text) => setEmail(text)}
+                                autoCapitalize="none"
+                                placeholderTextColor="#AAA"
+                                value={email}/>
 
-                        <TextInput
-                            style={ Styles.textInput }
-                            placeholder='Código do paciente'
-                            onChangeText={(text) => setUsercode(text)}
-                            maxLength={6}
-                            autoCapitalize="none"
-                            value={usercode}/>
+                            <TextInput
+                                style={ Styles.textInput }
+                                placeholder='Código do paciente'
+                                onChangeText={(text) => setUsercode(text)}
+                                maxLength={6}
+                                autoCapitalize="none"
+                                placeholderTextColor="#AAA"
+                                onFocus={() => setScreenMargin(iOS_avoidKeyboardOverlaping())}
+                                onBlur={() => setScreenMargin(0)}
+                                value={usercode}/>
 
                         <TouchableOpacity onPress={retrivePatientCode} activeOpacity={0.8}>
                             <Text>Não tenho/recebi um código</Text>

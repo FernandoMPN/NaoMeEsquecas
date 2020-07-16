@@ -4,7 +4,7 @@ import colors from '../../Utils/colors'
 
 const width = Dimensions.get('window').width
 const height = Dimensions.get('window').height
-const fontSize = Dimensions.get('window').fontScale
+const fontSize = 1
 
 const Styles = StyleSheet.create({
     mainView:{ 

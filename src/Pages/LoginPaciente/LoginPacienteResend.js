@@ -76,7 +76,8 @@ function LoginPacienteResend({navigation}){
                         placeholder='E-mail'
                         autoCapitalize="none"
                         onChangeText={(text) => setEmail(text)}
-                        value={email}/>
+                        value={email}
+                        placeholderTextColor="#AAA"/>
 
                     <TouchableOpacity style={ Styles.button } onPress={resendEmail}>
                         <Text style={ TextStyle.buttonTextSemiBold }>Enviar</Text>

@@ -69,8 +69,21 @@ function LoginPsico({navigation}){
             <View style={Styles.mainView}>
                 <Text style={Styles.Title}>Entrar como profissional da saúde</Text>
 
-                <TextInput  style={Styles.LoginInput} autoCapitalize="none" value={email} onChangeText={text=>setEmail(text)} placeholder={'Email'}/>
-                <TextInput style={Styles.LoginInput} autoCapitalize="none" maxLength={6} value={codAcesso} onChangeText={text=>setCodAcesso(text)} placeholder={'Código de acesso'}/>
+                <TextInput 
+                    style={Styles.LoginInput}
+                    autoCapitalize="none"
+                    value={email}
+                    onChangeText={text=>setEmail(text)}
+                    placeholder={'Email'}
+                    placeholderTextColor="#AAA"/>
+                <TextInput
+                    style={Styles.LoginInput}
+                    autoCapitalize="none"
+                    maxLength={6}
+                    value={codAcesso} 
+                    onChangeText={text=>setCodAcesso(text)}
+                    placeholder={'Código de acesso'}
+                    placeholderTextColor="#AAA"/>
                 
                 <TouchableOpacity onPress={()=>handleSubmit()} style={Styles.LoginButton}>
                     <Text style={Styles.textButton}>Entrar</Text>

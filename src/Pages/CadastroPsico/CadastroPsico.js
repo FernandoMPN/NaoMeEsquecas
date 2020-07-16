@@ -6,7 +6,8 @@ import { Text,
     TextInput,
     SafeAreaView,
     Alert,
-    BackHandler } from 'react-native'
+    BackHandler,
+    Dimensions } from 'react-native'
 import {termoDeAdesao,diretrizes} from '../../Utils/texts'
 import Styles,{TextStyle} from '../RegisterPaciente/Styles'
 import StyleProprio from './Styles'
@@ -18,6 +19,9 @@ import Request from '../../Utils/Requests'
 
 
 const InformacoesPessoal=({name,setName,email,setEmail,codPsico,setCodPsico,next})=>{
+
+    const [marginVertical, setScreenMargin] = useState(false)
+
     const handleNext=()=>{
         if(name===''){
             Alert.alert('Campo vazio!', 'Por favor, nos diga qual é seu nome.')
@@ -41,9 +45,20 @@ const InformacoesPessoal=({name,setName,email,setEmail,codPsico,setCodPsico,next
             next()
     }
 
+    const iOS_avoidKeyboardOverlaping = () => {
+
+        if(Platform.OS !== "ios")
+            return
+
+
+        if(Dimensions.get('window').height <= 670)
+            return -50
+
+    }
+
     return(
         <SafeAreaView>
-            <View style={Styles.MainContainer}>
+            <View style={[Styles.MainContainer, {marginVertical}]}>
                 <Text style={TextStyle.header}>Seja bem-vindo!</Text>
                 <Text style={ TextStyle.info }>Precisamos saber de algumas informações pessoais.</Text>
                 
@@ -53,20 +68,25 @@ const InformacoesPessoal=({name,setName,email,setEmail,codPsico,setCodPsico,next
                         style={ Styles.textInput } 
                         placeholder={'Nome completo'} 
                         value={name} 
-                        onChangeText={text=>setName(text)}/>
+                        onChangeText={text=>setName(text)}
+                        placeholderTextColor="#AAA"/>
                     
                     <TextInput 
                         style={ Styles.textInput }
                         placeholder={'E-mail'} 
                         value={email} 
                         autoCapitalize="none"
-                        onChangeText={text=>setEmail(text)}/>
+                        onChangeText={text=>setEmail(text)}
+                        placeholderTextColor="#AAA"/>
                     
                     <TextInput 
                         style={ Styles.textInput }
                         placeholder={'Número do CRP'} 
                         value={codPsico} 
-                        onChangeText={text=>setCodPsico(text)}/>
+                        onChangeText={text=>setCodPsico(text)}
+                        onFocus={() => setScreenMargin(iOS_avoidKeyboardOverlaping())}
+                        onBlur={() => setScreenMargin(0)}
+                        placeholderTextColor="#AAA"/>
                     
                     <TouchableOpacity style={Styles.largeButton} onPress={()=>handleNext()}>
                         <Text style={TextStyle.buttonTextSemiBold}>Proximo</Text>

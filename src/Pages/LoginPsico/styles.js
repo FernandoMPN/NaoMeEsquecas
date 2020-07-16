@@ -24,7 +24,8 @@ const Styles = StyleSheet.create({
         margin: height/30,
         padding: 0,
         borderBottomWidth: 1,
-        borderBottomColor: colors.textInput
+        borderBottomColor: colors.textInput,
+        color: "black"
 
     },
     LoginButton: {

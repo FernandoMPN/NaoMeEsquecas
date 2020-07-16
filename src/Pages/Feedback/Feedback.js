@@ -61,6 +61,7 @@ function Feedback() {
                     placeholder = 'Escreva o seu feedback'
                     textAlignVertical='top'
                     maxLength={300}
+                    placeholderTextColor="#AAA"
                 />
                 <TouchableOpacity activeOpacity={0.8} onPress={submitFeedback} style={ Styles.button }>
                     <Text style={ TextStyles.button }>Enviar feedback</Text>

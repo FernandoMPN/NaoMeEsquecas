@@ -25,7 +25,7 @@ export function Termos({ setVisibility }) {
 }
 
 export function About() {
-    const version = '0.1'
+    const version = '1.1'
 
     return(
         <View style={{ justifyContent: 'center', alignItems: 'center', flex: 4 }}>
@@ -40,7 +40,7 @@ export function About() {
             </View>
             <View style={{ justifyContent: 'center', alignItems: 'center', flex: 2 }}>
                 <Text style={ TextStyles.subtitle }>Versão do App</Text>
-                <Text style={ TextStyles.text }>{`${version}`}</Text>
+                <Text style={ TextStyles.text }>{version}</Text>
             </View>
             <View style={{ justifyContent: 'center', alignItems: 'center', flex: 3 }}>
                 <Text style={ TextStyles.subtitle }>Professores Envolvidos</Text>
