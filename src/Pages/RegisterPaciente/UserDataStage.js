@@ -11,7 +11,7 @@ import Styles, {TextStyle} from './Styles'
 
 function UserDataStage({ username, setUsername, email, setEmail, next }){
 
-    const [marginVertical, setScreenMargin] = useState(false)
+    const [marginVertical, setScreenMargin] = useState(0)
 
     const handleNext = () => {
 

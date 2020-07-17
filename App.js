@@ -7,6 +7,12 @@ import Store from './src/Store/Store'
 import Stack from './src/Utils/Stack'
 import colors from './src/Utils/colors';
 
+import {AppRegistry, Text, TextInput} from 'react-native';
+if (Text.defaultProps == null) Text.defaultProps = {};
+Text.defaultProps.allowFontScaling = false;
+if (TextInput.defaultProps == null) TextInput.defaultProps = {};
+TextInput.defaultProps.allowFontScaling = false;
+
 
 export default function App() {
 

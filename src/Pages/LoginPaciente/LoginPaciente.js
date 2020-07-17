@@ -25,7 +25,7 @@ function LoginPaciente({ navigation }){
 
     const [isLoading, setLoadingStatus] = useState(false)
 
-    const [marginVertical, setScreenMargin] = useState(false)
+    const [marginVertical, setScreenMargin] = useState(0)
 
     const retrivePatientCode = () => {
         navigation.navigate('LoginPacienteResend')
@@ -81,8 +81,11 @@ function LoginPaciente({ navigation }){
 
         if(Platform.OS !== "ios")
             return
-        
-        return -100
+
+        if(Dimensions.get('window').height <= 670)
+            return -100
+        else
+            return -50
 
     }
 

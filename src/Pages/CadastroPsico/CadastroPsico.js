@@ -20,7 +20,7 @@ import Request from '../../Utils/Requests'
 
 const InformacoesPessoal=({name,setName,email,setEmail,codPsico,setCodPsico,next})=>{
 
-    const [marginVertical, setScreenMargin] = useState(false)
+    const [marginVertical, setScreenMargin] = useState(0)
 
     const handleNext=()=>{
         if(name===''){
