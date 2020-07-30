@@ -99,7 +99,7 @@ function PsicoFreeTime({ psicoFreetimeCallback, next }){
                     <AddNewDateModal exit={changeModalVisibility} addNewCallback={addNewItem}/>
                 </Modal>
 
-                <Text style={ TextStyle.header }>Agora, precisamos saber quais são os horários que você prefere ser atender</Text>
+                <Text style={ TextStyle.header }>Agora, precisamos saber quais são os horários que você prefere atender</Text>
 
                 <TouchableOpacity activeOpacity={0.8} disabled={addMoreDisabled} onPress={changeModalVisibility}>
                     <View style={ [Styles.addNewButton, addMoreDisabled? {backgroundColor: "gray"}:null]}>

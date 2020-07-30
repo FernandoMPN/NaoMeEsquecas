@@ -89,7 +89,7 @@ const InformacoesPessoal=({name,setName,email,setEmail,codPsico,setCodPsico,next
                         placeholderTextColor="#AAA"/>
                     
                     <TouchableOpacity style={Styles.largeButton} onPress={()=>handleNext()}>
-                        <Text style={TextStyle.buttonTextSemiBold}>Proximo</Text>
+                        <Text style={TextStyle.buttonTextSemiBold}>Próximo</Text>
                     </TouchableOpacity>
 
                 </View>
@@ -129,7 +129,7 @@ const SelectSexoPage=({name,sexoVariable,setSexo,next})=>{
             </View>
             <View style={StyleProprio.buttonView}>
                 <TouchableOpacity style={[Styles.largeButton,{alignSelf:'center'}]} onPress={()=>handleNext()}>
-                    <Text style={TextStyle.buttonTextSemiBold}>Proximo</Text>
+                    <Text style={TextStyle.buttonTextSemiBold}>Próximo</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -155,7 +155,7 @@ const TermoPage=({nomeDoPsicologo,next})=>{
                 <Text>Estou ciente de todos os termos de compromisso.</Text>
             </View>
             <TouchableOpacity style={[Styles.largeButton,{alignSelf:'center'}]} onPress={()=>handleNext()}>
-                <Text style={TextStyle.buttonTextSemiBold}>Proximo</Text>
+                <Text style={TextStyle.buttonTextSemiBold}>Próximo</Text>
             </TouchableOpacity>
             
         </View>
@@ -172,9 +172,9 @@ const DiretrizesPages=({nomeDoPsicologo,next})=>{
     return(
         
         <View style={Styles.MainContainer}>
-            <Text style={TextStyle.header}>Termo de compromisso</Text>
+            <Text style={TextStyle.header}>Diretrizes</Text>
             <Text>
-            <Text style={ TextStyle.info }>Por fim, temoas as diretrizes do nosso projeto.</Text>
+            <Text style={ TextStyle.info }>Por fim, temos as as diretrizes do nosso projeto.</Text>
             <Text style={ TextStyle.infoBold }> Precisamos que você as leia com atenção.</Text>
             </Text>
             <ScrollView style={StyleProprio.styleScrollView}>
@@ -185,7 +185,7 @@ const DiretrizesPages=({nomeDoPsicologo,next})=>{
                 <Text>Estou ciente de todos as diretrizes do projeto.</Text>
             </View>
             <TouchableOpacity style={[Styles.largeButton,{alignSelf:'center'}]} onPress={()=>handleNext()}>
-                <Text style={TextStyle.buttonTextSemiBold}>Proximo</Text>
+                <Text style={TextStyle.buttonTextSemiBold}>Próximo</Text>
             </TouchableOpacity>
         </View>
     )
