@@ -87,7 +87,7 @@ const Styles = StyleSheet.create({
 
     itensContainer:{
         width: '100%',
-        height: height / 2,
+        height: height / 1.9,
         paddingVertical: 10,
         alignItems: 'center',
     },
