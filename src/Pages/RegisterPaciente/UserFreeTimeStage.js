@@ -17,7 +17,6 @@ function UserFreeTimeStage({ userFreetimeCallback, next }){
 
     const isButtonDisabled = userHours.length === 0
 
-
     const addNewItem = (currentDay, hour) => {
 
         const hourID = currentDay + "-" + hour

@@ -249,7 +249,7 @@ function CadastroPsico({navigation}) {
         ENCERRAR:7
     }
 
-    const [cadastroStatus,setCadastroStatus]=useState(ESTADO.DADOSPESSOAIS)
+    const [cadastroStatus,setCadastroStatus]=useState(ESTADO.HORARIOS)
     const [name,setName]=useState('')
     const [email,setEmail]=useState('')
     const [codPsico,setCodPsico]=useState('')
