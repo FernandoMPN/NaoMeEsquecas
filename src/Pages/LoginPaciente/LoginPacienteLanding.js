@@ -24,7 +24,7 @@ function LoginPacienteLanding({ navigation }){
                 <View>
                     <Text style={ TextStyle.header }>Olá!</Text>
                     <Text style={ TextStyle.info }>Antes de continuarmos, precisamos saber de uma coisa:</Text>
-                    <Text style={ [TextStyle.infoBold, TextStyle.textMargin] }>Você já agendou alguma consulta com a gente pelo app?</Text>
+                    <Text style={ [TextStyle.infoBold, TextStyle.textMargin] }>Você já agendou algum atendimento com a gente pelo app?</Text>
                 </View>
 
                 <View style={ Styles.ButtonsArea }>

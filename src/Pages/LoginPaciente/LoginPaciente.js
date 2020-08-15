@@ -99,7 +99,7 @@ function LoginPaciente({ navigation }){
                         <Text style={ TextStyle.header }>Seja bem-vindo novamente!</Text>
                         <Text style={ TextStyle.info }>Que bom ter você de volta!</Text>
                         <Text>
-                            <Text style={ TextStyle.info }>Já que você já agendou alguma consulta com a gente antes,</Text>
+                            <Text style={ TextStyle.info }>Já que você já agendou algum atendimento com a gente antes,</Text>
                             <Text style={ TextStyle.infoBold }> você deve ter recebido um código de paciente no seu e-mail.</Text>
                         </Text>
                         

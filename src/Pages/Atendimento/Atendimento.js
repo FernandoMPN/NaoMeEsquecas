@@ -98,7 +98,7 @@ function Atendimento({ navigation }) {
 
                             <View style={ Styles.accesContainer }> 
                                 <Text style={ TextStyles.timeLeft }>
-                                    Você ainda não possui nenhuma consulta agendada.
+                                    Você ainda não possui nenhum atendimento agendada.
                                 </Text>
                             </View>
 
@@ -108,7 +108,7 @@ function Atendimento({ navigation }) {
                                 Mas não se preocupe!
                                 </Text>
                                 <Text style={ TextStyles.noAppointmentsSubtitle }>
-                                Assim que nossa equipe agendar uma consulta para você, iremos enviar um e-mail avisando ;)
+                                Assim que nossa equipe agendar um atendimento para você, iremos enviar um e-mail avisando ;)
                                 </Text>
                             </View>
                             <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Remark')} style={ Styles.button }>
@@ -131,7 +131,7 @@ function Atendimento({ navigation }) {
                 <View>
                     <View style={ Styles.MainContainer }>
                         <Text style={ TextStyles.name }>{`${name},`}</Text>
-                        <Text style={ TextStyles.nextConsult }>sua próxima consulta será em</Text>
+                        <Text style={ TextStyles.nextConsult }>seu próxima atendimento será em</Text>
                         <View style={ Styles.timerContainer }>
                             <Text style={ TextStyles.timeLeft }>{`${timeLeft}`}</Text>
                         </View>
@@ -157,7 +157,7 @@ function Atendimento({ navigation }) {
                 <View>
                 <View style={ Styles.MainContainer }>
                     <Text style={ TextStyles.name }>{name},</Text>
-                    <Text style={ TextStyles.nextConsult }>sua próxima consulta será em</Text>
+                    <Text style={ TextStyles.nextConsult }>seu próximo atendimento será em</Text>
                     <View style={ Styles.timerContainer }>
         <Text style={ TextStyles.timeLeft }>{days} dias {hours} horas {minutes} minutos</Text>
                     </View>
@@ -175,7 +175,7 @@ function Atendimento({ navigation }) {
                         <Text style={ TextStyles.information }>
                             Quando faltar menos que
                             <Text style={{ fontFamily: "Montserrat-SemiBold" }}> 30 minutos </Text>
-                            para sua consulta, entre na sala clicando no botão abaixo.
+                            para seu atendimento, entre na sala clicando no botão abaixo.
                         </Text>
 
                         <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Feedback')} style={ Styles.buttonAlt }>
@@ -183,7 +183,7 @@ function Atendimento({ navigation }) {
                         </TouchableOpacity>
                     </View>
                     <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Remark')} style={ Styles.button }>
-                        <Text style={ TextStyles.button }>Deseja remarcar a consulta?</Text>
+                        <Text style={ TextStyles.button }>Deseja remarcar o atendimento?</Text>
                     </TouchableOpacity>
                 </View>
                 </View>

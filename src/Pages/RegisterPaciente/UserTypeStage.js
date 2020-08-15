@@ -33,7 +33,7 @@ function UserTypeStage({ userTypeCallback, next }){
             <View style={ Styles.checkButton }>
                 <TouchableOpacity onPress={() => checkButton(title)} style={ [Styles.checkButtonPicker, usertype === title? {backgroundColor: "#000000"}:null] }/>
                 <View style={ Styles.checkTextArea }>
-                    <Text style={ TextStyle.radioButton }>{title}</Text>
+                    <Text style={ [TextStyle.radioButton, {height: 50}] } numberOfLines={2}>{title}</Text>
                 </View>
              </View>
         )
@@ -48,7 +48,7 @@ function UserTypeStage({ userTypeCallback, next }){
                     <Text style={ TextStyle.header }>Seja bem-vindo!</Text>
                     <Text style={ TextStyle.info }>Já estamos quase finalizando!</Text>
                     <Text style={ TextStyle.textMargin} >
-                        <Text style={ TextStyle.info }>Para melhor direcionarmos suas consultas,</Text>
+                        <Text style={ TextStyle.info }>Para melhor direcionarmos seus atendimentos,</Text>
                         <Text style={ TextStyle.infoBold }> precisamos saber agora que tipo de usuário é você.</Text>
                     </Text>
 
@@ -56,8 +56,7 @@ function UserTypeStage({ userTypeCallback, next }){
 
                         <View>
                             <RadioButton title="Cuidador informal"/>
-                            <RadioButton title="Cuidador formal"/>
-                            <RadioButton title="Pessoa 60+"/>
+                            <RadioButton title="Pessoa com Alzheimer"/>
                         </View>
 
                     </View>

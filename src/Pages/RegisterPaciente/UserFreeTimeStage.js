@@ -2,10 +2,7 @@ import React, { useState } from 'react'
 import {View,
         Text,
         SafeAreaView,
-        TouchableOpacity,
-        Image,
-        Modal,
-        ScrollView} from 'react-native'
+        TouchableOpacity} from 'react-native'
 
 import Styles, {TextStyle} from './Styles'
 
@@ -59,9 +56,11 @@ function UserFreeTimeStage({ userFreetimeCallback, next }){
             <View style={ Styles.MainContainer }>
 
                 <Text style={ [TextStyle.header, {marginBottom:5}] }>Agora, precisamos saber quais são os horários que você prefere ser atendido</Text>
-                        <Text style={ TextStyle.info }>Marque os horários que você tem disponível nos próximos 7 dias.</Text>
-                        <Text style={ TextStyle.info }>As consultas tem duração máxima de </Text>
-                        <Text style={ TextStyle.infoBold }>1 hora.</Text>
+                <Text>
+                    <Text style={ TextStyle.info }>Marque os horários que você tem disponível nos próximos 7 dias.</Text>
+                    <Text style={ TextStyle.info }> Os atendimentos têm duração máxima de </Text>
+                    <Text style={ TextStyle.infoBold }>1 hora.</Text>
+                </Text>
 
                 <View style={ Styles.itensContainer }>
                     <DatePicker showDay day={Date.now()} selectedValues={userHours} addNewHour={addNewItem}/>

@@ -125,7 +125,7 @@ function AddNewDateModal({ addNewCallback, exit }){
                     <Text style={ TextStyle.modalHeader }>que você tem disponível</Text>
                 </Text>
 
-                <Text style={ TextStyle.textMargin }>As consultas tem duração de 1 hora</Text>
+                <Text style={ TextStyle.textMargin }>Os atendimentoss tem duração de 1 hora</Text>
     
                 <View style={ ModalStyle.pickerArea }>
 

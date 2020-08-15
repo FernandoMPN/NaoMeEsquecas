@@ -67,7 +67,7 @@ function LoginPsico({navigation}){
         <>
         <SafeAreaView style={{ backgroundColor: colors.statusBar }}>
             <View style={Styles.mainView}>
-                <Text style={Styles.Title}>Entrar como profissional da saúde</Text>
+                <Text style={Styles.Title}>Entrar como psicólogo(a)</Text>
 
                 <TextInput 
                     style={Styles.LoginInput}
