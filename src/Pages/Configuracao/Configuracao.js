@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Text, View, TouchableOpacity, Modal, ScrollView, Alert } from 'react-native'
 
 import Styles, { TextStyles } from './Styles'
-import { termoDeAdesao } from '../../Utils/texts'
+import { termoDeAdesao, diretrizes } from '../../Utils/texts'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import colors from '../../Utils/colors'
 
@@ -24,11 +24,31 @@ export function Termos({ setVisibility }) {
     )
 }
 
+export function Diretrizes({ setVisibility }) {
+    return(
+        <SafeAreaView>
+        <View style={ Styles.modal }>
+            <ScrollView>
+                <Text style={ TextStyles.longText }>{diretrizes}</Text>                    
+            </ScrollView>
+            <TouchableOpacity activeOpacity={0.8} onPress={() => setVisibility(false)} style={ Styles.backButton }>
+                <Text style={ TextStyles.button }>Voltar</Text>
+            </TouchableOpacity>
+        </View>
+        </SafeAreaView>
+    )
+}
+
 export function About() {
-    const version = '1.1'
+    const version = '1.2'
+
+    const [visible, setVisibility] = useState(false)
 
     return(
         <View style={{ justifyContent: 'center', alignItems: 'center', flex: 4 }}>
+            <Modal visible={visible} transparent={true} animationType='fade'>
+                <Diretrizes setVisibility={setVisibility} />
+            </Modal>
             <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1.2 }}>
                 <Text style={ TextStyles.about }>Sobre o App</Text>
             </View>
@@ -44,9 +64,12 @@ export function About() {
             </View>
             <View style={{ justifyContent: 'center', alignItems: 'center', flex: 3 }}>
                 <Text style={ TextStyles.subtitle }>Professores Envolvidos</Text>
-                <Text style={ TextStyles.text }>Elaine Matheus</Text>
+                <Text style={ TextStyles.text }>Elaine Mateus</Text>
                 <Text style={ TextStyles.text }>Jacques Duílio Brancher</Text>
             </View>
+            <TouchableOpacity activeOpacity={0.8} onPress={() => setVisibility(true)} style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+                <Text style={ TextStyles.terms }>Diretrizes do Aplicativo</Text>
+            </TouchableOpacity>
         </View>
     )
 }
