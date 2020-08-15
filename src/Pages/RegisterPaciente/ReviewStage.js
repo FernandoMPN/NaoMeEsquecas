@@ -7,9 +7,24 @@ import {View,
         ScrollView,} from 'react-native'
 
 import Styles, {TextStyle} from './Styles'
-import {getTextDate} from './RegisterPaciente'
 
 function ReviewStage({ username, email, preference, userType, hours, next }){
+
+    const getTextDate = (currentDate, isLast) => {
+
+        console.log(currentDate)
+
+        const date = new Date()
+
+        date.setTime(currentDate)
+
+        console.log(date.getDate())
+
+        const month = date.getMonth() + 1
+
+        return date.getDate() + "/" + month + ", às " + date.getHours() + "h" + (isLast? "":", ")
+
+    }
 
     return(
         <SafeAreaView>
@@ -44,7 +59,7 @@ function ReviewStage({ username, email, preference, userType, hours, next }){
                         <Text style={ TextStyle.infoTitle }>Horários disponíveis</Text>
                         <View style={{height: 58}}>
                             <ScrollView>
-                                {hours.map(item => <Text key={item.day + '#' + item.time} style={ TextStyle.infoContent }>{getTextDate(item.day, item.time)}</Text>)}
+                                {hours.map((item, index) => <Text key={item} style={ TextStyle.infoContent }>{getTextDate(item, hours.length === index+1)}</Text>)}
                             </ScrollView>
                         </View>
                     </View>

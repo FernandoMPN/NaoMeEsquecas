@@ -8,86 +8,50 @@ import {View,
         ScrollView} from 'react-native'
 
 import Styles, {TextStyle} from './Styles'
-import {getTextDate} from './RegisterPaciente'
 
-import AddNewDateModal from '../../Components/AddNewDateModal/AddNewDateModal'
+import DatePicker from '../../Components/DatePicker/DatePicker'
 
 function UserFreeTimeStage({ userFreetimeCallback, next }){
 
     const [userHours, setNewHour] = useState([])
-    const [isModalVisible, setModalVisibility] = useState(false)
-    const [addMoreDisabled, disableAddMore] = useState(false)
 
-    const removeIcon = require('../../Assets/Icons/remove/remove.png')
-    const addNewIcon = require('../../Assets/Icons/addnew/addnew.png')
     const isButtonDisabled = userHours.length === 0
 
-    const changeModalVisibility = () => {
-        setModalVisibility(!isModalVisible)
-    }
 
-    const checkAddMore = (itemsAdded) => {
-        
-        if(itemsAdded === 6){
-            disableAddMore(true)
-        }else{
-            disableAddMore(false)
-        }
+    const addNewItem = (currentDay, hour) => {
 
-    }
+        const hourID = currentDay + "-" + hour
 
-    const addNewItem = (item) => {
-
-        const reducer = (accumulator, current) => {
-
-            if(accumulator)
-                return true
-
-            if(current.day === item.day && current.time === item.time)
-                return true
-            else 
-                return false
-
-        }
-
-        const isTherePrev = userHours.reduce(reducer, false)
-
-        changeModalVisibility()
-        if(isTherePrev)
+        if(userHours.includes(hourID)){
+            setNewHour(userHours.filter(id => id != hourID))
             return
+        }
 
-        setNewHour(prev => {
-            checkAddMore(prev.length + 1)
-            return prev.concat(item)
-        })
+        setNewHour(userHours.concat(hourID))
         
-
-    }
-
-    const removeItem = (itemID) => {
-        setNewHour(prev => {
-            checkAddMore(prev.length - 1)
-            return prev.filter(item => item.id !== itemID)
-        })
-    }
-
-    const HourItem = ({date}) => {
-
-        const text = getTextDate(date.day, date.time)
-
-        return(
-            <View style={ Styles.hourItem }>
-                <Text style={ TextStyle.date }>{text}</Text>
-                <TouchableOpacity onPress={() => removeItem(date.id)}>
-                    <Image source={removeIcon}/>
-                </TouchableOpacity>
-             </View>
-        )
-
     }
 
     const setHours = () => {
-        userFreetimeCallback(userHours)
+
+        const currentMs = Date.now()
+
+        const data = userHours.map(item => {
+
+            const [ dayOfWeek, hour ] = item.split("-")
+
+            const date = new Date()
+
+            const newMs = currentMs + (86400000 * (Number.parseInt(dayOfWeek)+1))
+
+            date.setTime(newMs)
+            const UTCHour = Number.parseInt(hour) + 3
+            date.setUTCHours(UTCHour, 0, 0, 0, 0)
+
+            return date
+
+        })
+
+        userFreetimeCallback(data)
         next()
     }
 
@@ -95,26 +59,13 @@ function UserFreeTimeStage({ userFreetimeCallback, next }){
         <SafeAreaView>
             <View style={ Styles.MainContainer }>
 
-                <Modal visible={isModalVisible} transparent={true} animationType="fade">
-                    <AddNewDateModal exit={changeModalVisibility} addNewCallback={addNewItem}/>
-                </Modal>
-
-                <Text style={ TextStyle.header }>Agora, precisamos saber quais são os horários que você prefere ser atendido</Text>
-
-                <TouchableOpacity activeOpacity={0.8} disabled={addMoreDisabled} onPress={changeModalVisibility}>
-                    <View style={ [Styles.addNewButton, addMoreDisabled? {backgroundColor: "gray"}:null]}>
-                        <Text style={ TextStyle.buttonText }>Adicionar novo horário</Text>
-
-                        <View style={ Styles.addNewIcon }>
-                            <Image source={addNewIcon}/>
-                        </View>
-                    </View>
-                </TouchableOpacity>
+                <Text style={ [TextStyle.header, {marginBottom:5}] }>Agora, precisamos saber quais são os horários que você prefere ser atendido</Text>
+                        <Text style={ TextStyle.info }>Marque os horários que você tem disponível nos próximos 7 dias.</Text>
+                        <Text style={ TextStyle.info }>As consultas tem duração máxima de </Text>
+                        <Text style={ TextStyle.infoBold }>1 hora.</Text>
 
                 <View style={ Styles.itensContainer }>
-                    <ScrollView style={{width: "100%"}}>
-                        {userHours.map(date => <HourItem key={date.day + "#" + date.time} date={date}/>)}
-                    </ScrollView>
+                    <DatePicker showDay day={Date.now()} selectedValues={userHours} addNewHour={addNewItem}/>
                 </View>
 
                 <TouchableOpacity onPress={setHours} disabled={isButtonDisabled} style={ [Styles.button, isButtonDisabled? {backgroundColor:"gray"}:null] }>

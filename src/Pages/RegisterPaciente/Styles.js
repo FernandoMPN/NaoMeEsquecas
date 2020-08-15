@@ -89,7 +89,7 @@ const Styles = StyleSheet.create({
         width: '100%',
         height: height / 1.9,
         paddingVertical: 10,
-        alignItems: 'center',
+        alignItems: 'center'
     },
 
     addNewIcon:{

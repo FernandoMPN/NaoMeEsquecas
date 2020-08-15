@@ -40,7 +40,7 @@ function RegisterPaciente({ navigation }){
     const [userType, setUserType] = useState('')
     const [userFreetime, setUserFreetime] = useState([])
 
-    const [currentStage, setStage] = useState(RegisterStages.UserData)
+    const [currentStage, setStage] = useState(RegisterStages.UserFreeTime)
     const [isLoading, setLoadingVisibilty] = useState(false)
 
     const backControl = () => {
