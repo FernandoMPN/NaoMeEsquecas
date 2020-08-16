@@ -27,7 +27,7 @@ export const hours = [8,9,10,11,12,13,14,15,16,17,18,19]
 
 export const getTextDate = (day, time) => {
 
-    const endTime = time + 1
+    const endTime = Number.parseInt(time) + 1
 
     return dayOfWeek[day] + ', ' + time + '-' + endTime + 'h'
 }

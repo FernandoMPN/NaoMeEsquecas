@@ -43,9 +43,9 @@ function PsicoFreeTime({ psicoFreetimeCallback, next }){
             }
 
         })
-        console.log(data)
-        // userFreetimeCallback(data)
-        // next()
+
+        psicoFreetimeCallback(data)
+        next()
     }
 
     return(
@@ -55,7 +55,7 @@ function PsicoFreeTime({ psicoFreetimeCallback, next }){
                 <Text style={ TextStyle.header }>Agora, precisamos saber quais são os horários que você prefere atender</Text>
 
                 <View style={ Styles.itensContainer }>
-                    <DatePicker showDay day={Date.now()} selectedValues={userHours} addNewHour={addNewItem}/>
+                    <DatePicker selectedValues={userHours} addNewHour={addNewItem}/>
                 </View>
 
                 <TouchableOpacity onPress={setHours} disabled={isButtonDisabled} style={ [Styles.button, isButtonDisabled? {backgroundColor:"gray"}:null] }>
